@@ -5,9 +5,9 @@ export default component$(() => {
   return (
     <div class={['container', styles.hero]}>
       <h1>
-        So <span class="highlight">fantastic</span>
+        Discover <span class="highlight">new minesweeper</span> 
         <br />
-        to have <span class="highlight">you</span> here
+        like we play with <span class="highlight">Window XP</span> here
       </h1>
       <p>Have fun building your App with Qwik.</p>
       <div class={styles['button-group']}>
@@ -16,13 +16,13 @@ export default component$(() => {
             const defaults = {
               spread: 360,
               ticks: 70,
-              gravity: 0,
-              decay: 0.95,
-              startVelocity: 30,
+              gravity: 2,
+              decay: 1.1,
+              startVelocity: 3,
               colors: ['006ce9', 'ac7ff4', '18b6f6', '713fc2', 'ffffff'],
               origin: {
                 x: 0.5,
-                y: 0.35,
+                y: 0.5,
               },
             };
 
@@ -66,9 +66,6 @@ export default component$(() => {
         >
           Time to celebrate
         </button>
-        <a href="https://qwik.builder.io/docs" target="_blank" class="button button-dark">
-          Explore the docs
-        </a>
       </div>
     </div>
   );

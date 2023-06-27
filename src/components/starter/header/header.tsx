@@ -1,30 +1,33 @@
-import { component$ } from '@builder.io/qwik';
-import { QwikLogo } from '../icons/qwik';
-import styles from './header.module.css';
+import { Signal, component$, useStylesScoped$ } from '@builder.io/qwik';
+import { MineSweeperLogo } from '../icons/minesweeper';
+import { useScrollPositionPercent } from '~/hooks/scroll';
+import { map } from '~/utils/calculations';
+import styles from './header.css?inline';
 
 export default component$(() => {
+  useStylesScoped$(styles);
+  const scroll: Signal<number> = useScrollPositionPercent();
+
   return (
-    <header class={styles.header}>
-      <div class={['container', styles.wrapper]}>
-        <div class={styles.logo}>
-          <a href="/" title="qwik">
-            <QwikLogo height={50} width={143} />
-          </a>
-        </div>
+    <header>
+      <div style={{padding: `${map((scroll.value), 0, 0.1, 2, 1, true)}rem`}}>
+        <a href="/" title="minesweeper">
+          <MineSweeperLogo height={100} width={100}/>
+        </a>
         <ul>
           <li>
-            <a href="https://qwik.builder.io/docs/components/overview/" target="_blank">
-              Docs
+            <a href="./rules">
+              Rules
             </a>
           </li>
           <li>
-            <a href="https://qwik.builder.io/examples/introduction/hello-world/" target="_blank">
-              Examples
+            <a href="./game">
+              Game
             </a>
           </li>
           <li>
-            <a href="https://qwik.builder.io/tutorial/welcome/overview/" target="_blank">
-              Tutorials
+            <a href="./about">
+              About
             </a>
           </li>
         </ul>
