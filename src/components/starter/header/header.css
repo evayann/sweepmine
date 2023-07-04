@@ -1,36 +1,25 @@
 header {
+  --padding: 2rem;
+
   position: sticky;
   top: 0;
 
   padding: 0;
 
-  @media (min-width: 1000px) {
-    & {
-      padding: 2rem;
-    }
-  }
-
   & > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
     & > ul {
       display: none;
 
-      
       list-style: none;
       gap: 30px;
 
       margin: 0;
       padding: 0;
 
-      @media (min-width: 450px) {
-        & {
-          display: flex;
-        }
-      }
-      
       & > li {
         margin: 0;
         padding: 0;
@@ -52,5 +41,17 @@ header {
 
   & a > * {
     border-radius: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  header {
+    padding: var(--padding);
+  }
+}
+
+@media (min-width: 450px) {
+  header > div > ul {
+    display: flex;
   }
 }

@@ -1,13 +1,13 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Game } from "~/components/game";
+
+import { MineSweeper } from "~/components/game/mine-sweeper";
 
 export default component$(() => {
   return (
     <>
-      <p> Test </p>
-      <div style="width: 100vh; height: 40vh;">
-        <Game/>
+      <div style="width: 100vh; height: 60vh;">
+        <MineSweeper />
       </div>
     </>
   );
@@ -22,4 +22,3 @@ export const head: DocumentHead = {
     },
   ],
 };
-
