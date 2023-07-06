@@ -1,6 +1,5 @@
 /** @jsxImportSource react */
 
-import { Text } from '@react-three/drei';
 import { GroupProps } from '@react-three/fiber';
 
 export interface CaseProps extends GroupProps {

@@ -1,5 +1,5 @@
-import { randomInteger } from "~/utils/calculations";
 import { range, range2D } from "~/utils/iteration";
+import { randomInList } from "~/utils/random";
 
 export interface Case {
     position: { x: number, y: number };
@@ -16,7 +16,7 @@ export class MineSweeper {
         return Object.values(this.cases);
     }
 
-    get nonBombCaseList(): Case[] {
+    private get potentialBombCaseList(): Case[] {
         return this.caseList.filter(_case => !_case.isBomb);
     }
 
@@ -49,16 +49,8 @@ export class MineSweeper {
 
     private generateBombInField(): void {
         range(this.numberOfBombInField).forEach(() => {
-            do {
-                const x = randomInteger(this.dimension.x);
-                const y = randomInteger(this.dimension.y);
-                const _case = this.getCase(x, y);
-                const canBeBomb = _case && !_case.isReveal && !_case.isBomb;
-                if (!canBeBomb) continue;
-
-                _case.isBomb = true;
-                break;
-            } while (true);
+            const _case = randomInList(this.potentialBombCaseList);
+            _case.isBomb = true;
         });
     }
 }

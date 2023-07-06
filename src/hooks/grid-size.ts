@@ -1,7 +1,7 @@
 import { useSignal, $, useVisibleTask$, useComputed$, Signal } from "@builder.io/qwik";
 
 type GameSize = { width: number, height: number }
-export const useGameSize = (): { size: Readonly<Signal<GameSize>>, setSize: (size: GameSize)} => {
+export const useGameSize = (): { size: Readonly<Signal<GameSize>>, setSize: (size: GameSize) => void } => {
     const storageGameSizeName = "gameSizeDimension";
     const size = useSignal({ width: 10, height: 10 });
 

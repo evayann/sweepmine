@@ -6,10 +6,7 @@ import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { Case } from './case';
 import { Case as CaseModel, MineSweeper as MineSweeperModel } from '~/models/mine-sweeper';
 import { map } from '~/utils/calculations';
-
-const dimension = { x: 15, y: 15 };
-const ms = new MineSweeperModel(dimension, 1);
-ms.revealCase(1, 1);
+import { useMinesweeper } from '../../hooks/minesweeper';
 
 export interface MineSweeperProps {
     case: { x: number; y: number };
@@ -23,9 +20,12 @@ interface DisplayCase extends CaseModel {
 export function ReactMineSweeper(props: MineSweeperProps) {
     // const [lightPosition, setLightPosition] = useState([10, 10, 10]);
     // useFrame(({ clock }) => setLightPosition([10, 10, 10]));
+    const dimension = { x: 3, y: 3 };
+    const { caseList, revealCase } = useMinesweeper(dimension, 1);
+    // minesweeper.revealCase(1, 1);
 
     const scaleFactor = { x: 10 / dimension.x, y: 10 / dimension.y };
-    const displayCaseList: DisplayCase[] = ms.caseList.map((_case) => {
+    const displayCaseList: DisplayCase[] = caseList.map((_case) => {
         const x = map(_case.position.x, 0, dimension.x, -5, 5);
         const z = map(_case.position.y, 0, dimension.y, -5, 5);
         return {
@@ -60,7 +60,7 @@ export function ReactMineSweeper(props: MineSweeperProps) {
                     key={`Case-${index}`}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                         pointerEvent.stopPropagation();
-                        ms.revealCase(_case.position.x, _case.position.y);
+                        revealCase(_case.position.x, _case.position.y);
                     }}
                     onPointerOver={(pointerEvent: ThreeEvent<PointerEvent>) => {
                         pointerEvent.stopPropagation();
@@ -76,7 +76,7 @@ export function ReactMineSweeper(props: MineSweeperProps) {
     );
 }
 
-export const MineSweeper = /*#__PURE__*/ qwikify$(ReactMineSweeper, {
+export const MineSweeper = qwikify$(ReactMineSweeper, {
     eagerness: 'visible',
     tagName: 'game',
 });

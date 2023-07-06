@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 
-import { MineSweeper } from '~/components/game/mine-sweeper';
+import { MineSweeper } from '~/integrations/react/components/game/minesweeper';
 
 export default component$(() => {
     return (
