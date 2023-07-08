@@ -6,10 +6,11 @@ import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { Case } from './case';
 import { Case as CaseModel, MineSweeper as MineSweeperModel } from '~/models/mine-sweeper';
 import { map } from '~/utils/calculations';
-import { useMinesweeper } from '../../hooks/minesweeper';
+import { useMinesweeper } from '~/integrations/react/hooks/minesweeper';
 
 export interface MineSweeperProps {
-    case: { x: number; y: number };
+    dimension: { x: number; y: number };
+    numberOfBombs: number;
 }
 
 interface DisplayCase extends CaseModel {
@@ -17,12 +18,17 @@ interface DisplayCase extends CaseModel {
     isHover: boolean;
 }
 
-export function ReactMineSweeper(props: MineSweeperProps) {
+// export function ReactMineSweeper({ caseList, revealCase, dimension }: MineSweeperProps) {
+export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps) {
     // const [lightPosition, setLightPosition] = useState([10, 10, 10]);
     // useFrame(({ clock }) => setLightPosition([10, 10, 10]));
-    const dimension = { x: 3, y: 3 };
-    const { caseList, revealCase } = useMinesweeper(dimension, 1);
-    // minesweeper.revealCase(1, 1);
+
+    // const revealCase = (x: number, y: number): void => {
+    //     minesweeper.revealCase(x, y);
+    //     setCaseList(minesweeper);
+    // };
+    // const [minesweeper, setCaseList] = useState(() => new MineSweeperModel(dimension, numberOfBombInField));
+    const { revealCase, caseList, reset } = useMinesweeper(dimension, numberOfBombs);
 
     const scaleFactor = { x: 10 / dimension.x, y: 10 / dimension.y };
     const displayCaseList: DisplayCase[] = caseList.map((_case) => {
@@ -76,7 +82,7 @@ export function ReactMineSweeper(props: MineSweeperProps) {
     );
 }
 
-export const MineSweeper = qwikify$(ReactMineSweeper, {
+export const MinesweeperBoard = qwikify$(ReactMineSweeper, {
     eagerness: 'visible',
     tagName: 'game',
 });

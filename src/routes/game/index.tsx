@@ -1,14 +1,22 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
+import { Button, Title } from '~/components/dumb/styled';
 
-import { MineSweeper } from '~/integrations/react/components/game/minesweeper';
+import { MinesweeperBoard } from '~/integrations/react/components/board';
 
 export default component$(() => {
+    const dimension = { x: 3, y: 3 };
+    const numberOfBombs = 5;
     return (
         <>
-            <div style="width: 100vh; height: 60vh;">
-                <MineSweeper />
+            <div q:slot="menu" style={{ display: 'flex', flexDirection: 'column' }}>
+                <Title> Ellapsed Time </Title>
+                <p> 0 </p>
+                <Title> Dimension </Title>
+                <p> 0 </p>
+                <Button> Load game with new configuration </Button>
             </div>
+            <MinesweeperBoard dimension={dimension} numberOfBombs={numberOfBombs} />
         </>
     );
 });

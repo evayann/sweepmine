@@ -1,18 +1,21 @@
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
+import { component$, Slot, useStyles$ } from '@builder.io/qwik';
 
-import Header from "~/components/starter/header/header";
+import Header from '~/components/starter/header/header';
 
-import styles from "../styles.css?inline";
+import globalStyles from '../styles.css?inline';
+import gameStyles from './styles.css?inline';
 
 export default component$(() => {
-  useStyles$(styles);
+    useStyles$(globalStyles);
+    useStyles$(gameStyles);
 
-  return (
-    <>
-      <Header style={{ "--padding": 0 }} />
-      <main>
-        <Slot />
-      </main>
-    </>
-  );
+    return (
+        <>
+            <Header style={{ '--padding': 0 }} />
+            <main style={{ display: 'flex', width: '100vw', height: '60vh' }}>
+                <Slot name="menu" />
+                <Slot />
+            </main>
+        </>
+    );
 });
