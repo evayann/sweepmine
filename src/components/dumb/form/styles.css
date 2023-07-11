@@ -1,0 +1,7 @@
+span {
+    display: flex;
+}
+
+span > input[type='number'] {
+    width: 60px;
+}

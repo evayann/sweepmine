@@ -39,8 +39,23 @@ export class MineSweeper {
 
         _case.isReveal = true;
 
-        if (!this.isFirstRevealed) return;
-        this.generateBombInField();
+        if (this.isFirstRevealed)
+            this.generateBombInField();
+
+        this.revealNeighbours(x, y);
+    }
+
+    private revealNeighbours(x: number, y: number): void {
+        const neigbourOffsetList = range2D({ width: { min: -1, max: 1 }, height: { min: -1, max: 1 } });
+        const neigbourList: Case[] = neigbourOffsetList.map(([xOffset, yOffset]) => this.getCase(x + xOffset, y + yOffset)).filter(_case => _case) as Case[];
+
+        neigbourList.forEach(neigbourCase => {
+            if (neigbourCase.isBomb || neigbourCase.isReveal) return;
+
+            neigbourCase.isReveal = true;
+            const { x, y } = neigbourCase.position;
+            this.revealNeighbours(x, y);
+        });
     }
 
     private getCase(x: number, y: number): Case | undefined {

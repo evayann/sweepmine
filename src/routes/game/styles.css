@@ -1,3 +1,9 @@
 main > *:first-child {
     width: 30%;
 }
+
+main {
+    display: flex;
+    height: 60vh;
+    width: 100vw;
+}
