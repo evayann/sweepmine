@@ -2,17 +2,16 @@
 
 import { Billboard, Text } from '@react-three/drei';
 import { GroupProps, useFrame } from '@react-three/fiber';
-import { useState } from 'react';
-import { Vector3 } from 'three';
+import { Case as CaseModel } from '~/models/mine-sweeper';
 
 export interface CaseProps extends GroupProps {
     isReveal: boolean;
     isHover: boolean;
-    contentWhenDiscover: any;
+    caseModel: CaseModel;
 }
 
 export function Case(props: CaseProps) {
-    const { isReveal, isHover, contentWhenDiscover, ...otherProps } = props;
+    const { isReveal, isHover, caseModel, ...otherProps } = props;
 
     return (
         <group {...otherProps}>
@@ -26,12 +25,18 @@ export function Case(props: CaseProps) {
                     <meshBasicMaterial color={isHover ? 'red' : 'green'} />
                 </mesh>
             )}
-            {isReveal && (
+            {isReveal && !caseModel.isBomb && caseModel.numberOfBombsArround !== 0 && (
                 <Billboard position={[0, 0.2, 0]}>
                     <Text color="black" anchorX="center" anchorY="bottom">
-                        {contentWhenDiscover}
+                        {caseModel.numberOfBombsArround}
                     </Text>
                 </Billboard>
+            )}
+            {isReveal && caseModel.isBomb && (
+                <mesh position={[0, 0.5, 0]} scale={[0.5, 1, 0.5]}>
+                    <icosahedronGeometry args={[1, 1]} />
+                    <meshStandardMaterial color={'green'} flatShading />
+                </mesh>
             )}
         </group>
     );

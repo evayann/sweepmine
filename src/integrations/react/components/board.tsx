@@ -1,14 +1,13 @@
 /** @jsxImportSource react */
 
 import { qwikify$ } from '@builder.io/qwik-react';
-import { CameraControls, OrthographicCamera } from '@react-three/drei';
-import { Canvas, ThreeEvent, useFrame } from '@react-three/fiber';
+import { CameraControls, Html, OrthographicCamera } from '@react-three/drei';
+import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { Case } from './case';
-import { Case as CaseModel, MineSweeper as MineSweeperModel } from '~/models/mine-sweeper';
+import { Case as CaseModel } from '~/models/mine-sweeper';
 import { map } from '~/utils/calculations';
 import { useMinesweeper } from '~/integrations/react/hooks/useMinesweeper';
 import { useState } from 'react';
-import { Vector3 } from 'three';
 
 export interface MineSweeperProps {
     dimension: { x: number; y: number };
@@ -23,22 +22,25 @@ interface DisplayCase extends CaseModel {
 export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps) {
     // const [lightPosition, setLightPosition] = useState([10, 10, 10]);
     // useFrame(({ clock }) => setLightPosition([10, 10, 10]));
-    const { revealCase, caseList } = useMinesweeper(dimension, numberOfBombs);
+    const { revealCase, caseList, gameState } = useMinesweeper(dimension, numberOfBombs);
+    const [key, setKey] = useState(0);
+    const reset = () => setKey((x) => x + 1);
+    const gameNotFinish = gameState.state !== 'finish';
 
     const scaleFactor = { x: 10 / dimension.x, y: 10 / dimension.y };
-    const displayCaseList: DisplayCase[] = caseList.map((_case) => {
-        const x = map(_case.position.x, 0, dimension.x, -5, 5);
-        const z = map(_case.position.y, 0, dimension.y, -5, 5);
+    const displayCaseList: DisplayCase[] = caseList.map((caseModel) => {
+        const x = map(caseModel.position.x, 0, dimension.x, -5, 5);
+        const z = map(caseModel.position.y, 0, dimension.y, -5, 5);
         return {
-            ..._case,
+            ...caseModel,
             displayPosition: [x, 0, z],
             isHover: false,
         };
     });
 
     return (
-        <Canvas orthographic>
-            <CameraControls />
+        <Canvas orthographic key={key}>
+            <CameraControls enabled={gameNotFinish} />
             <OrthographicCamera
                 makeDefault
                 zoom={1}
@@ -57,7 +59,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                     position={_case.displayPosition}
                     scale={[scaleFactor.x, 1, scaleFactor.y]}
                     isReveal={_case.isReveal}
-                    contentWhenDiscover={_case.numberOfBombsArround}
+                    caseModel={_case}
                     isHover={_case.isHover}
                     key={`Case-${index}`}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
@@ -74,6 +76,12 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                     }}
                 />
             ))}
+            {!gameNotFinish && (
+                <Html center sprite>
+                    <p>You {gameState.isWin ? 'win' : 'loose'} in XXX secondes !</p>
+                    <button onClick={reset}> Restart </button>
+                </Html>
+            )}
         </Canvas>
     );
 }
