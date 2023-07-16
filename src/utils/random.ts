@@ -5,5 +5,5 @@ export function randomInteger(min?: number, max?: number): number {
 }
 
 export function randomInList<T>(list: T[]): T {
-    return list[randomInteger(list.length)];
+    return list[randomInteger(list.length - 1)];
 }

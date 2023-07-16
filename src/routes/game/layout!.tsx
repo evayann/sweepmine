@@ -13,7 +13,6 @@ export default component$(() => {
         <>
             <Header style={{ '--padding': 0 }} />
             <main>
-                <Slot name="menu" />
                 <Slot />
             </main>
         </>

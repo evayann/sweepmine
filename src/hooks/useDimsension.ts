@@ -3,11 +3,10 @@ import { useSignal, $, useVisibleTask$, useComputed$, Signal } from "@builder.io
 export type Dimension = { x: number, y: number }
 export const useDimensions = (): { dimension: Readonly<Signal<Dimension>>, setDimension: (dimension: Dimension) => void } => {
     const storageGameSizeName = "gameSizeDimension";
-    const dimension = useSignal(() => ({ x: 3, y: 3 }));
+    const dimension = useSignal(() => ({ x: 5, y: 5 }));
 
     const setDimension = $((newDimension: Dimension) => {
         localStorage.setItem(storageGameSizeName, JSON.stringify(newDimension));
-        console.log(newDimension)
         dimension.value = { ...newDimension };
     });
 

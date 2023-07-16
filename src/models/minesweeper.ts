@@ -32,15 +32,11 @@ export class MineSweeper {
         return this.notRevealCase.every(_case => _case.isBomb);
     }
 
-    gameState: { state: 'in-progress' } | { state: 'finish', isWin: boolean };
-    private cases: Record<string, Case>;
+    gameState!: { state: 'in-progress' } | { state: 'finish', isWin: boolean };
+    private cases!: Record<string, Case>;
 
     constructor(private dimension: { x: number, y: number }, private numberOfBombInField: number) {
-        const numberOfCase = dimension.x * dimension.y;
-        if (numberOfCase < numberOfBombInField) throw new Error(`Cannot have ${numberOfBombInField} bombs in a field of ${numberOfCase} cases.`);
-        const caseList = range2D({ width: { min: 0, max: dimension.x }, height: { min: 0, max: dimension.y } });
-        this.cases = caseList.reduce((acc, [x, y]) => ({ ...acc, [id(x, y)]: generateCase(x, y) }), {});
-        this.gameState = { state: 'in-progress' }
+        this.initialize();
     }
 
     revealCase(x: number, y: number): void {
@@ -49,14 +45,36 @@ export class MineSweeper {
 
         _case.isReveal = true;
 
-        if (_case.isBomb) return this.finishGame(false);
-
-        if (this.onlyBombLeft) return this.finishGame(true);
-
         if (this.isFirstRevealed)
             this.generateBombInField(x, y);
 
         this.revealNeighbours(x, y);
+
+        if (_case.isBomb) return this.finishGame(false);
+
+        if (this.onlyBombLeft) return this.finishGame(true);
+    }
+
+    resize(dimension: { x: number, y: number }): void {
+        this.dimension = dimension;
+        this.reset();
+    }
+
+    updateBombNumber(numberOfBombInField: number): void {
+        this.numberOfBombInField = numberOfBombInField;
+        this.reset();
+    }
+
+    reset(): void {
+        this.initialize();
+    }
+
+    private initialize(): void {
+        const numberOfCase = this.dimension.x * this.dimension.y;
+        if (numberOfCase < this.numberOfBombInField) throw new Error(`Cannot have ${this.numberOfBombInField} bombs in a field of ${numberOfCase} cases.`);
+        const caseList = range2D({ width: { min: 0, max: this.dimension.x }, height: { min: 0, max: this.dimension.y } });
+        this.cases = caseList.reduce((acc, [x, y]) => ({ ...acc, [id(x, y)]: generateCase(x, y) }), {});
+        this.gameState = { state: 'in-progress' };
     }
 
     private finishGame(isWin: boolean): void {
@@ -79,13 +97,13 @@ export class MineSweeper {
     }
 
     private getNeighbourListOf(x: number, y: number): Case[] {
-        const neigbourOffsetList = range2D({ width: { min: -1, max: 1 }, height: { min: -1, max: 1 } });
+        const neigbourOffsetList = range2D({ width: { min: -1, max: 2 }, height: { min: -1, max: 2 } });
         return neigbourOffsetList.map(([xOffset, yOffset]) => this.getCase(x + xOffset, y + yOffset)).filter(_case => _case) as Case[];
     }
 
     private generateBombInField(firstX: number, firstY: number): void {
         range(this.numberOfBombInField).forEach(() => {
-            const potentialBombCaseList = this.notBombCaseList.filter(_case => _case.position.x !== firstX && _case.position.y !== firstY)
+            const potentialBombCaseList = this.notBombCaseList.filter(_case => _case.position.x !== firstX || _case.position.y !== firstY);
             const _case = randomInList(potentialBombCaseList);
             _case.isBomb = true;
             const { x, y } = _case.position;

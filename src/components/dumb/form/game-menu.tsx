@@ -16,27 +16,16 @@ const gameMenuSchema = z.object({
 
 type GameProperties = z.infer<typeof gameMenuSchema>;
 
-// export const useFormAction = formAction$<GameProperties>((formValues) => {
-//     const { setDimension } = useDimensions();
-//     console.log(formValues.dimension);
-
-//     useVisibleTask$(() => {
-//         console.log(formValues.dimension);
-//         setDimension(formValues.dimension);
-//     });
-// }, zodForm$(gameMenuSchema));
-
 export interface GameMenuProps {
     dimension: Dimension;
+    setDimension: (dimension: Dimension) => void;
 }
 
-export default component$((gameMenuProps: GameMenuProps) => {
+export default component$(({ dimension, setDimension }: GameMenuProps) => {
     useStyles$(styles);
 
-    const { dimension, setDimension } = useDimensions();
-
     const gameMenuLoader: Signal<GameProperties> = useSignal(() => ({
-        dimension: dimension.value,
+        dimension: dimension,
         nbBombs: 3,
     }));
     const [gameMenuForm, { Form, Field, FieldArray }] = useForm<GameProperties>({
@@ -45,7 +34,6 @@ export default component$((gameMenuProps: GameMenuProps) => {
     });
 
     const handleSubmit: SubmitHandler<GameProperties> = $((gameProperties: GameProperties, event: any) => {
-        console.log(gameProperties);
         setDimension(gameProperties.dimension);
     });
 

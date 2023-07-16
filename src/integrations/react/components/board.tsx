@@ -4,10 +4,10 @@ import { qwikify$ } from '@builder.io/qwik-react';
 import { CameraControls, Html, OrthographicCamera } from '@react-three/drei';
 import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { Case } from './case';
-import { Case as CaseModel } from '~/models/mine-sweeper';
+import { Case as CaseModel } from '~/models/minesweeper';
 import { map } from '~/utils/calculations';
 import { useMinesweeper } from '~/integrations/react/hooks/useMinesweeper';
-import { useState } from 'react';
+import { RadioButton } from './radio-button/radio-button';
 
 export interface MineSweeperProps {
     dimension: { x: number; y: number };
@@ -16,15 +16,13 @@ export interface MineSweeperProps {
 
 interface DisplayCase extends CaseModel {
     displayPosition: [number, number, number];
-    isHover: boolean;
+    hasFlag?: boolean;
 }
 
 export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps) {
     // const [lightPosition, setLightPosition] = useState([10, 10, 10]);
     // useFrame(({ clock }) => setLightPosition([10, 10, 10]));
-    const { revealCase, caseList, gameState } = useMinesweeper(dimension, numberOfBombs);
-    const [key, setKey] = useState(0);
-    const reset = () => setKey((x) => x + 1);
+    const { resetGame, revealCase, caseList, gameState } = useMinesweeper(dimension, numberOfBombs);
     const gameNotFinish = gameState.state !== 'finish';
 
     const scaleFactor = { x: 10 / dimension.x, y: 10 / dimension.y };
@@ -34,12 +32,11 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
         return {
             ...caseModel,
             displayPosition: [x, 0, z],
-            isHover: false,
         };
     });
 
     return (
-        <Canvas orthographic key={key}>
+        <Canvas orthographic>
             <CameraControls enabled={gameNotFinish} />
             <OrthographicCamera
                 makeDefault
@@ -60,28 +57,22 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                     scale={[scaleFactor.x, 1, scaleFactor.y]}
                     isReveal={_case.isReveal}
                     caseModel={_case}
-                    isHover={_case.isHover}
                     key={`Case-${index}`}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                         pointerEvent.stopPropagation();
                         revealCase(_case.position.x, _case.position.y);
-                    }}
-                    onPointerOver={(pointerEvent: ThreeEvent<PointerEvent>) => {
-                        pointerEvent.stopPropagation();
-                        _case.isHover = true;
-                    }}
-                    onPointerOut={(pointerEvent: ThreeEvent<PointerEvent>) => {
-                        pointerEvent.stopPropagation();
-                        _case.isHover = false;
                     }}
                 />
             ))}
             {!gameNotFinish && (
                 <Html center sprite>
                     <p>You {gameState.isWin ? 'win' : 'loose'} in XXX secondes !</p>
-                    <button onClick={reset}> Restart </button>
+                    <button onClick={resetGame}> Restart </button>
                 </Html>
             )}
+            <Html center style={{ translate: '0 500%' }}>
+                <RadioButton id="left-click" defaultSelected="bomb" list={['bomb', 'flag']}></RadioButton>
+            </Html>
         </Canvas>
     );
 }

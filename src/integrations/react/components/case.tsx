@@ -1,20 +1,40 @@
 /** @jsxImportSource react */
 
 import { Billboard, Text } from '@react-three/drei';
-import { GroupProps, useFrame } from '@react-three/fiber';
-import { Case as CaseModel } from '~/models/mine-sweeper';
+import { GroupProps, ThreeEvent, useFrame } from '@react-three/fiber';
+import { useState } from 'react';
+import { Case as CaseModel } from '~/models/minesweeper';
 
 export interface CaseProps extends GroupProps {
     isReveal: boolean;
-    isHover: boolean;
     caseModel: CaseModel;
 }
 
 export function Case(props: CaseProps) {
-    const { isReveal, isHover, caseModel, ...otherProps } = props;
+    const { isReveal, caseModel, ...otherProps } = props;
+    const [isHover, setIsHover] = useState(false);
+
+    const actionsByState: Record<string, Record<string, Record<string, () => void>>> = {
+        hoverStart: {
+            isReveal: {
+                true: () => {},
+                false: () => setIsHover(true),
+            },
+        },
+        hoverEnd: {
+            isReveal: {
+                true: () => {},
+                false: () => setIsHover(false),
+            },
+        },
+    };
+    const pointerAction = (action: string) => (pointerEvent: ThreeEvent<PointerEvent>) => {
+        pointerEvent.stopPropagation();
+        actionsByState[action].isReveal[`${isReveal}`]();
+    };
 
     return (
-        <group {...otherProps}>
+        <group {...otherProps} onPointerOver={pointerAction('hoverStart')} onPointerOut={pointerAction('hoverEnd')}>
             <mesh>
                 <boxGeometry args={[1, 0.8, 1]} />
                 <meshBasicMaterial color={isHover ? 'hotpink' : 'orange'} />

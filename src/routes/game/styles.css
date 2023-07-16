@@ -1,9 +1,16 @@
-main > *:first-child {
-    width: 30%;
-}
-
 main {
     display: flex;
+
+    margin: 0 2rem;
+
     height: 60vh;
     width: 100vw;
+}
+
+main > form {
+    width: 25ch;
+}
+
+main > *:not(form) {
+    width: 100%;
 }
