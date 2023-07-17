@@ -50,6 +50,8 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                 position={[10, 5, 10]}
             />
             <ambientLight />
+            <axesHelper />
+
             <pointLight position={[10, 10, 10]} />
             {displayCaseList.map((_case, index) => (
                 <Case
@@ -57,7 +59,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                     scale={[scaleFactor.x, 1, scaleFactor.y]}
                     isReveal={_case.isReveal}
                     caseModel={_case}
-                    key={`Case-${index}`}
+                    key={`Case-${_case.position.x}-${_case.position.y}:${index + 1}`}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                         pointerEvent.stopPropagation();
                         revealCase(_case.position.x, _case.position.y);

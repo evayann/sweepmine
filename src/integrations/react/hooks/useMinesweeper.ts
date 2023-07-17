@@ -1,12 +1,22 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MineSweeper } from "~/models/minesweeper";
 
 export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBombInField: number) => {
-    let minesweeperRef = useRef(new MineSweeper(dimension, numberOfBombInField));
+    let minesweeperRef = useRef(new MineSweeper());
     const ms = minesweeperRef.current;
 
-    const [caseList, setCaseList] = useState(ms.caseList);
-    const [gameState, setGameState] = useState(ms.gameState);
+    const [caseList, setCaseList] = useState(() => ms.caseList);
+    const [gameState, setGameState] = useState(() => ms.gameState);
+
+    const update = (): void => {
+        setCaseList(ms.caseList);
+        setGameState(ms.gameState);
+    };
+
+    useEffect(() => {
+        ms.resize(dimension).updateBombNumber(numberOfBombInField);
+        update();
+    }, [dimension, numberOfBombInField]);
 
     const revealCase = (x: number, y: number): void => {
         ms.revealCase(x, y);
@@ -16,11 +26,6 @@ export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBomb
     const resetGame = (): void => {
         ms.reset();
         update();
-    };
-
-    const update = (): void => {
-        setCaseList(ms.caseList);
-        setGameState(ms.gameState);
     };
 
     return {

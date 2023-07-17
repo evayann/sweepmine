@@ -37,12 +37,12 @@ export function Case(props: CaseProps) {
         <group {...otherProps} onPointerOver={pointerAction('hoverStart')} onPointerOut={pointerAction('hoverEnd')}>
             <mesh>
                 <boxGeometry args={[1, 0.8, 1]} />
-                <meshBasicMaterial color={isHover ? 'hotpink' : 'orange'} />
+                <meshBasicMaterial color={isHover && !isReveal ? 'hotpink' : 'orange'} />
             </mesh>
             {!isReveal && (
                 <mesh position={[0, 0.5, 0]}>
                     <boxGeometry args={[1, 0.2, 1]} />
-                    <meshBasicMaterial color={isHover ? 'red' : 'green'} />
+                    <meshBasicMaterial color={isHover && !isReveal ? 'red' : 'green'} />
                 </mesh>
             )}
             {isReveal && !caseModel.isBomb && caseModel.numberOfBombsArround !== 0 && (

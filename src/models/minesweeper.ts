@@ -33,13 +33,18 @@ export class MineSweeper {
     }
 
     gameState!: { state: 'in-progress' } | { state: 'finish', isWin: boolean };
-    private cases!: Record<string, Case>;
 
-    constructor(private dimension: { x: number, y: number }, private numberOfBombInField: number) {
-        this.initialize();
+    private cases!: Record<string, Case>;
+    private dimension: { x: number, y: number };
+    private numberOfBombInField: number;
+
+    constructor() {
+        this.dimension = { x: 5, y: 5 };
+        this.numberOfBombInField = 10;
+        this.reset();
     }
 
-    revealCase(x: number, y: number): void {
+    revealCase(x: number, y: number): MineSweeper {
         const _case = this.getCase(x, y);
         if (!_case) throw new Error(`MineSweeper ModelError: Cannot select case (${x}, ${y}). Dimension of grid: ${this.dimension.x}x${this.dimension.y}`);
 
@@ -50,35 +55,41 @@ export class MineSweeper {
 
         this.revealNeighbours(x, y);
 
-        if (_case.isBomb) return this.finishGame(false);
+        if (_case.isBomb)
+            return this.finishGame(false);
 
-        if (this.onlyBombLeft) return this.finishGame(true);
+        if (this.onlyBombLeft)
+            return this.finishGame(true);
+
+        return this;
     }
 
-    resize(dimension: { x: number, y: number }): void {
+    resize(dimension: { x: number, y: number }): MineSweeper {
         this.dimension = dimension;
         this.reset();
+        return this;
     }
 
-    updateBombNumber(numberOfBombInField: number): void {
+    updateBombNumber(numberOfBombInField: number): MineSweeper {
         this.numberOfBombInField = numberOfBombInField;
         this.reset();
+        return this;
     }
 
-    reset(): void {
-        this.initialize();
-    }
-
-    private initialize(): void {
+    reset(): MineSweeper {
         const numberOfCase = this.dimension.x * this.dimension.y;
         if (numberOfCase < this.numberOfBombInField) throw new Error(`Cannot have ${this.numberOfBombInField} bombs in a field of ${numberOfCase} cases.`);
+
         const caseList = range2D({ width: { min: 0, max: this.dimension.x }, height: { min: 0, max: this.dimension.y } });
         this.cases = caseList.reduce((acc, [x, y]) => ({ ...acc, [id(x, y)]: generateCase(x, y) }), {});
         this.gameState = { state: 'in-progress' };
+
+        return this;
     }
 
-    private finishGame(isWin: boolean): void {
+    private finishGame(isWin: boolean): MineSweeper {
         this.gameState = { state: 'finish', isWin };
+        return this;
     }
 
     private revealNeighbours(x: number, y: number): void {
