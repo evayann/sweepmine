@@ -1,9 +1,4 @@
-body {
-  background: var(--qwik-dark-background);
-  color: var(--qwik-dark-text);
-}
-
 main > * {
-  width: min(100% - 6rem, 65ch);
-  margin-inline: auto;
+    width: min(100% - 6rem, 65ch);
+    margin-inline: auto;
 }

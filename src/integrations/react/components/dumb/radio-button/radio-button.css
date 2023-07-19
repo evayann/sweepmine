@@ -11,7 +11,7 @@ div#radio-button input {
 }
 
 div#radio-button label {
-    background-color: var(--background);
+    background-color: var(--app-light-background);
     color: rgba(0, 0, 0, 0.6);
     font-size: 14px;
     line-height: 1;
@@ -33,9 +33,9 @@ div#radio-button input:checked + label {
 }
 
 div#radio-button label:first-of-type {
-    border-radius: 4px 0 0 4px;
+    border-radius: var(--app-border-radius) 0 0 var(--app-border-radius);
 }
 
 div#radio-button label:last-of-type {
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 var(--app-border-radius) var(--app-border-radius) 0;
 }

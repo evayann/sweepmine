@@ -14,25 +14,19 @@ export function Case(props: CaseProps) {
     const { isReveal, caseModel, ...otherProps } = props;
     const [isHover, setIsHover] = useState(false);
 
-    const actionsByState: Record<string, Record<string, Record<string, () => void>>> = {
+    const actionsByState: Record<string, Record<string, () => void>> = {
         hoverStart: {
-            isReveal: {
-                true: () => {},
-                false: () => setIsHover(true),
-            },
+            isReveal: () => setIsHover(true),
         },
         hoverEnd: {
-            isReveal: {
-                true: () => {},
-                false: () => setIsHover(false),
-            },
+            isReveal: () => setIsHover(false),
         },
     };
     const pointerAction = (action: string) => (pointerEvent: ThreeEvent<PointerEvent>) => {
         pointerEvent.stopPropagation();
-        actionsByState[action].isReveal[`${isReveal}`]();
+        if (isReveal) return;
+        actionsByState[action].isReveal();
     };
-
     return (
         <group {...otherProps} onPointerOver={pointerAction('hoverStart')} onPointerOut={pointerAction('hoverEnd')}>
             <mesh>
@@ -53,7 +47,7 @@ export function Case(props: CaseProps) {
                 </Billboard>
             )}
             {isReveal && caseModel.isBomb && (
-                <mesh position={[0, 0.5, 0]} scale={[0.5, 1, 0.5]}>
+                <mesh position={[0, 0.6, 0]} scale={[0.35, 0.4, 0.35]}>
                     <icosahedronGeometry args={[1, 1]} />
                     <meshStandardMaterial color={'green'} flatShading />
                 </mesh>

@@ -1,5 +1,10 @@
 import { styled } from "styled-vanilla-extract/qwik";
 
 export const Button = styled.button`
-    padding: 2em;
+    background-color: var(--app-light-background);
+    border-radius: var(--app-border-radius);
+
+    &:hover {
+        cursor: pointer;
+    }
 `;

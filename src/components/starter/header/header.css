@@ -1,57 +1,57 @@
 header {
-  --padding: 2rem;
+    --padding: 2rem;
 
-  position: sticky;
-  top: 0;
+    position: sticky;
+    top: 0;
 
-  padding: 0;
+    padding: 0;
 
-  & > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    & > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-    & > ul {
-      display: none;
+        & > ul {
+            display: none;
 
-      list-style: none;
-      gap: 30px;
+            list-style: none;
+            gap: 30px;
 
-      margin: 0;
-      padding: 0;
+            margin: 0;
+            padding: 0;
 
-      & > li {
-        margin: 0;
-        padding: 0;
-        font-size: 1.4rem;
+            & > li {
+                margin: 0;
+                padding: 0;
+                font-size: 1.4rem;
 
-        & > a {
-          color: white;
-          display: inline-block;
-          padding: 0;
-          text-decoration: none;
+                & > a {
+                    color: white;
+                    display: inline-block;
+                    padding: 0;
+                    text-decoration: none;
 
-          &:hover {
-            color: var(--qwik-light-blue);
-          }
+                    &:hover {
+                        color: var(--app-higlight-text);
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  & a > * {
-    border-radius: 1rem;
-  }
+    & a > * {
+        border-radius: 1rem;
+    }
 }
 
 @media (min-width: 1000px) {
-  header {
-    padding: var(--padding);
-  }
+    header {
+        padding: var(--padding);
+    }
 }
 
 @media (min-width: 450px) {
-  header > div > ul {
-    display: flex;
-  }
+    header > div > ul {
+        display: flex;
+    }
 }
