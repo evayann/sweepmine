@@ -1,7 +1,7 @@
 /** @jsxImportSource react */
 
 import { qwikify$ } from '@builder.io/qwik-react';
-import { CameraControls, CameraShake, Html, OrthographicCamera } from '@react-three/drei';
+import { CameraControls, CameraShake, Html } from '@react-three/drei';
 import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { Case } from './case';
 import { Case as CaseModel } from '~/models/minesweeper';
@@ -9,6 +9,7 @@ import { map } from '~/utils/calculations';
 import { useMinesweeper } from '~/integrations/react/hooks/useMinesweeper';
 import { RadioButton } from './dumb/radio-button/radio-button';
 import { Button } from './dumb/button';
+import { useState } from 'react';
 
 export interface MineSweeperProps {
     dimension: { x: number; y: number };
@@ -23,7 +24,8 @@ interface DisplayCase extends CaseModel {
 export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps) {
     // const [lightPosition, setLightPosition] = useState([10, 10, 10]);
     // useFrame(({ clock }) => setLightPosition([10, 10, 10]));
-    const { resetGame, revealCase, caseList, gameState } = useMinesweeper(dimension, numberOfBombs);
+    const [cameraControled, setCameraControled] = useState(false);
+    const { resetGame, revealCase, caseList, gameState, id: gameId } = useMinesweeper(dimension, numberOfBombs);
     const gameNotFinish = gameState.state !== 'finish';
 
     const board = {
@@ -51,7 +53,12 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
             orthographic
             camera={{ zoom: 40, position: [10, 5, 10], top: 7, bottom: -7, left: 7, right: 7, near: 5, far: 2000 }}
         >
-            <CameraControls enabled={gameNotFinish} />
+            <CameraControls
+                onStart={() => setCameraControled(true)}
+                onEnd={() => setCameraControled(false)}
+                maxPolarAngle={Math.PI / 2}
+                enabled={gameNotFinish}
+            />
             {/* <CameraShake
                 maxPitch={0.05}
                 maxRoll={0.05}
@@ -70,15 +77,30 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                     scale={[scaleFactor.x, 1, scaleFactor.y]}
                     isReveal={_case.isReveal}
                     caseModel={_case}
-                    key={`Case-${_case.position.x}-${_case.position.y}:${index + 1}`}
+                    key={`Grid-${gameId}-Case-${_case.position.x}-${_case.position.y}:${index + 1}}`}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
+                        console.log(cameraControled);
+                        if (cameraControled) return;
                         pointerEvent.stopPropagation();
                         revealCase(_case.position.x, _case.position.y);
                     }}
                 />
             ))}
             {!gameNotFinish && (
-                <Html center sprite style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <Html
+                    center
+                    sprite
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+
+                        backgroundColor: 'red',
+
+                        borderRadius: '2rem',
+                        padding: '1rem',
+                    }}
+                >
                     <p style={{ textAlign: 'center' }}>You {gameState.isWin ? 'win' : 'loose'} in XXX secondes !</p>
                     <Button
                         onClick={(e) => {
@@ -86,8 +108,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                             resetGame();
                         }}
                     >
-                        {' '}
-                        Restart{' '}
+                        Restart
                     </Button>
                 </Html>
             )}

@@ -8,7 +8,6 @@ import { MinesweeperBoard } from '~/integrations/react/components/board';
 export default component$(() => {
     const { dimension, setDimension } = useDimensions();
     const numberOfBombs = useSignal(10);
-    // const numberOfBombs = 14;
     return (
         <>
             <GameMenu dimension={dimension.value} setDimension={setDimension} numberOfBombs={numberOfBombs}></GameMenu>

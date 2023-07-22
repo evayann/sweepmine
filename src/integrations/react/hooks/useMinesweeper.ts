@@ -5,6 +5,7 @@ export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBomb
     let minesweeperRef = useRef(new MineSweeper());
     const ms = minesweeperRef.current;
 
+    const [id, setId] = useState(() => 0);
     const [caseList, setCaseList] = useState(() => ms.caseList);
     const [gameState, setGameState] = useState(() => ms.gameState);
 
@@ -25,6 +26,7 @@ export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBomb
 
     const resetGame = (): void => {
         ms.reset();
+        setId((value) => value + 1);
         update();
     };
 
@@ -32,6 +34,7 @@ export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBomb
         revealCase,
         resetGame,
         caseList,
-        gameState
+        gameState,
+        id
     }
 };
