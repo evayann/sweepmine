@@ -1,7 +1,7 @@
 /** @jsxImportSource react */
 
 import { Billboard, Text } from '@react-three/drei';
-import { GroupProps, ThreeEvent, useFrame } from '@react-three/fiber';
+import { GroupProps, ThreeEvent } from '@react-three/fiber';
 import { useState } from 'react';
 import { Case as CaseModel } from '~/models/minesweeper';
 
@@ -14,6 +14,11 @@ export function Case(props: CaseProps) {
     const { isReveal, caseModel, ...otherProps } = props;
     const [isHover, setIsHover] = useState(false);
 
+    const show = {
+        caseNumber: isReveal && !caseModel.isBomb && caseModel.numberOfBombsArround !== 0,
+        bomb: isReveal && caseModel.isBomb,
+    };
+
     const actionsByState: Record<string, Record<string, () => void>> = {
         hoverStart: {
             isReveal: () => setIsHover(true),
@@ -22,11 +27,21 @@ export function Case(props: CaseProps) {
             isReveal: () => setIsHover(false),
         },
     };
+
     const pointerAction = (action: string) => (pointerEvent: ThreeEvent<PointerEvent>) => {
         pointerEvent.stopPropagation();
         if (isReveal) return;
         actionsByState[action].isReveal();
     };
+
+    const CaseNumber: JSX.Element = (
+        <Billboard position={[0, 0.8, 0]}>
+            <Text outlineColor="white" outlineWidth={0.01} color="black" anchorX="center" anchorY="middle">
+                {caseModel.numberOfBombsArround}
+            </Text>
+        </Billboard>
+    );
+
     return (
         <group {...otherProps} onPointerOver={pointerAction('hoverStart')} onPointerOut={pointerAction('hoverEnd')}>
             <mesh>
@@ -39,14 +54,8 @@ export function Case(props: CaseProps) {
                     <meshBasicMaterial color={isHover && !isReveal ? 'red' : 'green'} />
                 </mesh>
             )}
-            {isReveal && !caseModel.isBomb && caseModel.numberOfBombsArround !== 0 && (
-                <Billboard position={[0, 0.2, 0]}>
-                    <Text color="black" anchorX="center" anchorY="bottom">
-                        {caseModel.numberOfBombsArround}
-                    </Text>
-                </Billboard>
-            )}
-            {isReveal && caseModel.isBomb && (
+            {show.caseNumber && CaseNumber}
+            {show.bomb && (
                 <mesh position={[0, 0.6, 0]} scale={[0.35, 0.4, 0.35]}>
                     <icosahedronGeometry args={[1, 1]} />
                     <meshStandardMaterial color={'green'} flatShading />

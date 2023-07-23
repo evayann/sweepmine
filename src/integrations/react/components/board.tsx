@@ -9,7 +9,8 @@ import { map } from '~/utils/calculations';
 import { useMinesweeper } from '~/integrations/react/hooks/useMinesweeper';
 import { RadioButton } from './dumb/radio-button/radio-button';
 import { Button } from './dumb/button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useTimer } from '../hooks/useTimer';
 
 export interface MineSweeperProps {
     dimension: { x: number; y: number };
@@ -24,9 +25,13 @@ interface DisplayCase extends CaseModel {
 export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps) {
     // const [lightPosition, setLightPosition] = useState([10, 10, 10]);
     // useFrame(({ clock }) => setLightPosition([10, 10, 10]));
-    const [cameraControled, setCameraControled] = useState(false);
+    const { time, isRunning, startTimer, stopTimer, resetTimer } = useTimer();
     const { resetGame, revealCase, caseList, gameState, id: gameId } = useMinesweeper(dimension, numberOfBombs);
     const gameNotFinish = gameState.state !== 'finish';
+
+    useEffect(() => {
+        if (!gameNotFinish) stopTimer();
+    }, [gameNotFinish]);
 
     const board = {
         width: 10,
@@ -53,12 +58,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
             orthographic
             camera={{ zoom: 40, position: [10, 5, 10], top: 7, bottom: -7, left: 7, right: 7, near: 5, far: 2000 }}
         >
-            <CameraControls
-                onStart={() => setCameraControled(true)}
-                onEnd={() => setCameraControled(false)}
-                maxPolarAngle={Math.PI / 2}
-                enabled={gameNotFinish}
-            />
+            <CameraControls maxPolarAngle={Math.PI / 2} enabled={gameNotFinish} />
             {/* <CameraShake
                 maxPitch={0.05}
                 maxRoll={0.05}
@@ -79,9 +79,8 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                     caseModel={_case}
                     key={`Grid-${gameId}-Case-${_case.position.x}-${_case.position.y}:${index + 1}}`}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
-                        console.log(cameraControled);
-                        if (cameraControled) return;
                         pointerEvent.stopPropagation();
+                        if (!isRunning) startTimer();
                         revealCase(_case.position.x, _case.position.y);
                     }}
                 />
@@ -106,14 +105,16 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
                         onClick={(e) => {
                             e.stopPropagation();
                             resetGame();
+                            resetTimer();
                         }}
                     >
                         Restart
                     </Button>
                 </Html>
             )}
-            <Html center style={{ translate: '0 500%' }}>
+            <Html center style={{ translate: '0 200%' }}>
                 <RadioButton id="left-click" defaultSelected="bomb" list={['bomb', 'flag']}></RadioButton>
+                <p> Time : {time.toFixed(1)} seconds</p>
             </Html>
         </Canvas>
     );

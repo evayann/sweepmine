@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
 
-export const useTimer = (initialTime = 0) => {
-    const [time, setTime] = useState(initialTime);
+export interface TimerProps {
+    initialTimeInSecond?: number;
+    incrementInSecond?: number;
+}
+export const useTimer = ({ initialTimeInSecond = 0, incrementInSecond = 0.1 }: TimerProps = { initialTimeInSecond: 0, incrementInSecond: 0.1 }) => {
+    const [time, setTime] = useState(initialTimeInSecond);
     const [isRunning, setIsRunning] = useState(false);
 
+    const incrementInMs = incrementInSecond * 1000;
+
     useEffect(() => {
-        let interval: any;
+        let interval: NodeJS.Timer;
 
         if (isRunning) {
             interval = setInterval(() => {
-                setTime((prevTime) => prevTime + 1);
-            }, 1000);
+                setTime((prevTime) => prevTime + incrementInSecond);
+            }, incrementInMs);
         }
 
         return () => clearInterval(interval);
@@ -18,7 +24,7 @@ export const useTimer = (initialTime = 0) => {
 
     const startTimer = () => setIsRunning(true);
     const stopTimer = () => setIsRunning(false);
-    const resetTimer = () => setTime(initialTime);
+    const resetTimer = () => setTime(initialTimeInSecond);
 
     return { time, isRunning, startTimer, stopTimer, resetTimer };
 };
