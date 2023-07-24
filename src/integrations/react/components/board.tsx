@@ -9,7 +9,7 @@ import { map } from '~/utils/calculations';
 import { useMinesweeper } from '~/integrations/react/hooks/useMinesweeper';
 import { RadioButton } from './dumb/radio-button/radio-button';
 import { Button } from './dumb/button';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTimer } from '../hooks/useTimer';
 
 export interface MineSweeperProps {
@@ -36,17 +36,29 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
     const board = {
         width: 10,
         height: 10,
-        get halfWidth() {
+        get halfWidth(): number {
             return this.width / 2;
         },
-        get halfHeight() {
+        get halfHeight(): number {
             return this.width / 2;
         },
     };
     const scaleFactor = { x: board.width / dimension.x, y: board.height / dimension.y };
     const displayCaseList: DisplayCase[] = caseList.map((caseModel) => {
-        const x = map(caseModel.position.x, 0, dimension.x - 1, -board.halfWidth + 1, board.halfWidth - 1);
-        const z = map(caseModel.position.y, 0, dimension.y - 1, -board.halfHeight + 1, board.halfHeight - 1);
+        const x = map(
+            caseModel.position.x,
+            0,
+            dimension.x - 1,
+            -board.halfWidth + scaleFactor.x / 2,
+            board.halfWidth - scaleFactor.x / 2
+        );
+        const z = map(
+            caseModel.position.y,
+            0,
+            dimension.y - 1,
+            -board.halfHeight + scaleFactor.y / 2,
+            board.halfHeight - scaleFactor.y / 2
+        );
         return {
             ...caseModel,
             displayPosition: [x, 0, z],
@@ -58,7 +70,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs }: MineSweeperProps)
             orthographic
             camera={{ zoom: 40, position: [10, 5, 10], top: 7, bottom: -7, left: 7, right: 7, near: 5, far: 2000 }}
         >
-            <CameraControls maxPolarAngle={Math.PI / 2} enabled={gameNotFinish} />
+            <CameraControls maxPolarAngle={Math.PI / 2} minZoom={30} maxZoom={75} enabled={gameNotFinish} />
             {/* <CameraShake
                 maxPitch={0.05}
                 maxRoll={0.05}
