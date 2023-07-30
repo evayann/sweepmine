@@ -1,6 +1,6 @@
 import { HTMLAttributes, Signal, component$, useStylesScoped$ } from '@builder.io/qwik';
 import { MineSweeperLogo } from '../icons/minesweeper';
-import { useScrollPositionPercent } from '~/hooks/scroll';
+import { useScrollPositionPercent } from '~/hooks/useScroll';
 import { map } from '~/utils/calculations';
 import styles from './header.css?inline';
 

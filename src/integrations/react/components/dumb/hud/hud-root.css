@@ -1,0 +1,8 @@
+#hud {
+    pointer-events: none;
+}
+
+#hud > * > * {
+    pointer-events: all;
+    user-select: none;
+}

@@ -3,7 +3,7 @@ import type { DocumentHead } from '@builder.io/qwik-city';
 import GameMenu from '~/components/dumb/form/game-menu';
 import { useDimensions } from '~/hooks/useDimsension';
 
-import { MinesweeperBoard } from '~/integrations/react/components/board';
+import { Minesweeper } from '~/integrations/react/components/Game';
 
 export default component$(() => {
     const { dimension, setDimension } = useDimensions();
@@ -11,7 +11,12 @@ export default component$(() => {
     return (
         <>
             <GameMenu dimension={dimension.value} setDimension={setDimension} numberOfBombs={numberOfBombs}></GameMenu>
-            <MinesweeperBoard dimension={dimension.value} numberOfBombs={numberOfBombs.value} client:visible />
+            <Minesweeper
+                style={{ width: '70vw', height: '100%' }}
+                dimension={dimension.value}
+                numberOfBombs={numberOfBombs.value}
+                client:visible
+            />
         </>
     );
 });

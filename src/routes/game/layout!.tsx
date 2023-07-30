@@ -12,7 +12,7 @@ export default component$(() => {
     return (
         <>
             <Header style={{ '--padding': 0 }} />
-            <main>
+            <main style={{ width: '100%' }}>
                 <Slot />
             </main>
         </>
