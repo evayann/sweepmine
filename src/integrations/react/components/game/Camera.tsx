@@ -1,6 +1,6 @@
 /** @jsxImportSource react */
 
-import { CameraShake, OrbitControls } from '@react-three/drei';
+import { CameraShake, OrbitControls, OrthographicCamera, PerspectiveCamera } from '@react-three/drei';
 
 export interface CameraProps {
     enableControl: boolean;
@@ -18,6 +18,7 @@ export function Camera({ enableControl }: CameraProps) {
                 rollFrequency={0.3}
                 yawFrequency={0.3}
             />
+            <OrthographicCamera makeDefault position={[10, 5, 10]} zoom={40} />
         </>
     );
 }

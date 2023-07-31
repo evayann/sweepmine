@@ -1,5 +1,6 @@
 import { range, range2D } from "~/utils/iteration";
 import { randomInList } from "~/utils/random";
+import { GameState } from "./gameState";
 
 export interface Case {
     position: { x: number, y: number };
@@ -32,7 +33,7 @@ export class MineSweeper {
         return this.notRevealCase.every(_case => _case.isBomb);
     }
 
-    gameState!: { state: 'in-progress' } | { state: 'finish', isWin: boolean };
+    gameState!: GameState;
 
     private cases!: Record<string, Case>;
     private dimension: { x: number, y: number };

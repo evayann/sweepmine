@@ -15,6 +15,8 @@ import { Hud } from './dumb/hud/Hud';
 import { HudRoot } from './dumb/hud/HudRoot';
 import { GameProvider } from '../gameContext';
 import { CursorService } from '../services/cursorService';
+import { Button } from './dumb/Button';
+import { GameStateService } from '../services/gameStateService';
 
 export interface MineSweeperProps extends CanvasProps {
     dimension: { x: number; y: number };
@@ -32,6 +34,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
     const { time, isRunning, startTimer, stopTimer, resetTimer } = useTimer();
     const { resetGame, revealCase, caseList, gameState, id: gameId } = useMinesweeper(dimension, numberOfBombs);
     const gameNotFinish = gameState.state !== 'finish';
+    const gameFinish = gameState.state === 'finish';
 
     useEffect(() => {
         if (!gameNotFinish) stopTimer();
@@ -75,26 +78,15 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
         alignItems: 'center',
     };
 
+    const gameStateService = new GameStateService();
+
     return (
-        <GameProvider value={{ cursorService: new CursorService() }}>
+        <GameProvider value={{ cursorService: new CursorService(), gameStateService }}>
             <div
                 {...otherProps}
                 style={{ ...style, display: 'grid', gridTemplateRows: '1fr', gridTemplateColumns: '1fr' }}
             >
-                <Canvas
-                    orthographic
-                    style={{ gridRow: 1, gridColumn: 1 }}
-                    camera={{
-                        zoom: 40,
-                        position: [10, 5, 10],
-                        top: 7,
-                        bottom: -7,
-                        left: 7,
-                        right: 7,
-                        near: 5,
-                        far: 2000,
-                    }}
-                >
+                <Canvas style={{ gridRow: 1, gridColumn: 1 }}>
                     <Camera enableControl={gameNotFinish} />
                     <ambientLight />
                     <axesHelper />
@@ -109,6 +101,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
                             key={`Grid-${gameId}-Case-${_case.position.x}-${_case.position.y}:${index + 1}}`}
                             onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                                 pointerEvent.stopPropagation();
+                                if (gameFinish) return;
                                 if (!isRunning) startTimer();
                                 revealCase(_case.position.x, _case.position.y);
                             }}
@@ -116,6 +109,18 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
                     ))}
                 </Canvas>
                 <HudRoot>
+                    {gameState.state === 'in-progress' && (
+                        <Hud
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                alignItems: 'center',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <Button onClick={() => gameStateService.toGame()}>Start to explode !</Button>
+                        </Hud>
+                    )}
                     {gameNotFinish && (
                         <Hud
                             style={{

@@ -14,16 +14,12 @@ export interface CaseProps extends GroupProps {
 export function Case(props: CaseProps) {
     const { isReveal, caseModel, ...otherProps } = props;
     const [isHover, setIsHover] = useState(false);
-    const { cursorService } = useGameState();
+    const { gameState, cursorService } = useGameState();
 
     const cursorType = 'pointer';
     useEffect(() => {
         if (isHover) cursorService.askOne(cursorType);
         else cursorService.removeOne(cursorType);
-
-        return () => {
-            if (isHover) cursorService.removeOne(cursorType);
-        };
     }, [isHover]);
 
     const show = {
@@ -42,7 +38,7 @@ export function Case(props: CaseProps) {
 
     const pointerAction = (action: string) => (pointerEvent: ThreeEvent<PointerEvent>) => {
         pointerEvent.stopPropagation();
-        if (isReveal) return;
+        if (isReveal || gameState.state !== 'in-progress') return;
         actionsByState[action].isReveal();
     };
 

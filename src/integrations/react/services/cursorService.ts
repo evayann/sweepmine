@@ -61,9 +61,10 @@ export class CursorService {
     }
 
     private updateCursorToMaxWanted(): void {
-        const cursorType = Object.entries(this.state).reduce((acc, [cursorType, number]) =>
+        const defaultCursor = { cursorType: CursorService.DEFAULT_CURSOR, number: 0 };
+        const maxAskedCursorType = Object.entries(this.state).reduce((acc, [cursorType, number]) =>
             acc.number < number ? { cursorType, number } : acc
-            , { cursorType: CursorService.DEFAULT_CURSOR, number: 0 }).cursorType;
-        document.body.style.cursor = cursorType;
+            , defaultCursor);
+        document.body.style.cursor = maxAskedCursorType.cursorType;
     }
 }
