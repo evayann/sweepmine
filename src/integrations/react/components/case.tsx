@@ -1,10 +1,11 @@
 /** @jsxImportSource react */
 
 import { Billboard, Text } from '@react-three/drei';
-import { GroupProps, ThreeEvent } from '@react-three/fiber';
+import { GroupProps, RootState, ThreeEvent, useFrame } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
 import { Case as CaseModel } from '~/models/minesweeper';
 import { useGameState } from '../hooks/useGameState';
+import { Bomb } from './dumb/bomb/Bomb';
 
 export interface CaseProps extends GroupProps {
     isReveal: boolean;
@@ -14,13 +15,19 @@ export interface CaseProps extends GroupProps {
 export function Case(props: CaseProps) {
     const { isReveal, caseModel, ...otherProps } = props;
     const [isHover, setIsHover] = useState(false);
-    const { gameState, cursorService } = useGameState();
+    const { gameStateService, cursorService } = useGameState();
+    const [explosionPercent, setExplosionPercent] = useState(0);
 
     const cursorType = 'pointer';
     useEffect(() => {
         if (isHover) cursorService.askOne(cursorType);
         else cursorService.removeOne(cursorType);
     }, [isHover]);
+
+    useFrame(({ clock }) => {
+        if (!isReveal || !caseModel.isBomb) return;
+        setExplosionPercent(Math.min(explosionPercent + clock.getElapsedTime() / 1000, 1));
+    });
 
     const show = {
         caseNumber: isReveal && !caseModel.isBomb && caseModel.numberOfBombsArround !== 0,
@@ -38,7 +45,7 @@ export function Case(props: CaseProps) {
 
     const pointerAction = (action: string) => (pointerEvent: ThreeEvent<PointerEvent>) => {
         pointerEvent.stopPropagation();
-        if (isReveal || gameState.state !== 'in-progress') return;
+        if (isReveal || gameStateService.isInGame) return;
         actionsByState[action].isReveal();
     };
 
@@ -63,12 +70,7 @@ export function Case(props: CaseProps) {
                 </mesh>
             )}
             {show.caseNumber && CaseNumber}
-            {show.bomb && (
-                <mesh position={[0, 0.6, 0]} scale={[0.35, 0.4, 0.35]}>
-                    <icosahedronGeometry args={[1, 1]} />
-                    <meshStandardMaterial color={'green'} flatShading />
-                </mesh>
-            )}
+            {show.bomb && <Bomb position={[0, 0.6, 0]} scale={0.3} explosionPercent={explosionPercent} />}
         </group>
     );
 }

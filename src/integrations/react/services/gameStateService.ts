@@ -1,17 +1,29 @@
-export type GameState = { state: 'menu' } | { state: 'in-progress' } | { state: 'finish', isWin: boolean };
+export type GameState = { state: 'menu' } | { state: 'in-game' } | { state: 'finish', isWin: boolean };
 
 export class GameStateService {
-    private state: GameState = { state: 'menu' };
+    private gameState: GameState = { state: 'menu' };
+
+    get isInGame(): boolean {
+        return this.gameState.state === 'in-game';
+    }
+
+    get isInMenu(): boolean {
+        return this.gameState.state === 'menu';
+    }
+
+    get isGameOver(): boolean {
+        return this.gameState.state === 'finish';
+    }
 
     toGame(): void {
-        this.state = { state: 'in-progress' };
+        this.gameState = { state: 'in-game' };
     }
 
     toMenu(): void {
-        this.state = { state: 'menu' };
+        this.gameState = { state: 'menu' };
     }
 
     toGameOver(isWin: boolean): void {
-        this.state = { state: 'finish', isWin };
+        this.gameState = { state: 'finish', isWin };
     }
 }

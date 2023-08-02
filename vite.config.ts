@@ -11,6 +11,9 @@ export default defineConfig(() => {
         optimizeDeps: {
             include: ['@react-three/fiber'],
         },
+        assetsInclude: [
+            '**/*.glb'
+        ],
         preview: {
             headers: {
                 'Cache-Control': 'public, max-age=600',
