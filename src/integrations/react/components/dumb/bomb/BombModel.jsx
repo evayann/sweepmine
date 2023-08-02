@@ -197,7 +197,7 @@ export const BombModel = forwardRef(function (props, ref) {
                 <mesh geometry={nodes.Bomb_cell037_1.geometry} material={materials['Black.002']} />
                 <mesh geometry={nodes.Bomb_cell037_2.geometry} material={materials['White.001']} />
             </group>
-            <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            <group name='origin' rotation={[-Math.PI / 2, 0, 0]} scale={100}>
                 <mesh geometry={nodes.Bomb002.geometry} material={materials['Black.002']} />
                 <mesh geometry={nodes.Bomb002_1.geometry} material={materials['DarkMetal.001']} />
                 <mesh geometry={nodes.Bomb002_2.geometry} material={materials['White.001']} />
