@@ -6,9 +6,9 @@ Modified by hand.
 Command: npx gltfjsx@6.2.10 bomb.glb -o bomb.jsx -r public 
 */
 
-import { forwardRef, useRef } from 'react';
-import bomb from './bomb.glb';
+import { forwardRef } from 'react';
 import { useGLTF } from '@react-three/drei';
+import bomb from './bomb.glb';
 
 export const BombModel = forwardRef(function (props, ref) {
     const { nodes, materials } = useGLTF(bomb);
@@ -197,7 +197,7 @@ export const BombModel = forwardRef(function (props, ref) {
                 <mesh geometry={nodes.Bomb_cell037_1.geometry} material={materials['Black.002']} />
                 <mesh geometry={nodes.Bomb_cell037_2.geometry} material={materials['White.001']} />
             </group>
-            <group name='origin' rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+            <group name='original-group' rotation={[-Math.PI / 2, 0, 0]} scale={100}>
                 <mesh geometry={nodes.Bomb002.geometry} material={materials['Black.002']} />
                 <mesh geometry={nodes.Bomb002_1.geometry} material={materials['DarkMetal.001']} />
                 <mesh geometry={nodes.Bomb002_2.geometry} material={materials['White.001']} />

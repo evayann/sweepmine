@@ -6,12 +6,12 @@ import { Case } from './Case';
 import { Case as CaseModel } from '~/models/minesweeper';
 import { map } from '~/utils/calculations';
 import { RadioButton } from './dumb/radio-button/radio-button';
-import { createContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTimer } from '../hooks/useTimer';
 import { useMinesweeper } from '../hooks/useMinesweeper';
 import { GameEndMenu } from './menu/GameEndMenu';
 import { Camera } from './game/Camera';
-import { Hud } from './dumb/hud/Hud';
+import { Hud, MotionHud } from './dumb/hud/Hud';
 import { HudRoot } from './dumb/hud/HudRoot';
 import { GameProvider } from '../gameContext';
 import { CursorService } from '../services/cursorService';
@@ -25,6 +25,7 @@ export interface MineSweeperProps extends CanvasProps {
 
 interface DisplayCase extends CaseModel {
     displayPosition: [number, number, number];
+    bombExplosionInSecond?: number;
     hasFlag?: boolean;
 }
 
@@ -69,6 +70,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
         return {
             ...caseModel,
             displayPosition: [x, 0, z],
+            bombExplosionInSecond: caseModel.isBomb ? 20 + Math.random() * 2 : undefined,
         };
     });
 
@@ -98,6 +100,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
                             scale={[scaleFactor.x, 1, scaleFactor.y]}
                             isReveal={_case.isReveal}
                             caseModel={_case}
+                            explosionTimeInSecond={_case.bombExplosionInSecond ?? 0}
                             key={`Grid-${gameId}-Case-${_case.position.x}-${_case.position.y}:${index + 1}}`}
                             onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                                 pointerEvent.stopPropagation();
@@ -135,7 +138,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
                         </Hud>
                     )}
                     {!gameNotFinish && (
-                        <Hud style={{ ...center }}>
+                        <MotionHud animate={{ opacity: 1 }} transition={{ duration: 20 }} style={{ ...center }}>
                             <GameEndMenu
                                 isWin={gameState.isWin}
                                 restartCallback={() => {
@@ -143,7 +146,7 @@ export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProp
                                     resetTimer();
                                 }}
                             />
-                        </Hud>
+                        </MotionHud>
                     )}
                 </HudRoot>
             </div>

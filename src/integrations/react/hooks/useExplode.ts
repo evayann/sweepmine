@@ -56,55 +56,27 @@ export const useExplode = ({ group, percent, distance = 3, enableRotation = true
         });
     }, [distance]);
 
-    useFrame(() => {
-        group.current.children.forEach((mesh) => {
-            if (percent < 0.00001) {
-                if (mesh.name === "origin") {
-                    mesh.visible = true;
-                } else {
-                    mesh.visible = false;
-                }
-            }
-            else {
-                if (mesh.name === "origin") {
-                    mesh.visible = false;
-                } else {
-                    mesh.visible = true;
-                }
-            }
+    const dimensionKey: ['x', 'y', 'z'] = ['x', 'y', 'z'];
+    const lerpAllDimension = (mesh: ExtendedObject3DEvent, property: 'Position' | 'Rotation') => dimensionKey.map(key => MathUtils.lerp(
+        mesh[`original${property}`][key],
+        mesh[`target${property}`][key],
+        percent
+    ));
 
-            mesh.position.x = MathUtils.lerp(
-                mesh.originalPosition.x,
-                mesh.targetPosition.x,
-                percent
-            );
-            mesh.position.y = MathUtils.lerp(
-                mesh.originalPosition.y,
-                mesh.targetPosition.y,
-                percent
-            );
-            mesh.position.z = MathUtils.lerp(
-                mesh.originalPosition.z,
-                mesh.targetPosition.z,
-                percent
-            );
+    useFrame(() => {
+        const explosionStart = percent < 0.00001;
+
+        group.current.children.forEach((mesh) => {
+            const isOriginalGroup = mesh.name === "original-group";
+
+            mesh.visible = explosionStart ? isOriginalGroup : !isOriginalGroup;
+            const [x, y, z] = lerpAllDimension(mesh, 'Position');
+            mesh.position.set(x, y, z);
+
 
             if (enableRotation) {
-                mesh.rotation.x = MathUtils.lerp(
-                    mesh.originalRotation.x,
-                    mesh.targetRotation.x,
-                    percent
-                );
-                mesh.rotation.y = MathUtils.lerp(
-                    mesh.originalRotation.y,
-                    mesh.targetRotation.y,
-                    percent
-                );
-                mesh.rotation.z = MathUtils.lerp(
-                    mesh.originalRotation.z,
-                    mesh.targetRotation.z,
-                    percent
-                );
+                const [x, y, z] = lerpAllDimension(mesh, 'Rotation');
+                mesh.rotation.set(x, y, z);
             }
         });
     });
