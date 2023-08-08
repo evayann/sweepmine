@@ -2,16 +2,10 @@
 
 import { GroupProps } from '@react-three/fiber';
 import { BombModel } from './BombModel';
-import { ExtendedGroup, useExplode } from '~/integrations/react/hooks/useExplode';
+import { ExtendedGroup } from '~/integrations/react/hooks/useExplode';
 import { MutableRefObject, useRef } from 'react';
 
-export interface BombProps extends GroupProps {
-    explosionPercent: number;
-}
-
-export function Bomb({ explosionPercent, ...otherProps }: BombProps) {
+export function Bomb(props: GroupProps) {
     const bombModel = useRef<ExtendedGroup>() as MutableRefObject<ExtendedGroup>;
-    useExplode({ group: bombModel, distance: 25, enableRotation: false, percent: explosionPercent });
-
-    return <BombModel ref={bombModel} {...otherProps} />;
+    return <BombModel ref={bombModel} {...props} />;
 }

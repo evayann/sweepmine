@@ -1,29 +1,28 @@
+/** @jsxImportSource react */
+
+import { useState } from "react";
+
 export type GameState = { state: 'menu' } | { state: 'in-game' } | { state: 'finish', isWin: boolean };
+export interface GameStateService {
+    gameState: GameState,
+    isInMenu: () => boolean;
+    isInGame: () => boolean;
+    isGameOver: () => boolean;
+    toMenu: () => void;
+    toGame: () => void;
+    toGameOver: (isWin: boolean) => void;
+}
 
-export class GameStateService {
-    private gameState: GameState = { state: 'menu' };
+export function useGameStateService(): GameStateService {
+    const [gameState, setGameState] = useState<GameState>({ state: 'menu' });
 
-    get isInGame(): boolean {
-        return this.gameState.state === 'in-game';
-    }
-
-    get isInMenu(): boolean {
-        return this.gameState.state === 'menu';
-    }
-
-    get isGameOver(): boolean {
-        return this.gameState.state === 'finish';
-    }
-
-    toGame(): void {
-        this.gameState = { state: 'in-game' };
-    }
-
-    toMenu(): void {
-        this.gameState = { state: 'menu' };
-    }
-
-    toGameOver(isWin: boolean): void {
-        this.gameState = { state: 'finish', isWin };
+    return {
+        gameState,
+        isInMenu: () => gameState.state === 'menu',
+        isInGame: () => gameState.state === 'in-game',
+        isGameOver: () => gameState.state === 'finish',
+        toMenu: () => setGameState({ state: 'menu' }),
+        toGame: () => setGameState({ state: 'in-game' }),
+        toGameOver: (isWin: boolean) => setGameState({ state: 'finish', isWin }),
     }
 }

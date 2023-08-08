@@ -54,10 +54,10 @@ export class MineSweeper {
         if (this.isFirstRevealed)
             this.generateBombInField(x, y);
 
-        this.revealNeighbours(x, y);
-
         if (_case.isBomb)
             return this.finishGame(false);
+
+        this.revealNeighbours(x, y);
 
         if (this.onlyBombLeft)
             return this.finishGame(true);

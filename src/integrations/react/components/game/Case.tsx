@@ -4,8 +4,8 @@ import { Billboard, Text } from '@react-three/drei';
 import { GroupProps, ThreeEvent, useFrame } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
 import { Case as CaseModel } from '~/models/minesweeper';
-import { useGameState } from '../hooks/useGameState';
-import { Bomb } from './dumb/bomb/Bomb';
+import { useGameState } from '../../hooks/useGameState';
+import { ExplodableBomb } from '../dumb/bomb/ExplodableBomb';
 import { motion } from 'framer-motion-3d';
 
 export interface CaseProps extends GroupProps {
@@ -80,11 +80,6 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
             </mesh>
             {!revealAnimationEnd && (
                 <motion.mesh
-                    // animate={{ scaleX: [1, 0.5, 0.45, 1, 0], scaleZ: [1, 1, 0.3, 0.6, 0.1, 0] }}
-                    // transition={{
-                    //     scaleX: { delay: 0 },
-                    //     scaleZ: { delay: 0.025 },
-                    // }}
                     variants={variants.caseTop}
                     animate={!isReveal ? '' : 'disapear'}
                     onAnimationComplete={() => setReavealAnimationEnd(true)}
@@ -100,7 +95,7 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
                     animate={{ opacity: [0, 1, 0.5, 0.9, 0.7, 1], scale: [0, 1] }}
                     transition={{ type: 'spring', stiffness: 100, scale: { duration: 1 }, opacity: { duration: 1.5 } }}
                 >
-                    <Bomb position={[0, 0.6, 0]} scale={0.3} explosionPercent={explosionPercent} />
+                    <ExplodableBomb position={[0, 0.6, 0]} scale={0.3} explosionPercent={explosionPercent} />
                 </motion.group>
             )}
         </group>

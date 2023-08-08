@@ -1,6 +1,6 @@
 /** @jsxImportSource react */
 
-import { CameraShake, OrbitControls, OrthographicCamera, PerspectiveCamera } from '@react-three/drei';
+import { CameraShake, OrbitControls, OrthographicCamera } from '@react-three/drei';
 
 export interface CameraProps {
     enableControl: boolean;

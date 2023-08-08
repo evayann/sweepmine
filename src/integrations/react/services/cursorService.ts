@@ -1,3 +1,5 @@
+/** @jsxImportSource react */
+
 export type Globals = "-moz-initial" | "inherit" | "initial" | "revert" | "revert-layer" | "unset";
 
 export type Cursor =
