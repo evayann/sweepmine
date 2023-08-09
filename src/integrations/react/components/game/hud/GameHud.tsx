@@ -14,7 +14,7 @@ export function GameHud() {
             }}
         >
             <RadioButton id="left-click" defaultSelected="bomb" list={['bomb', 'flag']}></RadioButton>
-            {/* <p> Time : {time.toFixed(1)} seconds</p> */}
+            {/* <p> Time : {time.toFixed(1)} seconds</p>     */}
         </Hud>
     );
 }

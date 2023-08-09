@@ -11,5 +11,5 @@ export function GameProvider({ children }: any) {
     const gameStateService = useGameStateService();
     const cursorService = new CursorService();
 
-    return <GameContext.Provider value={{ cursorService, gameStateService }}> {children} </GameContext.Provider>;
+    return <GameContext.Provider value={{ cursorService, gameStateService }}>{children}</GameContext.Provider>;
 }

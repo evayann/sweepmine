@@ -3,7 +3,8 @@
 import { qwikify$ } from '@builder.io/qwik-react';
 import { CanvasProps } from '@react-three/fiber';
 import { GameProvider } from '../context/gameContext';
-import { GameHud } from './game/GameHud';
+import { GlobalHud } from './game/GlobalHud';
+import { Game } from './game/Game';
 
 export interface MineSweeperProps extends CanvasProps {
     dimension: { x: number; y: number };
@@ -11,16 +12,14 @@ export interface MineSweeperProps extends CanvasProps {
 }
 
 export function ReactMineSweeper({ dimension, numberOfBombs, style, ...otherProps }: MineSweeperProps) {
-    // const [lightPosition, setLightPosition] = useState([10, 10, 10]);
-    // useFrame(({ clock }) => setLightPosition([10, 10, 10]));
     return (
         <GameProvider>
             <div
                 {...otherProps}
                 style={{ ...style, display: 'grid', gridTemplateRows: '1fr', gridTemplateColumns: '1fr' }}
             >
-                {/* <Game dimension={dimension} numberOfBombs={numberOfBombs} /> */}
-                <GameHud />
+                <Game dimension={dimension} numberOfBombs={numberOfBombs} />
+                <GlobalHud />
             </div>
         </GameProvider>
     );

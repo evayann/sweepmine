@@ -8,6 +8,7 @@ import { Camera } from './Camera';
 import { useMinesweeper } from '../../hooks/useMinesweeper';
 import { useTimer } from '../../hooks/useTimer';
 import { useGameState } from '../../hooks/useGameState';
+import { useEffect } from 'react';
 
 interface DisplayCase extends CaseModel {
     displayPosition: [number, number, number];
@@ -60,8 +61,18 @@ export function Game({ dimension, numberOfBombs }: GameProps) {
         };
     });
 
+    useEffect(() => {
+        resetGame();
+    }, [gameStateService.isInMenu()]);
+
+    useEffect(() => {
+        if (!gameFinish) return;
+        stopTimer();
+        gameStateService.toGameOver(gameState.isWin);
+    }, [gameFinish]);
+
     return (
-        gameStateService.isInGame() && (
+        (gameStateService.isInGame() || gameStateService.isGameOver()) && (
             <Canvas style={{ gridRow: 1, gridColumn: 1 }}>
                 <Camera enableControl={gameNotFinish} />
                 <ambientLight />
