@@ -1,0 +1,2524 @@
+{
+  "manifestHash": "57ewz7",
+  "symbols": {
+    "s_02wMImzEAbk": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "QwikCityProvider_component_useTask",
+      "canonicalFilename": "s_02wmimzeabk",
+      "hash": "02wMImzEAbk",
+      "ctxKind": "function",
+      "ctxName": "useTask$",
+      "captures": true,
+      "parent": "s_TxCFOy819ag",
+      "loc": [
+        22140,
+        30908
+      ]
+    },
+    "s_EWIT9ENzUX0": {
+      "origin": "../node_modules/@builder.io/qwik-react/lib/index.qwik.mjs",
+      "displayName": "qwikifyQrl_component_useTask",
+      "canonicalFilename": "s_ewit9enzux0",
+      "hash": "EWIT9ENzUX0",
+      "ctxKind": "function",
+      "ctxName": "useTask$",
+      "captures": true,
+      "parent": "s_zH94hIe0Ick",
+      "loc": [
+        5529,
+        6719
+      ]
+    },
+    "s_4xOyRQce7Es": {
+      "origin": "hooks/useDimsension.ts",
+      "displayName": "useDimensions_useVisibleTask",
+      "canonicalFilename": "s_4xoyrqce7es",
+      "hash": "4xOyRQce7Es",
+      "ctxKind": "function",
+      "ctxName": "useVisibleTask$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        592,
+        821
+      ]
+    },
+    "s_AQgtnS2l2Hk": {
+      "origin": "components/dumb/form/game-menu.tsx",
+      "displayName": "game_menu_component_useVisibleTask",
+      "canonicalFilename": "s_aqgtns2l2hk",
+      "hash": "AQgtnS2l2Hk",
+      "ctxKind": "function",
+      "ctxName": "useVisibleTask$",
+      "captures": true,
+      "parent": "s_L06IKf7RPAs",
+      "loc": [
+        1503,
+        1677
+      ]
+    },
+    "s_LcO2OGTEA00": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "Lifecycle_component_useVisibleTask",
+      "canonicalFilename": "s_lco2ogtea00",
+      "hash": "LcO2OGTEA00",
+      "ctxKind": "function",
+      "ctxName": "useVisibleTask$",
+      "captures": true,
+      "parent": "s_vBVRkPF8kFE",
+      "loc": [
+        36845,
+        37977
+      ]
+    },
+    "s_3sccYCDd1Z0": {
+      "origin": "root.tsx",
+      "displayName": "root_component",
+      "canonicalFilename": "s_3sccycdd1z0",
+      "hash": "3sccYCDd1Z0",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        261,
+        785
+      ]
+    },
+    "s_8gdLBszqbaM": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "Link_component",
+      "canonicalFilename": "s_8gdlbszqbam",
+      "hash": "8gdLBszqbaM",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        32708,
+        34334
+      ]
+    },
+    "s_L06IKf7RPAs": {
+      "origin": "components/dumb/form/game-menu.tsx",
+      "displayName": "game_menu_component",
+      "canonicalFilename": "s_l06ikf7rpas",
+      "hash": "L06IKf7RPAs",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        882,
+        4191
+      ]
+    },
+    "s_Nk9PlpjQm9Y": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "GetForm_component",
+      "canonicalFilename": "s_nk9plpjqm9y",
+      "hash": "Nk9PlpjQm9Y",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        44292,
+        45643
+      ]
+    },
+    "s_TxCFOy819ag": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "QwikCityProvider_component",
+      "canonicalFilename": "s_txcfoy819ag",
+      "hash": "TxCFOy819ag",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        18870,
+        31195
+      ]
+    },
+    "s_VkLNXphUh5s": {
+      "origin": "routes/layout.tsx",
+      "displayName": "layout_component",
+      "canonicalFilename": "s_vklnxphuh5s",
+      "hash": "VkLNXphUh5s",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        926,
+        1066
+      ]
+    },
+    "s_WmYC5H00wtI": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "QwikCityMockProvider_component",
+      "canonicalFilename": "s_wmyc5h00wti",
+      "hash": "WmYC5H00wtI",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        31326,
+        32589
+      ]
+    },
+    "s_e0ssiDXoeAM": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "RouterOutlet_component",
+      "canonicalFilename": "s_e0ssidxoeam",
+      "hash": "e0ssiDXoeAM",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        7908,
+        8622
+      ]
+    },
+    "s_fle1EaVOup8": {
+      "origin": "components/starter/hero/hero.tsx",
+      "displayName": "hero_component",
+      "canonicalFilename": "s_fle1eavoup8",
+      "hash": "fle1EaVOup8",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        115,
+        2937
+      ]
+    },
+    "s_foRSjkQluCc": {
+      "origin": "components/starter/infobox/infobox.tsx",
+      "displayName": "infobox_component",
+      "canonicalFilename": "s_forsjkqlucc",
+      "hash": "foRSjkQluCc",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        124,
+        261
+      ]
+    },
+    "s_kHW5igQ07J4": {
+      "origin": "routes/game/layout!.tsx",
+      "displayName": "layout__component",
+      "canonicalFilename": "s_khw5igq07j4",
+      "hash": "kHW5igQ07J4",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        247,
+        498
+      ]
+    },
+    "s_kJCtKbc9zbk": {
+      "origin": "components/starter/next-steps/next-steps.tsx",
+      "displayName": "next_steps_component",
+      "canonicalFilename": "s_kjctkbc9zbk",
+      "hash": "kJCtKbc9zbk",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        1788,
+        2943
+      ]
+    },
+    "s_li0JgHXGE0c": {
+      "origin": "routes/rules/index.tsx",
+      "displayName": "rules_component",
+      "canonicalFilename": "s_li0jghxge0c",
+      "hash": "li0JgHXGE0c",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        195,
+        515
+      ]
+    },
+    "s_mBt9fIl89mc": {
+      "origin": "components/starter/header/header.tsx",
+      "displayName": "header_component",
+      "canonicalFilename": "s_mbt9fil89mc",
+      "hash": "mBt9fIl89mc",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        386,
+        1181
+      ]
+    },
+    "s_u0bwM0i5dA8": {
+      "origin": "components/starter/footer/footer.tsx",
+      "displayName": "footer_component",
+      "canonicalFilename": "s_u0bwm0i5da8",
+      "hash": "u0bwM0i5dA8",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        172,
+        551
+      ]
+    },
+    "s_vBVRkPF8kFE": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "Lifecycle_component",
+      "canonicalFilename": "s_vbvrkpf8kfe",
+      "hash": "vBVRkPF8kFE",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        36785,
+        38104
+      ]
+    },
+    "s_xOtkIsOnvMw": {
+      "origin": "routes/game/index.tsx",
+      "displayName": "game_component",
+      "canonicalFilename": "s_xotkisonvmw",
+      "hash": "xOtkIsOnvMw",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        333,
+        828
+      ]
+    },
+    "s_xYL1qOwPyDI": {
+      "origin": "routes/index.tsx",
+      "displayName": "routes_component",
+      "canonicalFilename": "s_xyl1qowpydi",
+      "hash": "xYL1qOwPyDI",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        312,
+        3998
+      ]
+    },
+    "s_zH94hIe0Ick": {
+      "origin": "../node_modules/@builder.io/qwik-react/lib/index.qwik.mjs",
+      "displayName": "qwikifyQrl_component",
+      "canonicalFilename": "s_zh94hie0ick",
+      "hash": "zH94hIe0Ick",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        4948,
+        8083
+      ]
+    },
+    "s_zrbrqoaqXSY": {
+      "origin": "components/router-head/router-head.tsx",
+      "displayName": "RouterHead_component",
+      "canonicalFilename": "s_zrbrqoaqxsy",
+      "hash": "zrbrqoaqXSY",
+      "ctxKind": "function",
+      "ctxName": "component$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        243,
+        854
+      ]
+    },
+    "s_DZJjhv4ofRs": {
+      "origin": "routes/game/layout!.tsx",
+      "displayName": "layout__component_useStyles",
+      "canonicalFilename": "s_dzjjhv4ofrs",
+      "hash": "DZJjhv4ofRs",
+      "ctxKind": "function",
+      "ctxName": "useStyles$",
+      "captures": false,
+      "parent": "s_kHW5igQ07J4",
+      "loc": [
+        270,
+        282
+      ]
+    },
+    "s_JKHgMZ4xLZQ": {
+      "origin": "routes/layout.tsx",
+      "displayName": "layout_component_useStyles",
+      "canonicalFilename": "s_jkhgmz4xlzq",
+      "hash": "JKHgMZ4xLZQ",
+      "ctxKind": "function",
+      "ctxName": "useStyles$",
+      "captures": false,
+      "parent": "s_VkLNXphUh5s",
+      "loc": [
+        947,
+        953
+      ]
+    },
+    "s_RPDJAz33WLA": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "QwikCityProvider_component_useStyles",
+      "canonicalFilename": "s_rpdjaz33wla",
+      "hash": "RPDJAz33WLA",
+      "ctxKind": "function",
+      "ctxName": "useStyles$",
+      "captures": false,
+      "parent": "s_TxCFOy819ag",
+      "loc": [
+        18925,
+        18959
+      ]
+    },
+    "s_XmYitGSE5iY": {
+      "origin": "components/dumb/form/game-menu.tsx",
+      "displayName": "game_menu_component_useStyles",
+      "canonicalFilename": "s_xmyitgse5iy",
+      "hash": "XmYitGSE5iY",
+      "ctxKind": "function",
+      "ctxName": "useStyles$",
+      "captures": false,
+      "parent": "s_L06IKf7RPAs",
+      "loc": [
+        962,
+        968
+      ]
+    },
+    "s_b8QqUjOoazU": {
+      "origin": "routes/game/layout!.tsx",
+      "displayName": "layout__component_useStyles_1",
+      "canonicalFilename": "s_b8qqujooazu",
+      "hash": "b8QqUjOoazU",
+      "ctxKind": "function",
+      "ctxName": "useStyles$",
+      "captures": false,
+      "parent": "s_kHW5igQ07J4",
+      "loc": [
+        300,
+        310
+      ]
+    },
+    "s_9tTI6NT0gVw": {
+      "origin": "components/starter/header/header.tsx",
+      "displayName": "header_component_useStylesScoped",
+      "canonicalFilename": "s_9tti6nt0gvw",
+      "hash": "9tTI6NT0gVw",
+      "ctxKind": "function",
+      "ctxName": "useStylesScoped$",
+      "captures": false,
+      "parent": "s_mBt9fIl89mc",
+      "loc": [
+        442,
+        448
+      ]
+    },
+    "s_hkT84xKSMLE": {
+      "origin": "../node_modules/@builder.io/qwik-react/lib/index.qwik.mjs",
+      "displayName": "qwikifyQrl_component_stylesscoped_useStylesScoped",
+      "canonicalFilename": "s_hkt84xksmle",
+      "hash": "hkT84xKSMLE",
+      "ctxKind": "function",
+      "ctxName": "useStylesScoped$",
+      "captures": false,
+      "parent": "s_zH94hIe0Ick",
+      "loc": [
+        5102,
+        5165
+      ]
+    },
+    "s_0EFsQ07yXsM": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "Field_Lifecycle_children",
+      "canonicalFilename": "s_0efsq07yxsm",
+      "hash": "0EFsQ07yXsM",
+      "ctxKind": "function",
+      "ctxName": "children",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        38471,
+        38585
+      ]
+    },
+    "s_0ReltMI3w50": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "maxLength",
+      "canonicalFilename": "s_0reltmi3w50",
+      "hash": "0ReltMI3w50",
+      "ctxKind": "function",
+      "ctxName": "maxLength",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        45067,
+        45211
+      ]
+    },
+    "s_392rGvSQR4s": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "maxRange",
+      "canonicalFilename": "s_392rgvsqr4s",
+      "hash": "392rGvSQR4s",
+      "ctxKind": "function",
+      "ctxName": "maxRange",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        45351,
+        45498
+      ]
+    },
+    "s_3o0sC3dcx3Y": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "zodFieldQrl",
+      "canonicalFilename": "s_3o0sc3dcx3y",
+      "hash": "3o0sC3dcx3Y",
+      "ctxKind": "function",
+      "ctxName": "zodField$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        35913,
+        36104
+      ]
+    },
+    "s_4Ad98cQ1Gyc": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "toCustomQrl",
+      "canonicalFilename": "s_4ad98cq1gyc",
+      "hash": "4Ad98cQ1Gyc",
+      "ctxKind": "function",
+      "ctxName": "toCustom$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        43510,
+        43667
+      ]
+    },
+    "s_6LYztwGzxAA": {
+      "origin": "../node_modules/@builder.io/qwik-react/lib/index.qwik.mjs",
+      "displayName": "useWakeupSignal_activate",
+      "canonicalFilename": "s_6lyztwgzxaa",
+      "hash": "6LYztwGzxAA",
+      "ctxKind": "function",
+      "ctxName": "activate",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        2477,
+        2562
+      ]
+    },
+    "s_8vMT3TABZIQ": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "minLength",
+      "canonicalFilename": "s_8vmt3tabziq",
+      "hash": "8vMT3TABZIQ",
+      "ctxKind": "function",
+      "ctxName": "minLength",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        46809,
+        46953
+      ]
+    },
+    "s_A5bZC7WO00A": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "routeActionQrl_action_submit",
+      "canonicalFilename": "s_a5bzc7wo00a",
+      "hash": "A5bZC7WO00A",
+      "ctxKind": "function",
+      "ctxName": "submit",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        35702,
+        37336
+      ]
+    },
+    "s_B4aABj9CSE0": {
+      "origin": "integrations/react/components/MineSweeper.tsx",
+      "displayName": "Minesweeper_qwikify",
+      "canonicalFilename": "s_b4aabj9cse0",
+      "hash": "B4aABj9CSE0",
+      "ctxKind": "function",
+      "ctxName": "qwikify$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        905,
+        921
+      ]
+    },
+    "s_BGwYN0TDDJg": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "minSize",
+      "canonicalFilename": "s_bgwyn0tddjg",
+      "hash": "BGwYN0TDDJg",
+      "ctxKind": "function",
+      "ctxName": "minSize",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        47378,
+        47605
+      ]
+    },
+    "s_DqH9OzaMLmQ": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "toLowerCase_toCustom",
+      "canonicalFilename": "s_dqh9ozamlmq",
+      "hash": "DqH9OzaMLmQ",
+      "ctxKind": "function",
+      "ctxName": "toCustom$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        43857,
+        43899
+      ]
+    },
+    "s_DyVc0YBIqQU": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "spa_init",
+      "canonicalFilename": "s_dyvc0ybiqqu",
+      "hash": "DyVc0YBIqQU",
+      "ctxKind": "function",
+      "ctxName": "spaInit",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        1391,
+        6849
+      ]
+    },
+    "s_G7xnuJT7jNA": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "mimeType",
+      "canonicalFilename": "s_g7xnujt7jna",
+      "hash": "G7xnuJT7jNA",
+      "ctxKind": "function",
+      "ctxName": "mimeType",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        46432,
+        46671
+      ]
+    },
+    "s_QhQuK0HY6ZA": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "url",
+      "canonicalFilename": "s_qhquk0hy6za",
+      "hash": "QhQuK0HY6ZA",
+      "ctxKind": "function",
+      "ctxName": "url",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        48600,
+        48762
+      ]
+    },
+    "s_T2TywIsANA0": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "maxTotalSize",
+      "canonicalFilename": "s_t2tywisana0",
+      "hash": "T2TywIsANA0",
+      "ctxKind": "function",
+      "ctxName": "maxTotalSize",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        46005,
+        46203
+      ]
+    },
+    "s_TD2dR9TvPOM": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "required",
+      "canonicalFilename": "s_td2dr9tvpom",
+      "hash": "TD2dR9TvPOM",
+      "ctxKind": "function",
+      "ctxName": "required",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        48346,
+        48496
+      ]
+    },
+    "s_UT966TDw31E": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "value",
+      "canonicalFilename": "s_ut966tdw31e",
+      "hash": "UT966TDw31E",
+      "ctxKind": "function",
+      "ctxName": "value",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        48876,
+        49025
+      ]
+    },
+    "s_V62GoVRtnz8": {
+      "origin": "hooks/useDimsension.ts",
+      "displayName": "useDimensions_setDimension",
+      "canonicalFilename": "s_v62govrtnz8",
+      "hash": "V62GoVRtnz8",
+      "ctxKind": "function",
+      "ctxName": "$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        404,
+        568
+      ]
+    },
+    "s_VrMQM0fAHZ4": {
+      "origin": "hooks/useScroll.ts",
+      "displayName": "useScrollPositionPercent_useOnWindow",
+      "canonicalFilename": "s_vrmqm0fahz4",
+      "hash": "VrMQM0fAHZ4",
+      "ctxKind": "function",
+      "ctxName": "$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        221,
+        308
+      ]
+    },
+    "s_WNtBdMWIifo": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "email",
+      "canonicalFilename": "s_wntbdmwiifo",
+      "hash": "WNtBdMWIifo",
+      "ctxKind": "function",
+      "ctxName": "email",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        44731,
+        44947
+      ]
+    },
+    "s_WQShqIriXzI": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "Field_Lifecycle_children_1",
+      "canonicalFilename": "s_wqshqirixzi",
+      "hash": "WQShqIriXzI",
+      "ctxKind": "function",
+      "ctxName": "children",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        38696,
+        38947
+      ]
+    },
+    "s_aEbSHik7hw4": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "minRange",
+      "canonicalFilename": "s_aebshik7hw4",
+      "hash": "aEbSHik7hw4",
+      "ctxKind": "function",
+      "ctxName": "minRange",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        47093,
+        47240
+      ]
+    },
+    "s_eTBCNsyXS74": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "toTrimmed_toCustom",
+      "canonicalFilename": "s_etbcnsyxs74",
+      "hash": "eTBCNsyXS74",
+      "ctxKind": "function",
+      "ctxName": "toCustom$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        44028,
+        44063
+      ]
+    },
+    "s_fzfym1ErEFI": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "Field_Lifecycle_children_3",
+      "canonicalFilename": "s_fzfym1erefi",
+      "hash": "fzfym1ErEFI",
+      "ctxKind": "function",
+      "ctxName": "children",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        39426,
+        39628
+      ]
+    },
+    "s_g3iC2s54jgU": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "zodFormQrl",
+      "canonicalFilename": "s_g3ic2s54jgu",
+      "hash": "g3iC2s54jgU",
+      "ctxKind": "function",
+      "ctxName": "zodForm$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        36270,
+        36614
+      ]
+    },
+    "s_hkWBlzJSItY": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "maxSize",
+      "canonicalFilename": "s_hkwblzjsity",
+      "hash": "hkWBlzJSItY",
+      "ctxKind": "function",
+      "ctxName": "maxSize",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        45636,
+        45863
+      ]
+    },
+    "s_iM6jRcnnx5o": {
+      "origin": "hooks/useDimsension.ts",
+      "displayName": "useDimensions_useComputed",
+      "canonicalFilename": "s_im6jrcnnx5o",
+      "hash": "iM6jRcnnx5o",
+      "ctxKind": "function",
+      "ctxName": "useComputed$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        870,
+        891
+      ]
+    },
+    "s_jNOd7uwD1Mc": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "minTotalSize",
+      "canonicalFilename": "s_jnod7uwd1mc",
+      "hash": "jNOd7uwD1Mc",
+      "ctxKind": "function",
+      "ctxName": "minTotalSize",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        47747,
+        47945
+      ]
+    },
+    "s_jn0vB1n0Eyw": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "toUpperCase_toCustom",
+      "canonicalFilename": "s_jn0vb1n0eyw",
+      "hash": "jn0vB1n0Eyw",
+      "ctxKind": "function",
+      "ctxName": "toCustom$",
+      "captures": false,
+      "parent": null,
+      "loc": [
+        44192,
+        44234
+      ]
+    },
+    "s_qmKnyqz75p4": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "Form_form_onSubmit",
+      "canonicalFilename": "s_qmknyqz75p4",
+      "hash": "qmKnyqz75p4",
+      "ctxKind": "function",
+      "ctxName": "_jsxS",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        40573,
+        42119
+      ]
+    },
+    "s_s760ZT1A33E": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "pattern",
+      "canonicalFilename": "s_s760zt1a33e",
+      "hash": "s760ZT1A33E",
+      "ctxKind": "function",
+      "ctxName": "pattern",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        48087,
+        48221
+      ]
+    },
+    "s_vNtVq2dMPhY": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "Field_Lifecycle_children_2",
+      "canonicalFilename": "s_vntvq2dmphy",
+      "hash": "vNtVq2dMPhY",
+      "ctxKind": "function",
+      "ctxName": "children",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        39103,
+        39286
+      ]
+    },
+    "s_wOIPfiQ04l4": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "serverQrl_stuff",
+      "canonicalFilename": "s_woipfiq04l4",
+      "hash": "wOIPfiQ04l4",
+      "ctxKind": "function",
+      "ctxName": "stuff",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        40354,
+        42178
+      ]
+    },
+    "s_xXv2fc1rQKg": {
+      "origin": "../node_modules/@modular-forms/qwik/dist/index.qwik.mjs",
+      "displayName": "customQrl",
+      "canonicalFilename": "s_xxv2fc1rqkg",
+      "hash": "xXv2fc1rQKg",
+      "ctxKind": "function",
+      "ctxName": "custom$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        44362,
+        44561
+      ]
+    },
+    "s_zRoagntyx08": {
+      "origin": "hooks/useScroll.ts",
+      "displayName": "useScrollPositionPercent_useComputed",
+      "canonicalFilename": "s_zroagntyx08",
+      "hash": "zRoagntyx08",
+      "ctxKind": "function",
+      "ctxName": "useComputed$",
+      "captures": true,
+      "parent": null,
+      "loc": [
+        336,
+        354
+      ]
+    },
+    "s_BUbtvTyvVRE": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "QwikCityMockProvider_component_goto",
+      "canonicalFilename": "s_bubtvtyvvre",
+      "hash": "BUbtvTyvVRE",
+      "ctxKind": "function",
+      "ctxName": "goto",
+      "captures": false,
+      "parent": "s_WmYC5H00wtI",
+      "loc": [
+        31727,
+        31788
+      ]
+    },
+    "s_BXcv8nZLWXg": {
+      "origin": "components/dumb/form/game-menu.tsx",
+      "displayName": "game_menu_component_handleSubmit",
+      "canonicalFilename": "s_bxcv8nzlwxg",
+      "hash": "BXcv8nZLWXg",
+      "ctxKind": "function",
+      "ctxName": "$",
+      "captures": true,
+      "parent": "s_L06IKf7RPAs",
+      "loc": [
+        1322,
+        1479
+      ]
+    },
+    "s_NYEDprtA0Lw": {
+      "origin": "components/starter/next-steps/next-steps.tsx",
+      "displayName": "next_steps_component_div_button_onClick_1",
+      "canonicalFilename": "s_nyedprta0lw",
+      "hash": "NYEDprtA0Lw",
+      "ctxKind": "eventHandler",
+      "ctxName": "onClick$",
+      "captures": true,
+      "parent": "s_kJCtKbc9zbk",
+      "loc": [
+        2841,
+        2877
+      ]
+    },
+    "s_UxlJFslpf0s": {
+      "origin": "components/starter/next-steps/next-steps.tsx",
+      "displayName": "next_steps_component_useOnWindow",
+      "canonicalFilename": "s_uxljfslpf0s",
+      "hash": "UxlJFslpf0s",
+      "ctxKind": "function",
+      "ctxName": "$",
+      "captures": true,
+      "parent": "s_kJCtKbc9zbk",
+      "loc": [
+        1876,
+        1984
+      ]
+    },
+    "s_eBQ0vFsFKsk": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "Link_component_onPrefetch_event",
+      "canonicalFilename": "s_ebq0vfsfksk",
+      "hash": "eBQ0vFsFKsk",
+      "ctxKind": "function",
+      "ctxName": "event$",
+      "captures": false,
+      "parent": "s_8gdLBszqbaM",
+      "loc": [
+        33210,
+        33273
+      ]
+    },
+    "s_fX0bDjeJa0E": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "QwikCityProvider_component_goto",
+      "canonicalFilename": "s_fx0bdjeja0e",
+      "hash": "fX0bDjeJa0E",
+      "ctxKind": "function",
+      "ctxName": "goto",
+      "captures": true,
+      "parent": "s_TxCFOy819ag",
+      "loc": [
+        20209,
+        21528
+      ]
+    },
+    "s_gRRz00JItKA": {
+      "origin": "components/starter/next-steps/next-steps.tsx",
+      "displayName": "next_steps_component_div_button_onClick",
+      "canonicalFilename": "s_grrz00jitka",
+      "hash": "gRRz00JItKA",
+      "ctxKind": "eventHandler",
+      "ctxName": "onClick$",
+      "captures": true,
+      "parent": "s_kJCtKbc9zbk",
+      "loc": [
+        2636,
+        2668
+      ]
+    },
+    "s_i1Cv0pYJNR0": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "Link_component_handleClick_event",
+      "canonicalFilename": "s_i1cv0pyjnr0",
+      "hash": "i1Cv0pYJNR0",
+      "ctxKind": "function",
+      "ctxName": "event$",
+      "captures": true,
+      "parent": "s_8gdLBszqbaM",
+      "loc": [
+        33391,
+        33906
+      ]
+    },
+    "s_p9MSze0ojs4": {
+      "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
+      "displayName": "GetForm_component_form_onSubmit",
+      "canonicalFilename": "s_p9msze0ojs4",
+      "hash": "p9MSze0ojs4",
+      "ctxKind": "function",
+      "ctxName": "_jsxS",
+      "captures": true,
+      "parent": "s_Nk9PlpjQm9Y",
+      "loc": [
+        44599,
+        45296
+      ]
+    },
+    "s_uoFNkemvmys": {
+      "origin": "components/dumb/form/game-menu.tsx",
+      "displayName": "game_menu_component_useForm_zodForm",
+      "canonicalFilename": "s_uofnkemvmys",
+      "hash": "uoFNkemvmys",
+      "ctxKind": "function",
+      "ctxName": "zodForm$",
+      "captures": false,
+      "parent": "s_L06IKf7RPAs",
+      "loc": [
+        1238,
+        1252
+      ]
+    },
+    "s_zwO7CtYmrPQ": {
+      "origin": "components/starter/hero/hero.tsx",
+      "displayName": "hero_component_div_div_button_onClick",
+      "canonicalFilename": "s_zwo7ctymrpq",
+      "hash": "zwO7CtYmrPQ",
+      "ctxKind": "eventHandler",
+      "ctxName": "onClick$",
+      "captures": false,
+      "parent": "s_fle1EaVOup8",
+      "loc": [
+        555,
+        2811
+      ]
+    }
+  },
+  "mapping": {
+    "s_02wMImzEAbk": "q-4040c89c.js",
+    "s_EWIT9ENzUX0": "q-f0c2a5ed.js",
+    "s_4xOyRQce7Es": "q-2c5f6469.js",
+    "s_AQgtnS2l2Hk": "q-d3a7ce18.js",
+    "s_LcO2OGTEA00": "q-2ed2a4ea.js",
+    "s_3sccYCDd1Z0": "q-36065a48.js",
+    "s_8gdLBszqbaM": "q-f2fc0bb7.js",
+    "s_L06IKf7RPAs": "q-d3a7ce18.js",
+    "s_Nk9PlpjQm9Y": "q-8fb4d9b3.js",
+    "s_TxCFOy819ag": "q-4040c89c.js",
+    "s_VkLNXphUh5s": "q-6e86c53f.js",
+    "s_WmYC5H00wtI": "q-6aad42c1.js",
+    "s_e0ssiDXoeAM": "q-f2d8045e.js",
+    "s_fle1EaVOup8": "q-5b5205d2.js",
+    "s_foRSjkQluCc": "q-e9cc8c95.js",
+    "s_kHW5igQ07J4": "q-c09b2d9e.js",
+    "s_kJCtKbc9zbk": "q-9c991eb8.js",
+    "s_li0JgHXGE0c": "q-1153eebd.js",
+    "s_mBt9fIl89mc": "q-5030247d.js",
+    "s_u0bwM0i5dA8": "q-d0ddfb87.js",
+    "s_vBVRkPF8kFE": "q-2ed2a4ea.js",
+    "s_xOtkIsOnvMw": "q-0b9ccfe8.js",
+    "s_xYL1qOwPyDI": "q-085fd0c1.js",
+    "s_zH94hIe0Ick": "q-f0c2a5ed.js",
+    "s_zrbrqoaqXSY": "q-9af01755.js",
+    "s_DZJjhv4ofRs": "q-c09b2d9e.js",
+    "s_JKHgMZ4xLZQ": "q-6e86c53f.js",
+    "s_RPDJAz33WLA": "q-4040c89c.js",
+    "s_XmYitGSE5iY": "q-d3a7ce18.js",
+    "s_b8QqUjOoazU": "q-c09b2d9e.js",
+    "s_9tTI6NT0gVw": "q-5030247d.js",
+    "s_hkT84xKSMLE": "q-f0c2a5ed.js",
+    "s_0EFsQ07yXsM": "q-6c9529a1.js",
+    "s_0ReltMI3w50": "q-af41b1dd.js",
+    "s_392rGvSQR4s": "q-60871b97.js",
+    "s_3o0sC3dcx3Y": "q-83e31fca.js",
+    "s_4Ad98cQ1Gyc": "q-4ad67420.js",
+    "s_6LYztwGzxAA": "q-91fc3dab.js",
+    "s_8vMT3TABZIQ": "q-5c2e66ae.js",
+    "s_A5bZC7WO00A": "q-13e7a2af.js",
+    "s_B4aABj9CSE0": "q-abea0396.js",
+    "s_BGwYN0TDDJg": "q-d2d9c817.js",
+    "s_DqH9OzaMLmQ": "q-ab2b9bf6.js",
+    "s_DyVc0YBIqQU": "q-61e731e2.js",
+    "s_G7xnuJT7jNA": "q-9d771f9f.js",
+    "s_QhQuK0HY6ZA": "q-29a72160.js",
+    "s_T2TywIsANA0": "q-5d3e9428.js",
+    "s_TD2dR9TvPOM": "q-49ffefe1.js",
+    "s_UT966TDw31E": "q-6bc0f8b1.js",
+    "s_V62GoVRtnz8": "q-2c5f6469.js",
+    "s_VrMQM0fAHZ4": "q-262ff8ed.js",
+    "s_WNtBdMWIifo": "q-9308b263.js",
+    "s_WQShqIriXzI": "q-6c9529a1.js",
+    "s_aEbSHik7hw4": "q-9991001f.js",
+    "s_eTBCNsyXS74": "q-63c705a7.js",
+    "s_fzfym1ErEFI": "q-6c9529a1.js",
+    "s_g3iC2s54jgU": "q-6a6acc9f.js",
+    "s_hkWBlzJSItY": "q-766ed626.js",
+    "s_iM6jRcnnx5o": "q-2c5f6469.js",
+    "s_jNOd7uwD1Mc": "q-dda691e0.js",
+    "s_jn0vB1n0Eyw": "q-fa98c263.js",
+    "s_qmKnyqz75p4": "q-30d10a92.js",
+    "s_s760ZT1A33E": "q-5aeca795.js",
+    "s_vNtVq2dMPhY": "q-6c9529a1.js",
+    "s_wOIPfiQ04l4": "q-2bdfde30.js",
+    "s_xXv2fc1rQKg": "q-d3bfdd76.js",
+    "s_zRoagntyx08": "q-262ff8ed.js",
+    "s_BUbtvTyvVRE": "q-6aad42c1.js",
+    "s_BXcv8nZLWXg": "q-d3a7ce18.js",
+    "s_NYEDprtA0Lw": "q-9c991eb8.js",
+    "s_UxlJFslpf0s": "q-9c991eb8.js",
+    "s_eBQ0vFsFKsk": "q-e07ccfa8.js",
+    "s_fX0bDjeJa0E": "q-4040c89c.js",
+    "s_gRRz00JItKA": "q-9c991eb8.js",
+    "s_i1Cv0pYJNR0": "q-f2fc0bb7.js",
+    "s_p9MSze0ojs4": "q-8fb4d9b3.js",
+    "s_uoFNkemvmys": "q-d3a7ce18.js",
+    "s_zwO7CtYmrPQ": "q-5e07d20c.js"
+  },
+  "bundles": {
+    "q-0649d53e.js": {
+      "size": 268,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-5030247d.js"
+      ],
+      "origins": [
+        "src/components/starter/header/header.tsx",
+        "src/routes/styles.css?used&inline"
+      ]
+    },
+    "q-085fd0c1.js": {
+      "size": 2634,
+      "imports": [
+        "q-1279833c.js",
+        "q-2af11bbb.js",
+        "q-caa24d58.js"
+      ],
+      "dynamicImports": [
+        "q-5b5205d2.js"
+      ],
+      "origins": [
+        "src/components/starter/hero/hero.tsx",
+        "src/entry_routes.js",
+        "src/s_xyl1qowpydi.js"
+      ],
+      "symbols": [
+        "s_xYL1qOwPyDI"
+      ]
+    },
+    "q-0b9ccfe8.js": {
+      "size": 1208,
+      "imports": [
+        "q-0da1b34f.js",
+        "q-2af11bbb.js",
+        "q-314f82a7.js",
+        "q-88b83471.js",
+        "q-fe8f9ba1.js"
+      ],
+      "dynamicImports": [
+        "q-2c5f6469.js",
+        "q-2c5f6469.js",
+        "q-2c5f6469.js"
+      ],
+      "origins": [
+        "src/entry_game.js",
+        "src/hooks/useDimsension.ts",
+        "src/s_xotkisonvmw.js"
+      ],
+      "symbols": [
+        "s_xOtkIsOnvMw"
+      ]
+    },
+    "q-0da1b34f.js": {
+      "size": 53893,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-d3a7ce18.js"
+      ],
+      "origins": [
+        "node_modules/zod/lib/index.mjs",
+        "src/components/dumb/form/game-menu.tsx"
+      ]
+    },
+    "q-1153eebd.js": {
+      "size": 431,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-caa24d58.js"
+      ],
+      "origins": [
+        "src/entry_rules.js",
+        "src/s_li0jghxge0c.js"
+      ],
+      "symbols": [
+        "s_li0JgHXGE0c"
+      ]
+    },
+    "q-1279833c.js": {
+      "size": 1667,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-9c991eb8.js"
+      ],
+      "origins": [
+        "src/components/starter/next-steps/next-steps.tsx"
+      ]
+    },
+    "q-13e7a2af.js": {
+      "size": 751,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_routeActionQrl.js",
+        "src/s_a5bzc7wo00a.js"
+      ],
+      "symbols": [
+        "s_A5bZC7WO00A"
+      ]
+    },
+    "q-236b8bc4.js": {
+      "size": 9469,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-2ed2a4ea.js",
+        "q-30d10a92.js",
+        "q-6a6acc9f.js",
+        "q-6c9529a1.js",
+        "q-6c9529a1.js",
+        "q-6c9529a1.js",
+        "q-6c9529a1.js"
+      ],
+      "origins": [
+        "node_modules/@modular-forms/qwik/dist/index.qwik.mjs"
+      ]
+    },
+    "q-262ff8ed.js": {
+      "size": 269,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_useScrollPositionPercent.js",
+        "src/s_vrmqm0fahz4.js",
+        "src/s_zroagntyx08.js"
+      ],
+      "symbols": [
+        "s_VrMQM0fAHZ4",
+        "s_zRoagntyx08"
+      ]
+    },
+    "q-29a72160.js": {
+      "size": 134,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_url.js",
+        "src/s_qhquk0hy6za.js"
+      ],
+      "symbols": [
+        "s_QhQuK0HY6ZA"
+      ]
+    },
+    "q-2af11bbb.js": {
+      "size": 49503,
+      "origins": [
+        "node_modules/@builder.io/qwik/core.min.mjs"
+      ]
+    },
+    "q-2bdfde30.js": {
+      "size": 889,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "origins": [
+        "src/entry_serverQrl.js",
+        "src/s_woipfiq04l4.js"
+      ],
+      "symbols": [
+        "s_wOIPfiQ04l4"
+      ]
+    },
+    "q-2c5f6469.js": {
+      "size": 362,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_useDimensions.js",
+        "src/s_4xoyrqce7es.js",
+        "src/s_im6jrcnnx5o.js",
+        "src/s_v62govrtnz8.js"
+      ],
+      "symbols": [
+        "s_4xOyRQce7Es",
+        "s_iM6jRcnnx5o",
+        "s_V62GoVRtnz8"
+      ]
+    },
+    "q-2ed2a4ea.js": {
+      "size": 1063,
+      "imports": [
+        "q-236b8bc4.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_Lifecycle.js",
+        "src/s_lco2ogtea00.js",
+        "src/s_vbvrkpf8kfe.js"
+      ],
+      "symbols": [
+        "s_LcO2OGTEA00",
+        "s_vBVRkPF8kFE"
+      ]
+    },
+    "q-30d10a92.js": {
+      "size": 717,
+      "imports": [
+        "q-236b8bc4.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_Form.js",
+        "src/s_qmknyqz75p4.js"
+      ],
+      "symbols": [
+        "s_qmKnyqz75p4"
+      ]
+    },
+    "q-30fb0e37.js": {
+      "size": 327,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-085fd0c1.js"
+      ],
+      "origins": [
+        "src/routes/index.tsx"
+      ]
+    },
+    "q-314f82a7.js": {
+      "size": 180,
+      "origins": [
+        "src/utils/calculations.ts"
+      ]
+    },
+    "q-36065a48.js": {
+      "size": 543,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "dynamicImports": [
+        "q-9af01755.js"
+      ],
+      "origins": [
+        "src/components/router-head/router-head.tsx",
+        "src/entry_root.js",
+        "src/s_3sccycdd1z0.js"
+      ],
+      "symbols": [
+        "s_3sccYCDd1Z0"
+      ]
+    },
+    "q-4040c89c.js": {
+      "size": 5833,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "dynamicImports": [
+        "q-30fb0e37.js",
+        "q-4bcf5b39.js",
+        "q-56511a25.js",
+        "q-80697978.js",
+        "q-c580a8d4.js",
+        "q-e7292fcf.js"
+      ],
+      "origins": [
+        "@qwik-city-plan",
+        "src/entry_QwikCityProvider.js",
+        "src/s_02wmimzeabk.js",
+        "src/s_fx0bdjeja0e.js",
+        "src/s_rpdjaz33wla.js",
+        "src/s_txcfoy819ag.js"
+      ],
+      "symbols": [
+        "s_02wMImzEAbk",
+        "s_fX0bDjeJa0E",
+        "s_RPDJAz33WLA",
+        "s_TxCFOy819ag"
+      ]
+    },
+    "q-49ffefe1.js": {
+      "size": 140,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_required.js",
+        "src/s_td2dr9tvpom.js"
+      ],
+      "symbols": [
+        "s_TD2dR9TvPOM"
+      ]
+    },
+    "q-4ad67420.js": {
+      "size": 127,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_toCustomQrl.js",
+        "src/s_4ad98cq1gyc.js"
+      ],
+      "symbols": [
+        "s_4Ad98cQ1Gyc"
+      ]
+    },
+    "q-4bcf5b39.js": {
+      "size": 207,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-c09b2d9e.js"
+      ],
+      "origins": [
+        "src/routes/game/layout!.tsx"
+      ]
+    },
+    "q-5030247d.js": {
+      "size": 103261,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-314f82a7.js"
+      ],
+      "dynamicImports": [
+        "q-262ff8ed.js",
+        "q-262ff8ed.js"
+      ],
+      "origins": [
+        "src/components/starter/header/header.css?used&inline",
+        "src/components/starter/icons/minesweeper.tsx",
+        "src/entry_header.js",
+        "src/hooks/useScroll.ts",
+        "src/s_9tti6nt0gvw.js",
+        "src/s_mbt9fil89mc.js"
+      ],
+      "symbols": [
+        "s_9tTI6NT0gVw",
+        "s_mBt9fIl89mc"
+      ]
+    },
+    "q-56511a25.js": {
+      "size": 125,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-8ea06850.js"
+      ],
+      "origins": [
+        "@qwik-city-entries"
+      ]
+    },
+    "q-5aeca795.js": {
+      "size": 118,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_pattern.js",
+        "src/s_s760zt1a33e.js"
+      ],
+      "symbols": [
+        "s_s760ZT1A33E"
+      ]
+    },
+    "q-5b5205d2.js": {
+      "size": 650,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-5e07d20c.js"
+      ],
+      "origins": [
+        "src/components/starter/hero/hero.module.css?used",
+        "src/entry_hero.js",
+        "src/s_fle1eavoup8.js"
+      ],
+      "symbols": [
+        "s_fle1EaVOup8"
+      ]
+    },
+    "q-5c2e66ae.js": {
+      "size": 134,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_minLength.js",
+        "src/s_8vmt3tabziq.js"
+      ],
+      "symbols": [
+        "s_8vMT3TABZIQ"
+      ]
+    },
+    "q-5d3e9428.js": {
+      "size": 158,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_maxTotalSize.js",
+        "src/s_t2tywisana0.js"
+      ],
+      "symbols": [
+        "s_T2TywIsANA0"
+      ]
+    },
+    "q-5e07d20c.js": {
+      "size": 693,
+      "origins": [
+        "src/s_zwo7ctymrpq.js"
+      ],
+      "symbols": [
+        "s_zwO7CtYmrPQ"
+      ]
+    },
+    "q-60871b97.js": {
+      "size": 119,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_maxRange.js",
+        "src/s_392rgvsqr4s.js"
+      ],
+      "symbols": [
+        "s_392rGvSQR4s"
+      ]
+    },
+    "q-61e731e2.js": {
+      "size": 2272,
+      "origins": [
+        "src/entry_spaInit.js",
+        "src/s_dyvc0ybiqqu.js"
+      ],
+      "symbols": [
+        "s_DyVc0YBIqQU"
+      ]
+    },
+    "q-63c705a7.js": {
+      "size": 51,
+      "origins": [
+        "src/entry_toTrimmed.js",
+        "src/s_etbcnsyxs74.js"
+      ],
+      "symbols": [
+        "s_eTBCNsyXS74"
+      ]
+    },
+    "q-6a6acc9f.js": {
+      "size": 254,
+      "imports": [
+        "q-236b8bc4.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_zodFormQrl.js",
+        "src/s_g3ic2s54jgu.js"
+      ],
+      "symbols": [
+        "s_g3iC2s54jgU"
+      ]
+    },
+    "q-6aad42c1.js": {
+      "size": 787,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "origins": [
+        "src/entry_QwikCityMockProvider.js",
+        "src/s_bubtvtyvvre.js",
+        "src/s_wmyc5h00wti.js"
+      ],
+      "symbols": [
+        "s_BUbtvTyvVRE",
+        "s_WmYC5H00wtI"
+      ]
+    },
+    "q-6bc0f8b1.js": {
+      "size": 121,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_value.js",
+        "src/s_ut966tdw31e.js"
+      ],
+      "symbols": [
+        "s_UT966TDw31E"
+      ]
+    },
+    "q-6c9529a1.js": {
+      "size": 402,
+      "imports": [
+        "q-236b8bc4.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_Field.js",
+        "src/s_0efsq07yxsm.js",
+        "src/s_fzfym1erefi.js",
+        "src/s_vntvq2dmphy.js",
+        "src/s_wqshqirixzi.js"
+      ],
+      "symbols": [
+        "s_0EFsQ07yXsM",
+        "s_fzfym1ErEFI",
+        "s_vNtVq2dMPhY",
+        "s_WQShqIriXzI"
+      ]
+    },
+    "q-6e86c53f.js": {
+      "size": 650,
+      "imports": [
+        "q-0649d53e.js",
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-d0ddfb87.js"
+      ],
+      "origins": [
+        "src/components/starter/footer/footer.tsx",
+        "src/entry_layout.js",
+        "src/s_jkhgmz4xlzq.js",
+        "src/s_vklnxphuh5s.js"
+      ],
+      "symbols": [
+        "s_JKHgMZ4xLZQ",
+        "s_VkLNXphUh5s"
+      ]
+    },
+    "q-766ed626.js": {
+      "size": 160,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_maxSize.js",
+        "src/s_hkwblzjsity.js"
+      ],
+      "symbols": [
+        "s_hkWBlzJSItY"
+      ]
+    },
+    "q-80697978.js": {
+      "size": 402,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "dynamicImports": [
+        "q-6e86c53f.js"
+      ],
+      "origins": [
+        "src/routes/layout.tsx"
+      ]
+    },
+    "q-83e31fca.js": {
+      "size": 193,
+      "imports": [
+        "q-236b8bc4.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_zodFieldQrl.js",
+        "src/s_3o0sc3dcx3y.js"
+      ],
+      "symbols": [
+        "s_3o0sC3dcx3Y"
+      ]
+    },
+    "q-84108b2e.js": {
+      "size": 6563,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-4040c89c.js",
+        "q-61e731e2.js",
+        "q-f2d8045e.js"
+      ],
+      "origins": [
+        "@qwik-city-sw-register",
+        "node_modules/@builder.io/qwik-city/index.qwik.mjs"
+      ]
+    },
+    "q-88b83471.js": {
+      "size": 8669,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-91fc3dab.js",
+        "q-f0c2a5ed.js"
+      ],
+      "origins": [
+        "node_modules/@builder.io/qwik-react/lib/index.qwik.mjs",
+        "node_modules/react/cjs/react.production.min.js",
+        "node_modules/react/index.js"
+      ]
+    },
+    "q-8ea06850.js": {
+      "size": 2539,
+      "origins": [
+        "node_modules/@builder.io/qwik-city/service-worker.mjs",
+        "src/routes/service-worker.ts"
+      ]
+    },
+    "q-8fb4d9b3.js": {
+      "size": 1027,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "origins": [
+        "src/entry_GetForm.js",
+        "src/s_nk9plpjqm9y.js",
+        "src/s_p9msze0ojs4.js"
+      ],
+      "symbols": [
+        "s_Nk9PlpjQm9Y",
+        "s_p9MSze0ojs4"
+      ]
+    },
+    "q-91fc3dab.js": {
+      "size": 109,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_useWakeupSignal.js",
+        "src/s_6lyztwgzxaa.js"
+      ],
+      "symbols": [
+        "s_6LYztwGzxAA"
+      ]
+    },
+    "q-9308b263.js": {
+      "size": 223,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_email.js",
+        "src/s_wntbdmwiifo.js"
+      ],
+      "symbols": [
+        "s_WNtBdMWIifo"
+      ]
+    },
+    "q-9991001f.js": {
+      "size": 119,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_minRange.js",
+        "src/s_aebshik7hw4.js"
+      ],
+      "symbols": [
+        "s_aEbSHik7hw4"
+      ]
+    },
+    "q-9af01755.js": {
+      "size": 671,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "origins": [
+        "src/entry_RouterHead.js",
+        "src/s_zrbrqoaqxsy.js"
+      ],
+      "symbols": [
+        "s_zrbrqoaqXSY"
+      ]
+    },
+    "q-9c991eb8.js": {
+      "size": 1495,
+      "imports": [
+        "q-1279833c.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/components/starter/next-steps/next-steps.module.css?used",
+        "src/entry_next_steps.js",
+        "src/s_grrz00jitka.js",
+        "src/s_kjctkbc9zbk.js",
+        "src/s_nyedprta0lw.js",
+        "src/s_uxljfslpf0s.js"
+      ],
+      "symbols": [
+        "s_gRRz00JItKA",
+        "s_kJCtKbc9zbk",
+        "s_NYEDprtA0Lw",
+        "s_UxlJFslpf0s"
+      ]
+    },
+    "q-9d771f9f.js": {
+      "size": 182,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_mimeType.js",
+        "src/s_g7xnujt7jna.js"
+      ],
+      "symbols": [
+        "s_G7xnuJT7jNA"
+      ]
+    },
+    "q-ab2b9bf6.js": {
+      "size": 58,
+      "origins": [
+        "src/entry_toLowerCase.js",
+        "src/s_dqh9ozamlmq.js"
+      ],
+      "symbols": [
+        "s_DqH9OzaMLmQ"
+      ]
+    },
+    "q-abea0396.js": {
+      "size": 146,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-314f82a7.js",
+        "q-88b83471.js",
+        "q-fe8f9ba1.js"
+      ],
+      "origins": [
+        "src/entry_Minesweeper.js",
+        "src/s_b4aabj9cse0.js"
+      ],
+      "symbols": [
+        "s_B4aABj9CSE0"
+      ]
+    },
+    "q-af41b1dd.js": {
+      "size": 134,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_maxLength.js",
+        "src/s_0reltmi3w50.js"
+      ],
+      "symbols": [
+        "s_0ReltMI3w50"
+      ]
+    },
+    "q-c09b2d9e.js": {
+      "size": 748,
+      "imports": [
+        "q-0649d53e.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_layout_.js",
+        "src/routes/game/styles.css?used&inline",
+        "src/s_b8qqujooazu.js",
+        "src/s_dzjjhv4ofrs.js",
+        "src/s_khw5igq07j4.js"
+      ],
+      "symbols": [
+        "s_b8QqUjOoazU",
+        "s_DZJjhv4ofRs",
+        "s_kHW5igQ07J4"
+      ]
+    },
+    "q-c580a8d4.js": {
+      "size": 331,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-1153eebd.js"
+      ],
+      "origins": [
+        "src/routes/rules/index.tsx"
+      ]
+    },
+    "q-caa24d58.js": {
+      "size": 179,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-e9cc8c95.js"
+      ],
+      "origins": [
+        "src/components/starter/infobox/infobox.tsx"
+      ]
+    },
+    "q-ce896267.js": {
+      "size": 207,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-36065a48.js"
+      ],
+      "origins": [
+        "src/global.css",
+        "src/root.tsx"
+      ]
+    },
+    "q-d0ddfb87.js": {
+      "size": 550,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-80697978.js",
+        "q-84108b2e.js"
+      ],
+      "origins": [
+        "src/components/starter/footer/footer.module.css?used",
+        "src/entry_footer.js",
+        "src/s_u0bwm0i5da8.js"
+      ],
+      "symbols": [
+        "s_u0bwM0i5dA8"
+      ]
+    },
+    "q-d2d9c817.js": {
+      "size": 160,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_minSize.js",
+        "src/s_bgwyn0tddjg.js"
+      ],
+      "symbols": [
+        "s_BGwYN0TDDJg"
+      ]
+    },
+    "q-d3a7ce18.js": {
+      "size": 2762,
+      "imports": [
+        "q-0da1b34f.js",
+        "q-236b8bc4.js",
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "node_modules/styled-vanilla-extract/lib/qwik-styled.js",
+        "src/components/dumb/form/styles.css?used&inline",
+        "src/components/dumb/styled/button.css.ts.vanilla.css",
+        "src/components/dumb/styled/button.css.ts?used",
+        "src/components/dumb/styled/title.css.ts.vanilla.css",
+        "src/components/dumb/styled/title.css.ts?used",
+        "src/entry_game_menu.js",
+        "src/s_aqgtns2l2hk.js",
+        "src/s_bxcv8nzlwxg.js",
+        "src/s_l06ikf7rpas.js",
+        "src/s_uofnkemvmys.js",
+        "src/s_xmyitgse5iy.js"
+      ],
+      "symbols": [
+        "s_AQgtnS2l2Hk",
+        "s_BXcv8nZLWXg",
+        "s_L06IKf7RPAs",
+        "s_uoFNkemvmys",
+        "s_XmYitGSE5iY"
+      ]
+    },
+    "q-d3bfdd76.js": {
+      "size": 159,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_customQrl.js",
+        "src/s_xxv2fc1rqkg.js"
+      ],
+      "symbols": [
+        "s_xXv2fc1rQKg"
+      ]
+    },
+    "q-dda691e0.js": {
+      "size": 158,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/entry_minTotalSize.js",
+        "src/s_jnod7uwd1mc.js"
+      ],
+      "symbols": [
+        "s_jNOd7uwD1Mc"
+      ]
+    },
+    "q-e07ccfa8.js": {
+      "size": 128,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "origins": [
+        "src/s_ebq0vfsfksk.js"
+      ],
+      "symbols": [
+        "s_eBQ0vFsFKsk"
+      ]
+    },
+    "q-e7292fcf.js": {
+      "size": 386,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "dynamicImports": [
+        "q-0b9ccfe8.js"
+      ],
+      "origins": [
+        "src/routes/game/index.tsx"
+      ]
+    },
+    "q-e9cc8c95.js": {
+      "size": 261,
+      "imports": [
+        "q-2af11bbb.js"
+      ],
+      "origins": [
+        "src/components/starter/infobox/infobox.module.css?used",
+        "src/entry_infobox.js",
+        "src/s_forsjkqlucc.js"
+      ],
+      "symbols": [
+        "s_foRSjkQluCc"
+      ]
+    },
+    "q-f0c2a5ed.js": {
+      "size": 135402,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-88b83471.js"
+      ],
+      "origins": [
+        "node_modules/react-dom/cjs/react-dom.production.min.js",
+        "node_modules/react-dom/client.js",
+        "node_modules/react-dom/index.js",
+        "node_modules/react-dom/node_modules/scheduler/cjs/scheduler.production.min.js",
+        "node_modules/react-dom/node_modules/scheduler/index.js",
+        "src/entry_qwikifyQrl.js",
+        "src/s_ewit9enzux0.js",
+        "src/s_hkt84xksmle.js",
+        "src/s_zh94hie0ick.js"
+      ],
+      "symbols": [
+        "s_EWIT9ENzUX0",
+        "s_hkT84xKSMLE",
+        "s_zH94hIe0Ick"
+      ]
+    },
+    "q-f2d8045e.js": {
+      "size": 467,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "origins": [
+        "src/entry_RouterOutlet.js",
+        "src/s_e0ssidxoeam.js"
+      ],
+      "symbols": [
+        "s_e0ssiDXoeAM"
+      ]
+    },
+    "q-f2fc0bb7.js": {
+      "size": 1135,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-84108b2e.js"
+      ],
+      "dynamicImports": [
+        "q-e07ccfa8.js"
+      ],
+      "origins": [
+        "src/entry_Link.js",
+        "src/s_8gdlbszqbam.js",
+        "src/s_i1cv0pyjnr0.js"
+      ],
+      "symbols": [
+        "s_8gdLBszqbaM",
+        "s_i1Cv0pYJNR0"
+      ]
+    },
+    "q-fa98c263.js": {
+      "size": 58,
+      "origins": [
+        "src/entry_toUpperCase.js",
+        "src/s_jn0vb1n0eyw.js"
+      ],
+      "symbols": [
+        "s_jn0vB1n0Eyw"
+      ]
+    },
+    "q-fe8f9ba1.js": {
+      "size": 1116427,
+      "imports": [
+        "q-2af11bbb.js",
+        "q-314f82a7.js",
+        "q-88b83471.js"
+      ],
+      "dynamicImports": [
+        "q-abea0396.js"
+      ],
+      "origins": [
+        "node_modules/@babel/runtime/helpers/esm/extends.js",
+        "node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js",
+        "node_modules/@emotion/hash/dist/emotion-hash.esm.js",
+        "node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js",
+        "node_modules/@emotion/memoize/dist/emotion-memoize.esm.js",
+        "node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js",
+        "node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js",
+        "node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js",
+        "node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js",
+        "node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js",
+        "node_modules/@emotion/unitless/dist/emotion-unitless.esm.js",
+        "node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js",
+        "node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js",
+        "node_modules/@react-three/drei/core/Billboard.js",
+        "node_modules/@react-three/drei/core/CameraShake.js",
+        "node_modules/@react-three/drei/core/Float.js",
+        "node_modules/@react-three/drei/core/OrbitControls.js",
+        "node_modules/@react-three/drei/core/OrthographicCamera.js",
+        "node_modules/@react-three/drei/core/Text.js",
+        "node_modules/@react-three/drei/core/useFBO.js",
+        "node_modules/@react-three/drei/core/useGLTF.js",
+        "node_modules/@react-three/fiber/dist/index-27578f8f.esm.js",
+        "node_modules/@react-three/fiber/dist/react-three-fiber.esm.js",
+        "node_modules/bidi-js/dist/bidi.mjs",
+        "node_modules/debounce/index.js",
+        "node_modules/framer-motion-3d/dist/es/render/create-visual-element.mjs",
+        "node_modules/framer-motion-3d/dist/es/render/gestures/use-hover.mjs",
+        "node_modules/framer-motion-3d/dist/es/render/gestures/use-tap.mjs",
+        "node_modules/framer-motion-3d/dist/es/render/motion.mjs",
+        "node_modules/framer-motion-3d/dist/es/render/use-render.mjs",
+        "node_modules/framer-motion-3d/dist/es/render/utils/read-value.mjs",
+        "node_modules/framer-motion-3d/dist/es/render/utils/scrape-motion-value.mjs",
+        "node_modules/framer-motion-3d/dist/es/render/utils/set-value.mjs",
+        "node_modules/framer-motion/dist/es/animation/animators/instant.mjs",
+        "node_modules/framer-motion/dist/es/animation/animators/js/driver-frameloop.mjs",
+        "node_modules/framer-motion/dist/es/animation/animators/js/index.mjs",
+        "node_modules/framer-motion/dist/es/animation/animators/waapi/create-accelerated-animation.mjs",
+        "node_modules/framer-motion/dist/es/animation/animators/waapi/easing.mjs",
+        "node_modules/framer-motion/dist/es/animation/animators/waapi/index.mjs",
+        "node_modules/framer-motion/dist/es/animation/animators/waapi/utils/get-final-keyframe.mjs",
+        "node_modules/framer-motion/dist/es/animation/generators/inertia.mjs",
+        "node_modules/framer-motion/dist/es/animation/generators/keyframes.mjs",
+        "node_modules/framer-motion/dist/es/animation/generators/spring/find.mjs",
+        "node_modules/framer-motion/dist/es/animation/generators/spring/index.mjs",
+        "node_modules/framer-motion/dist/es/animation/generators/utils/calc-duration.mjs",
+        "node_modules/framer-motion/dist/es/animation/generators/utils/velocity.mjs",
+        "node_modules/framer-motion/dist/es/animation/interfaces/motion-value.mjs",
+        "node_modules/framer-motion/dist/es/animation/interfaces/single-value.mjs",
+        "node_modules/framer-motion/dist/es/animation/interfaces/visual-element-target.mjs",
+        "node_modules/framer-motion/dist/es/animation/interfaces/visual-element-variant.mjs",
+        "node_modules/framer-motion/dist/es/animation/interfaces/visual-element.mjs",
+        "node_modules/framer-motion/dist/es/animation/optimized-appear/data-id.mjs",
+        "node_modules/framer-motion/dist/es/animation/utils/default-transitions.mjs",
+        "node_modules/framer-motion/dist/es/animation/utils/is-animatable.mjs",
+        "node_modules/framer-motion/dist/es/animation/utils/is-animation-controls.mjs",
+        "node_modules/framer-motion/dist/es/animation/utils/is-keyframes-target.mjs",
+        "node_modules/framer-motion/dist/es/animation/utils/is-none.mjs",
+        "node_modules/framer-motion/dist/es/animation/utils/keyframes.mjs",
+        "node_modules/framer-motion/dist/es/animation/utils/transitions.mjs",
+        "node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs",
+        "node_modules/framer-motion/dist/es/components/MotionConfig/index.mjs",
+        "node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs",
+        "node_modules/framer-motion/dist/es/context/LazyContext.mjs",
+        "node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs",
+        "node_modules/framer-motion/dist/es/context/MotionContext/create.mjs",
+        "node_modules/framer-motion/dist/es/context/MotionContext/index.mjs",
+        "node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs",
+        "node_modules/framer-motion/dist/es/context/PresenceContext.mjs",
+        "node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs",
+        "node_modules/framer-motion/dist/es/debug/record.mjs",
+        "node_modules/framer-motion/dist/es/easing/anticipate.mjs",
+        "node_modules/framer-motion/dist/es/easing/back.mjs",
+        "node_modules/framer-motion/dist/es/easing/circ.mjs",
+        "node_modules/framer-motion/dist/es/easing/cubic-bezier.mjs",
+        "node_modules/framer-motion/dist/es/easing/ease.mjs",
+        "node_modules/framer-motion/dist/es/easing/modifiers/mirror.mjs",
+        "node_modules/framer-motion/dist/es/easing/modifiers/reverse.mjs",
+        "node_modules/framer-motion/dist/es/easing/utils/is-bezier-definition.mjs",
+        "node_modules/framer-motion/dist/es/easing/utils/is-easing-array.mjs",
+        "node_modules/framer-motion/dist/es/easing/utils/map.mjs",
+        "node_modules/framer-motion/dist/es/events/add-dom-event.mjs",
+        "node_modules/framer-motion/dist/es/events/add-pointer-event.mjs",
+        "node_modules/framer-motion/dist/es/events/event-info.mjs",
+        "node_modules/framer-motion/dist/es/events/utils/is-primary-pointer.mjs",
+        "node_modules/framer-motion/dist/es/frameloop/batcher.mjs",
+        "node_modules/framer-motion/dist/es/frameloop/frame.mjs",
+        "node_modules/framer-motion/dist/es/frameloop/render-step.mjs",
+        "node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs",
+        "node_modules/framer-motion/dist/es/gestures/drag/index.mjs",
+        "node_modules/framer-motion/dist/es/gestures/drag/utils/constraints.mjs",
+        "node_modules/framer-motion/dist/es/gestures/drag/utils/lock.mjs",
+        "node_modules/framer-motion/dist/es/gestures/focus.mjs",
+        "node_modules/framer-motion/dist/es/gestures/hover.mjs",
+        "node_modules/framer-motion/dist/es/gestures/pan/PanSession.mjs",
+        "node_modules/framer-motion/dist/es/gestures/pan/index.mjs",
+        "node_modules/framer-motion/dist/es/gestures/press.mjs",
+        "node_modules/framer-motion/dist/es/gestures/utils/is-node-or-child.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/Feature.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/animation/exit.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/animation/index.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/animations.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/definitions.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/drag.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/gestures.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/layout.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/load-features.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/viewport/index.mjs",
+        "node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs",
+        "node_modules/framer-motion/dist/es/motion/index.mjs",
+        "node_modules/framer-motion/dist/es/motion/utils/is-forced-motion-value.mjs",
+        "node_modules/framer-motion/dist/es/motion/utils/symbol.mjs",
+        "node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs",
+        "node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs",
+        "node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs",
+        "node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs",
+        "node_modules/framer-motion/dist/es/projection/animation/mix-values.mjs",
+        "node_modules/framer-motion/dist/es/projection/geometry/conversion.mjs",
+        "node_modules/framer-motion/dist/es/projection/geometry/copy.mjs",
+        "node_modules/framer-motion/dist/es/projection/geometry/delta-apply.mjs",
+        "node_modules/framer-motion/dist/es/projection/geometry/delta-calc.mjs",
+        "node_modules/framer-motion/dist/es/projection/geometry/delta-remove.mjs",
+        "node_modules/framer-motion/dist/es/projection/geometry/models.mjs",
+        "node_modules/framer-motion/dist/es/projection/geometry/utils.mjs",
+        "node_modules/framer-motion/dist/es/projection/node/DocumentProjectionNode.mjs",
+        "node_modules/framer-motion/dist/es/projection/node/HTMLProjectionNode.mjs",
+        "node_modules/framer-motion/dist/es/projection/node/create-projection-node.mjs",
+        "node_modules/framer-motion/dist/es/projection/node/state.mjs",
+        "node_modules/framer-motion/dist/es/projection/shared/stack.mjs",
+        "node_modules/framer-motion/dist/es/projection/styles/scale-border-radius.mjs",
+        "node_modules/framer-motion/dist/es/projection/styles/scale-box-shadow.mjs",
+        "node_modules/framer-motion/dist/es/projection/styles/scale-correction.mjs",
+        "node_modules/framer-motion/dist/es/projection/styles/transform.mjs",
+        "node_modules/framer-motion/dist/es/projection/utils/each-axis.mjs",
+        "node_modules/framer-motion/dist/es/projection/utils/has-transform.mjs",
+        "node_modules/framer-motion/dist/es/projection/utils/measure.mjs",
+        "node_modules/framer-motion/dist/es/render/VisualElement.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/DOMVisualElement.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/motion-proxy.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/motion.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/use-render.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/camel-to-dash.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/create-config.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/css-variables-conversion.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/is-css-variable.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/is-svg-element.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/parse-dom-variant.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/utils/unit-conversion.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/animatable-none.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/defaults.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/dimensions.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/find.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/get-as-type.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/number.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/test.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/type-auto.mjs",
+        "node_modules/framer-motion/dist/es/render/dom/value-types/type-int.mjs",
+        "node_modules/framer-motion/dist/es/render/html/HTMLVisualElement.mjs",
+        "node_modules/framer-motion/dist/es/render/html/config-motion.mjs",
+        "node_modules/framer-motion/dist/es/render/html/use-props.mjs",
+        "node_modules/framer-motion/dist/es/render/html/utils/build-styles.mjs",
+        "node_modules/framer-motion/dist/es/render/html/utils/build-transform.mjs",
+        "node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs",
+        "node_modules/framer-motion/dist/es/render/html/utils/render.mjs",
+        "node_modules/framer-motion/dist/es/render/html/utils/scrape-motion-values.mjs",
+        "node_modules/framer-motion/dist/es/render/html/utils/transform.mjs",
+        "node_modules/framer-motion/dist/es/render/store.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/SVGVisualElement.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/config-motion.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/lowercase-elements.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/use-props.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/build-attrs.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/camel-case-attrs.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/is-svg-tag.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/path.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/render.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/scrape-motion-values.mjs",
+        "node_modules/framer-motion/dist/es/render/svg/utils/transform-origin.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/animation-state.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/compare-by-depth.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/flat-tree.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/is-controlling-variants.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/is-variant-label.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/motion-values.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/resolve-dynamic-variants.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/resolve-variants.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/setters.mjs",
+        "node_modules/framer-motion/dist/es/render/utils/variant-props.mjs",
+        "node_modules/framer-motion/dist/es/utils/array.mjs",
+        "node_modules/framer-motion/dist/es/utils/clamp.mjs",
+        "node_modules/framer-motion/dist/es/utils/delay.mjs",
+        "node_modules/framer-motion/dist/es/utils/distance.mjs",
+        "node_modules/framer-motion/dist/es/utils/errors.mjs",
+        "node_modules/framer-motion/dist/es/utils/hsla-to-rgba.mjs",
+        "node_modules/framer-motion/dist/es/utils/interpolate.mjs",
+        "node_modules/framer-motion/dist/es/utils/is-browser.mjs",
+        "node_modules/framer-motion/dist/es/utils/is-numerical-string.mjs",
+        "node_modules/framer-motion/dist/es/utils/is-ref-object.mjs",
+        "node_modules/framer-motion/dist/es/utils/is-zero-value-string.mjs",
+        "node_modules/framer-motion/dist/es/utils/memo.mjs",
+        "node_modules/framer-motion/dist/es/utils/mix-color.mjs",
+        "node_modules/framer-motion/dist/es/utils/mix-complex.mjs",
+        "node_modules/framer-motion/dist/es/utils/mix.mjs",
+        "node_modules/framer-motion/dist/es/utils/noop.mjs",
+        "node_modules/framer-motion/dist/es/utils/offsets/default.mjs",
+        "node_modules/framer-motion/dist/es/utils/offsets/fill.mjs",
+        "node_modules/framer-motion/dist/es/utils/offsets/time.mjs",
+        "node_modules/framer-motion/dist/es/utils/pipe.mjs",
+        "node_modules/framer-motion/dist/es/utils/progress.mjs",
+        "node_modules/framer-motion/dist/es/utils/reduced-motion/index.mjs",
+        "node_modules/framer-motion/dist/es/utils/reduced-motion/state.mjs",
+        "node_modules/framer-motion/dist/es/utils/resolve-value.mjs",
+        "node_modules/framer-motion/dist/es/utils/shallow-compare.mjs",
+        "node_modules/framer-motion/dist/es/utils/subscription-manager.mjs",
+        "node_modules/framer-motion/dist/es/utils/time-conversion.mjs",
+        "node_modules/framer-motion/dist/es/utils/transform.mjs",
+        "node_modules/framer-motion/dist/es/utils/use-constant.mjs",
+        "node_modules/framer-motion/dist/es/utils/use-instant-transition-state.mjs",
+        "node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs",
+        "node_modules/framer-motion/dist/es/utils/velocity-per-second.mjs",
+        "node_modules/framer-motion/dist/es/value/index.mjs",
+        "node_modules/framer-motion/dist/es/value/types/color/hex.mjs",
+        "node_modules/framer-motion/dist/es/value/types/color/hsla.mjs",
+        "node_modules/framer-motion/dist/es/value/types/color/index.mjs",
+        "node_modules/framer-motion/dist/es/value/types/color/rgba.mjs",
+        "node_modules/framer-motion/dist/es/value/types/color/utils.mjs",
+        "node_modules/framer-motion/dist/es/value/types/complex/filter.mjs",
+        "node_modules/framer-motion/dist/es/value/types/complex/index.mjs",
+        "node_modules/framer-motion/dist/es/value/types/numbers/index.mjs",
+        "node_modules/framer-motion/dist/es/value/types/numbers/units.mjs",
+        "node_modules/framer-motion/dist/es/value/types/utils.mjs",
+        "node_modules/framer-motion/dist/es/value/use-combine-values.mjs",
+        "node_modules/framer-motion/dist/es/value/use-motion-value.mjs",
+        "node_modules/framer-motion/dist/es/value/use-spring.mjs",
+        "node_modules/framer-motion/dist/es/value/use-transform.mjs",
+        "node_modules/framer-motion/dist/es/value/use-will-change/is.mjs",
+        "node_modules/framer-motion/dist/es/value/utils/is-motion-value.mjs",
+        "node_modules/framer-motion/dist/es/value/utils/resolve-motion-value.mjs",
+        "node_modules/its-fine/dist/index.js",
+        "node_modules/react-merge-refs/dist/react-merge-refs.esm.js",
+        "node_modules/react-reconciler/cjs/react-reconciler-constants.production.min.js",
+        "node_modules/react-reconciler/cjs/react-reconciler.production.min.js",
+        "node_modules/react-reconciler/constants.js",
+        "node_modules/react-reconciler/index.js",
+        "node_modules/react-use-measure/dist/web.js",
+        "node_modules/react/cjs/react-jsx-runtime.production.min.js",
+        "node_modules/react/jsx-runtime.js",
+        "node_modules/scheduler/cjs/scheduler.production.min.js",
+        "node_modules/scheduler/index.js",
+        "node_modules/stylis/src/Enum.js",
+        "node_modules/stylis/src/Middleware.js",
+        "node_modules/stylis/src/Parser.js",
+        "node_modules/stylis/src/Serializer.js",
+        "node_modules/stylis/src/Tokenizer.js",
+        "node_modules/stylis/src/Utility.js",
+        "node_modules/suspend-react/index.js",
+        "node_modules/three-stdlib/controls/OrbitControls.js",
+        "node_modules/three-stdlib/libs/MeshoptDecoder.js",
+        "node_modules/three-stdlib/loaders/DRACOLoader.js",
+        "node_modules/three-stdlib/loaders/GLTFLoader.js",
+        "node_modules/three-stdlib/math/SimplexNoise.js",
+        "node_modules/three-stdlib/utils/BufferGeometryUtils.js",
+        "node_modules/three/build/three.module.js",
+        "node_modules/troika-three-text/dist/troika-three-text.esm.js",
+        "node_modules/troika-three-utils/dist/troika-three-utils.esm.js",
+        "node_modules/troika-worker-utils/dist/troika-worker-utils.esm.js",
+        "node_modules/tslib/tslib.es6.js",
+        "node_modules/webgl-sdf-generator/dist/webgl-sdf-generator.mjs",
+        "node_modules/zustand/esm/index.js",
+        "src/integrations/react/components/MineSweeper.tsx",
+        "src/integrations/react/components/dumb/Title.tsx",
+        "src/integrations/react/components/dumb/bomb/Bomb.tsx",
+        "src/integrations/react/components/dumb/bomb/BombModel.jsx",
+        "src/integrations/react/components/dumb/bomb/ExplodableBomb.tsx",
+        "src/integrations/react/components/dumb/bomb/bomb.glb",
+        "src/integrations/react/components/dumb/button.tsx",
+        "src/integrations/react/components/dumb/hud/Hud.tsx",
+        "src/integrations/react/components/dumb/hud/HudRoot.tsx",
+        "src/integrations/react/components/dumb/hud/hud-root.css",
+        "src/integrations/react/components/dumb/radio-button/radio-button.css",
+        "src/integrations/react/components/dumb/radio-button/radio-button.tsx",
+        "src/integrations/react/components/game/Camera.tsx",
+        "src/integrations/react/components/game/Case.tsx",
+        "src/integrations/react/components/game/Game.tsx",
+        "src/integrations/react/components/game/GlobalHud.tsx",
+        "src/integrations/react/components/game/hud/EndGame.tsx",
+        "src/integrations/react/components/game/hud/GameHud.tsx",
+        "src/integrations/react/components/game/hud/MenuHud.tsx",
+        "src/integrations/react/context/gameContext.tsx",
+        "src/integrations/react/hooks/useExplode.ts",
+        "src/integrations/react/hooks/useGameState.ts",
+        "src/integrations/react/hooks/useMinesweeper.ts",
+        "src/integrations/react/hooks/useTimer.ts",
+        "src/integrations/react/services/cursorService.ts",
+        "src/integrations/react/services/gameStateService.ts",
+        "src/models/minesweeper.ts",
+        "src/utils/iteration.ts",
+        "src/utils/misc.ts",
+        "src/utils/random.ts"
+      ]
+    }
+  },
+  "injections": [
+    {
+      "tag": "style",
+      "location": "head",
+      "attributes": {
+        "data-src": "/build/q-70e9581a.css",
+        "dangerouslySetInnerHTML": "._anchor_1g8hj_1{color:#fff!important;display:block;font-size:.8rem;text-align:center;text-decoration:none;line-height:1.5}._anchor_1g8hj_1 span:not(._spacer_1g8hj_10){display:block}._spacer_1g8hj_10{display:none;padding:0 15px}@media screen and (min-width: 768px){._anchor_1g8hj_1 span{display:inline!important}}#hud{pointer-events:none}#hud>*>*{pointer-events:all;user-select:none}div#radio-button{--checked: #a5dc86;--background: #e4e4e4;display:flex}div#radio-button input{position:absolute;width:0}div#radio-button label{background-color:var(--app-light-background);color:#0009;font-size:14px;line-height:1;text-align:center;padding:8px 16px;margin-right:-1px;border:1px solid rgba(0,0,0,.2);box-shadow:inset 0 1px 3px #0000004d,0 1px #ffffff1a;transition:all .1s ease-in-out}div#radio-button label:hover{cursor:pointer}div#radio-button input:checked+label{background-color:var(--checked);box-shadow:none}div#radio-button label:first-of-type{border-radius:var(--app-border-radius) 0 0 var(--app-border-radius)}div#radio-button label:last-of-type{border-radius:0 var(--app-border-radius) var(--app-border-radius) 0}._1wrkqlc0{background-color:var(--app-light-background);border-radius:var(--app-border-radius)}._1wrkqlc0:hover{cursor:pointer}.bycac80{font-size:1.125rem;font-weight:700;color:var(--app-text-(props) => props.dark ? \"dark\" : \"light\")}._hero_13g96_1{display:flex;vertical-align:middle;flex-direction:column;flex-wrap:nowrap;align-items:center;height:450px;justify-content:center;gap:40px}._hero_13g96_1 p{color:#fff;margin:0;font-size:1rem}._button-group_13g96_18{display:flex;flex-direction:row;gap:24px}@media screen and (min-width: 768px){._hero_13g96_1{gap:60px;height:500px}._hero_13g96_1 p{font-size:1.3rem}}._infobox_oa4r7_1{color:#fff;font-size:.8rem;line-height:2;margin:0 0 40px}._infobox_oa4r7_1 h3{font-size:1rem;font-weight:400;margin:0 0 15px;padding:0}._infobox_oa4r7_1 li{line-height:2.5}@media screen and (min-width: 600px){._infobox_oa4r7_1{margin:0}}._gettingstarted_32zqp_1{display:flex;color:#fff;flex-direction:column;justify-content:center;align-items:center;height:280px;line-height:1.5;gap:10px;max-width:600px;margin:0 auto}._gettingstarted_32zqp_1 ._intro_32zqp_14{font-size:1rem;width:100%;word-break:break-word}._gettingstarted_32zqp_1 ._hint_32zqp_19{font-size:.8rem}._gettingstarted_32zqp_1 ._hint_32zqp_19 a{color:var(--qwik-dark-purple)}@media screen and (min-width: 768px){._gettingstarted_32zqp_1{height:180px}._gettingstarted_32zqp_1 ._intro_32zqp_14{font-size:1.2rem}._gettingstarted_32zqp_1 ._hint_32zqp_19{font-size:1rem}}:root{--qwik-dark-blue: #006ce9;--qwik-light-blue: #18b6f6;--qwik-light-purple: #ac7ff4;--qwik-dark-purple: #713fc2;--qwik-dirty-black: #1d2033;--qwik-dark-background: #151934;--qwik-dark-text: #ffffff;--app-primary: #f72585;--app-secondary: #bde0fe;--app-dark-background: #3a0ca3;--app-light-background: #a2d2ff;--app-light-text: #ffc8dd;--app-dark-text: #ffafcc;--app-higlight-text: #cdb4db;--app-border-radius: 4px}html{line-height:1;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",Segoe UI Symbol,\"Noto Color Emoji\"}body{padding:0;margin:0;line-height:inherit;background:var(--app-dark-background);color:var(--app-light-text)}\n"
+      }
+    }
+  ],
+  "version": "1",
+  "options": {
+    "target": "client",
+    "buildMode": "production",
+    "entryStrategy": {
+      "type": "smart"
+    }
+  },
+  "platform": {
+    "qwik": "1.2.6",
+    "vite": "",
+    "rollup": "3.26.2",
+    "env": "node",
+    "os": "darwin",
+    "node": "20.3.0"
+  }
+}

@@ -1,0 +1,1 @@
+import{O as e,c as t,_ as i}from"./q-2af11bbb.js";const s=e(t(()=>i(()=>import("./q-1153eebd.js"),["build/q-1153eebd.js","build/q-caa24d58.js","build/q-2af11bbb.js"]),"s_li0JgHXGE0c")),a={title:"Rules of MineSweeper",meta:[{name:"description",content:"List of all rules for the minesweeper game"}]};export{s as default,a as head};

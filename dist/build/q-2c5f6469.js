@@ -1,0 +1,1 @@
+import{l as s}from"./q-2af11bbb.js";import{p as S}from"./q-2af11bbb.js";const r=e=>{const[t,o]=s();localStorage.setItem(o,JSON.stringify(e)),t.value={...e}},c=()=>{const[e,t]=s(),o=localStorage.getItem(t);if(!o)return;const a=JSON.parse(o);e.value=a},i=()=>{const[e]=s();return e.value};export{S as _hW,c as s_4xOyRQce7Es,r as s_V62GoVRtnz8,i as s_iM6jRcnnx5o};
