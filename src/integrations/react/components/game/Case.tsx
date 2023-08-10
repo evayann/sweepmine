@@ -47,7 +47,7 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
 
     const pointerAction = (action: string) => (pointerEvent: ThreeEvent<PointerEvent>) => {
         pointerEvent.stopPropagation();
-        if (isReveal || gameStateService.isInGame) return;
+        if (isReveal || !gameStateService.isInGame()) return;
         actionsByState[action].isReveal();
     };
 
