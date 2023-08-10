@@ -2,15 +2,18 @@
 
 import { useGameState } from '~/integrations/react/hooks/useGameState';
 import { Button } from '../../dumb/Button';
-import { MotionHud } from '../../dumb/hud/Hud';
+import { Hud } from '../../dumb/hud/Hud';
+import { motion } from 'framer-motion';
 
 export function EndGameHud() {
     const {
         gameStateService: { toMenu, isWin },
     } = useGameState();
     return (
-        <MotionHud center bottom animate={{ opacity: 1 }} transition={{ duration: 20 }}>
-            <div
+        <Hud center bottom>
+            <motion.div
+                animate={{ opacity: 1 }}
+                transition={{ duration: 20, from: { opacity: 0 } }}
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -31,7 +34,7 @@ export function EndGameHud() {
                 >
                     Restart
                 </Button>
-            </div>
-        </MotionHud>
+            </motion.div>
+        </Hud>
     );
 }

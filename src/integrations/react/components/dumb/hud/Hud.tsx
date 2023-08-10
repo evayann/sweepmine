@@ -29,5 +29,3 @@ export const Hud = forwardRef(function (
         </div>
     );
 });
-
-export const MotionHud = motion(Hud);

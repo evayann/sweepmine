@@ -1,5 +1,5 @@
 /** @jsxImportSource react */
-import { Float } from '@react-three/drei';
+import { Float, SpotLight } from '@react-three/drei';
 import { Canvas, useThree } from '@react-three/fiber';
 import { MotionConfig, MotionValue, SpringOptions, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { motion as motion3d } from 'framer-motion-3d';
@@ -15,7 +15,7 @@ import { Hud } from '../../dumb/hud/Hud';
 export function MenuHud() {
     const { gameStateService } = useGameState();
     const buttonRef = useRef<HTMLButtonElement | undefined>();
-    const [isHover, setIsHover] = useState(false);
+    const [isHover, setIsHover] = useState(() => false);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -55,7 +55,6 @@ export function MenuHud() {
                         height: '5rem',
                         margin: '2rem',
                     }}
-                    initial={false}
                     animate={isHover ? 'hover' : 'rest'}
                     whileTap="press"
                     variants={{
@@ -99,7 +98,10 @@ export function MenuHud() {
                         }}
                     >
                         <Camera mouseX={mouseX} mouseY={mouseY} />
+
+                        <spotLight color="white" position={[-4, 0, 3]} intensity={1.1} />
                         <ambientLight />
+
                         <Float floatIntensity={5} rotationIntensity={2} speed={3}>
                             <Bomb position={[-1.75, 0.35, 0]} rotation={[0, 0, Math.PI / 6]} />
                         </Float>
@@ -113,7 +115,7 @@ export function MenuHud() {
                             <Bomb position={[2.3, 0.7, 0]} rotation={[0, 2, 0.4]} scale={1.3} />
                         </Float>
                     </Canvas>
-                    Play
+                    <div style={{ position: 'relative', zIndex: 10 }}>Play</div>
                 </MotionButton>
             </MotionConfig>
         </Hud>
