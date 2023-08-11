@@ -1,5 +1,5 @@
-import { range, range2D } from "~/utils/iteration";
-import { randomInList } from "~/utils/random";
+import { range2D, range } from "../utils/iteration";
+import { randomInList } from "../utils/random";
 import { GameState } from "./gameState";
 
 export interface Case {

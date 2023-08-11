@@ -1,4 +1,0 @@
-main > * {
-    width: min(100% - 6rem, 65ch);
-    margin-inline: auto;
-}
