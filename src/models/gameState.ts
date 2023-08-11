@@ -1,1 +1,0 @@
-export type GameState = { state: 'menu' } | { state: 'in-progress' } | { state: 'finish', isWin: boolean };

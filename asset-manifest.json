@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/sweepmine/static/css/main.bfeff289.css",
+    "main.js": "/sweepmine/static/js/main.ba4bb68c.js",
+    "static/js/787.26b8bc0b.chunk.js": "/sweepmine/static/js/787.26b8bc0b.chunk.js",
+    "static/media/bomb.glb": "/sweepmine/static/media/bomb.5fc2621cf0e236353d17.glb",
+    "index.html": "/sweepmine/index.html",
+    "main.bfeff289.css.map": "/sweepmine/static/css/main.bfeff289.css.map",
+    "main.ba4bb68c.js.map": "/sweepmine/static/js/main.ba4bb68c.js.map",
+    "787.26b8bc0b.chunk.js.map": "/sweepmine/static/js/787.26b8bc0b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bfeff289.css",
+    "static/js/main.ba4bb68c.js"
+  ]
+}
