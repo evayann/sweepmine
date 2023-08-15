@@ -1,18 +1,11 @@
 import { Canvas, ThreeEvent } from '@react-three/fiber';
 import { Case } from './Case';
-import { Case as CaseModel } from '../../models/minesweeper';
 import { Camera } from './Camera';
 import { useMinesweeper } from '../../hooks/useMinesweeper';
-import { useTimer } from '../../hooks/useTimer';
 import { useGameState } from '../../hooks/useGameState';
-import { useEffect } from 'react';
-import { map } from '../../utils/calculations';
-
-interface DisplayCase extends CaseModel {
-    displayPosition: [number, number, number];
-    bombExplosionInSecond?: number;
-    hasFlag?: boolean;
-}
+import { useEffect, useState } from 'react';
+import { DisplayCase } from '../../interfaces/case.interface';
+import { modelToDisplayCase } from '../../mappers/modelToMinesweeper';
 
 export interface GameProps {
     dimension: { x: number; y: number };
@@ -20,10 +13,10 @@ export interface GameProps {
 }
 
 export function Game({ dimension, numberOfBombs }: GameProps) {
-    const { gameStateService } = useGameState();
-    const { time, isRunning, startTimer, stopTimer, resetTimer } = useTimer();
+    const { gameStateService, gameTimeService } = useGameState();
+    const [displayGame, setDisplayGame] = useState(() => true);
+    const [gameBlur, setGameBlur] = useState(() => false);
     const { resetGame, revealCase, caseList, gameState, id: gameId } = useMinesweeper(dimension, numberOfBombs);
-    const gameNotFinish = gameState.state !== 'finish';
     const gameFinish = gameState.state === 'finish';
 
     const board = {
@@ -37,45 +30,39 @@ export function Game({ dimension, numberOfBombs }: GameProps) {
         },
     };
     const scaleFactor = { x: board.width / dimension.x, y: board.height / dimension.y };
-    const displayCaseList: DisplayCase[] = caseList.map((caseModel) => {
-        const x = map(
-            caseModel.position.x,
-            0,
-            dimension.x - 1,
-            -board.halfWidth + scaleFactor.x / 2,
-            board.halfWidth - scaleFactor.x / 2
-        );
-        const z = map(
-            caseModel.position.y,
-            0,
-            dimension.y - 1,
-            -board.halfHeight + scaleFactor.y / 2,
-            board.halfHeight - scaleFactor.y / 2
-        );
-        return {
-            ...caseModel,
-            displayPosition: [x, 0, z],
-            bombExplosionInSecond: caseModel.isBomb ? 20 + Math.random() * 2 : undefined,
-        };
-    });
+    const displayCaseList: DisplayCase[] = caseList.map((_case) =>
+        modelToDisplayCase(_case, dimension, board, scaleFactor)
+    );
+
+    useEffect(() => {
+        gameTimeService.startTimer();
+    }, [gameStateService.isInGame]);
+
+    useEffect(() => {
+        gameTimeService.stopTimer();
+    }, [gameStateService.isGameOver]);
 
     useEffect(() => {
         resetGame();
-    }, [gameStateService.isInMenu()]);
+    }, [gameStateService.isInMenu]);
 
     useEffect(() => {
         if (!gameFinish) return;
-        stopTimer();
         gameStateService.toGameOver(gameState.isWin);
     }, [gameFinish]);
 
+    useEffect(() => {
+        const game = gameStateService.isInGame || gameStateService.isGameOver;
+        setDisplayGame(game);
+        setGameBlur(gameStateService.isPaused);
+    }, [gameStateService.isPaused, gameStateService.isInGame, gameStateService.isGameOver]);
+
     return (
         <>
-            {(gameStateService.isInGame() || gameStateService.isGameOver()) && (
-                <Canvas style={{ gridRow: 1, gridColumn: 1 }}>
-                    <Camera enableControl={gameNotFinish} />
+            {displayGame && (
+                <Canvas style={{ gridRow: 1, gridColumn: 1, filter: `${gameBlur ? 'blur(16px)' : ''}` }}>
+                    <Camera isInGame={gameStateService.isInGame} isPaused={gameStateService.isPaused} />
                     <ambientLight />
-                    {/* <axesHelper /> */}
 
                     {displayCaseList.map((_case, index) => (
                         <Case
@@ -85,10 +72,17 @@ export function Game({ dimension, numberOfBombs }: GameProps) {
                             caseModel={_case}
                             explosionTimeInSecond={_case.bombExplosionInSecond ?? 0}
                             key={`Grid-${gameId}-Case-${_case.position.x}-${_case.position.y}:${index + 1}}`}
+                            onPointerEnter={(pointerEvent: ThreeEvent<MouseEvent>) => {
+                                console.log('test');
+                                if (gameStateService.isPaused) return;
+                                _case.isHover = true;
+                            }}
+                            onPointerOut={(pointerEvent: ThreeEvent<MouseEvent>) => {
+                                _case.isHover = false;
+                            }}
                             onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                                 pointerEvent.stopPropagation();
-                                if (gameFinish) return;
-                                if (!isRunning) startTimer();
+                                if (gameStateService.isPaused || gameFinish) return;
                                 revealCase(_case.position.x, _case.position.y);
                             }}
                         />

@@ -1,14 +1,22 @@
 import { CameraShake, OrbitControls, OrthographicCamera } from '@react-three/drei';
 
 export interface CameraProps {
-    enableControl: boolean;
+    isPaused: boolean;
+    isInGame: boolean;
 }
 
-export function Camera({ enableControl }: CameraProps) {
+export function Camera({ isPaused, isInGame }: CameraProps) {
     return (
         <>
-            <OrbitControls makeDefault maxPolarAngle={Math.PI / 2} minZoom={30} maxZoom={75} enabled={enableControl} />
+            <OrbitControls
+                makeDefault
+                maxPolarAngle={Math.PI / 2}
+                minZoom={30}
+                maxZoom={75}
+                enabled={!isPaused && isInGame}
+            />
             <CameraShake
+                intensity={isPaused ? 0.1 : undefined}
                 maxPitch={0.05}
                 maxRoll={0.05}
                 maxYaw={0.05}

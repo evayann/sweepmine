@@ -1,28 +1,26 @@
 import { Billboard, Text } from '@react-three/drei';
 import { GroupProps, ThreeEvent, useFrame } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
-import { Case as CaseModel } from '../../models/minesweeper';
 import { useGameState } from '../../hooks/useGameState';
 import { ExplodableBomb } from '../dumb/bomb/ExplodableBomb';
 import { motion } from 'framer-motion-3d';
 
 export interface CaseProps extends GroupProps {
     isReveal: boolean;
-    caseModel: CaseModel;
+    caseModel: any;
     explosionTimeInSecond: number;
 }
 
 export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps }: CaseProps) {
     const [revealAnimationEnd, setReavealAnimationEnd] = useState(false);
-    const [isHover, setIsHover] = useState(false);
     const { gameStateService, cursorService } = useGameState();
     const [explosionPercent, setExplosionPercent] = useState(0);
 
     const cursorType = 'pointer';
     useEffect(() => {
-        if (isHover) cursorService.askOne(cursorType);
+        if (caseModel.isHover) cursorService.askOne(cursorType);
         else cursorService.removeOne(cursorType);
-    }, [isHover]);
+    }, [caseModel.isHover]);
 
     useFrame(({ clock }) => {
         if (!isReveal || !caseModel.isBomb) return;
@@ -34,19 +32,19 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
         bomb: revealAnimationEnd && caseModel.isBomb,
     };
 
-    const actionsByState: Record<string, Record<string, () => void>> = {
-        hoverStart: {
-            isReveal: () => setIsHover(true),
-        },
-        hoverEnd: {
-            isReveal: () => setIsHover(false),
-        },
-    };
+    // const actionsByState: Record<string, Record<string, () => void>> = {
+    //     hoverStart: {
+    //         isReveal: () => setIsHover(true),
+    //     },
+    //     hoverEnd: {
+    //         isReveal: () => setIsHover(false),
+    //     },
+    // };
 
     const pointerAction = (action: string) => (pointerEvent: ThreeEvent<PointerEvent>) => {
         pointerEvent.stopPropagation();
-        if (isReveal || !gameStateService.isInGame()) return;
-        actionsByState[action].isReveal();
+        if (isReveal || !gameStateService.isInGame) return;
+        // actionsByState[action].isReveal();
     };
 
     const CaseNumber: JSX.Element = (
@@ -71,10 +69,12 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
     };
 
     return (
-        <group {...otherProps} onPointerEnter={pointerAction('hoverStart')} onPointerLeave={pointerAction('hoverEnd')}>
+        <group
+            {...otherProps} /*onPointerEnter={pointerAction('hoverStart')} onPointerLeave={pointerAction('hoverEnd')}*/
+        >
             <mesh>
                 <boxGeometry args={[1, 0.8, 1]} />
-                <meshBasicMaterial color={isHover && !isReveal ? 'hotpink' : 'orange'} />
+                <meshBasicMaterial color={caseModel.isHover && !isReveal ? 'hotpink' : 'orange'} />
             </mesh>
             {!revealAnimationEnd && (
                 <motion.mesh
@@ -84,7 +84,7 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
                     position={[0, 0.5, 0]}
                 >
                     <boxGeometry args={[1, 0.2, 1]} />
-                    <meshBasicMaterial color={isHover && !isReveal ? 'red' : 'green'} />
+                    <meshBasicMaterial color={caseModel.isHover && !isReveal ? 'red' : 'green'} />
                 </motion.mesh>
             )}
             {show.caseNumber && CaseNumber}

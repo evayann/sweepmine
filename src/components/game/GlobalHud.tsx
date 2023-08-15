@@ -11,9 +11,9 @@ export function GlobalHud() {
 
     return (
         <HudRoot>
-            {isInMenu() && <MenuHud />}
-            {isInGame() && <GameHud />}
-            {isGameOver() && <EndGameHud />}
+            {isInMenu && <MenuHud />}
+            {isInGame && <GameHud />}
+            {isGameOver && <EndGameHud />}
         </HudRoot>
     );
 }

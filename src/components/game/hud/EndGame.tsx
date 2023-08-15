@@ -1,7 +1,7 @@
+import { motion } from 'framer-motion';
 import { useGameState } from '../../../hooks/useGameState';
 import { Button } from '../../dumb/Button';
 import { Hud } from '../../dumb/hud/Hud';
-import { motion } from 'framer-motion';
 
 export function EndGameHud() {
     const {
@@ -10,8 +10,9 @@ export function EndGameHud() {
     return (
         <Hud center bottom>
             <motion.div
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 20, from: { opacity: 0 } }}
+                transition={{ duration: 20 }}
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -23,10 +24,10 @@ export function EndGameHud() {
                     padding: '1rem',
                 }}
             >
-                <p style={{ textAlign: 'center' }}>You {isWin() ? 'win' : 'loose'} in XXX secondes !</p>
+                <p style={{ textAlign: 'center' }}>You {isWin ? 'win' : 'loose'} in XXX secondes !</p>
                 <Button
-                    onClick={(e) => {
-                        e.stopPropagation();
+                    onClick={(mouseEvent: React.MouseEvent) => {
+                        mouseEvent.stopPropagation();
                         toMenu();
                     }}
                 >
