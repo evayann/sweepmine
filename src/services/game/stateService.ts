@@ -22,7 +22,7 @@ export function useGameStateService(): GameStateService {
     const [gameState, setGameState] = useState<GameState>(() => ({ state: 'menu' }));
 
     const toMenu = useCallback(() => setGameState({ state: 'menu' }), []);
-    const toGame = useCallback(() => setGameState({ state: 'in-game', isPaused: false }), []);
+    const toGame = useCallback(() => setGameState({ state: 'in-game', isPaused: true }), []);
     const toGameOver = useCallback((isWin: boolean) => setGameState({ state: 'finish', isWin }), []);
 
     const toggleInGamePausedState = (type: 'pause' | 'play') => {

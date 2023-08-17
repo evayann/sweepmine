@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import { useGameState } from '../../hooks/useGameState';
 import { HudRoot } from '../dumb/hud/HudRoot';
 import { EndGameHud } from './hud/EndGame';
@@ -10,10 +11,10 @@ export function GlobalHud() {
     } = useGameState();
 
     return (
-        <HudRoot>
+        <AnimatePresence>
             {isInMenu && <MenuHud />}
             {isInGame && <GameHud />}
             {isGameOver && <EndGameHud />}
-        </HudRoot>
+        </AnimatePresence>
     );
 }

@@ -2,17 +2,19 @@ import { MotionProps, motion } from 'framer-motion';
 import { HTMLAttributes, LegacyRef, Ref, forwardRef } from 'react';
 
 export interface HudProps extends MotionProps {
+    id?: string;
     margin?: number | string;
     center?: boolean;
     bottom?: boolean;
 }
 
 export const Hud = forwardRef(function (
-    { margin, center, bottom, style, children, ...otherProps }: HudProps,
+    { id, margin, center, bottom, style, children, ...otherProps }: HudProps,
     ref: Ref<HTMLDivElement>
 ) {
     return (
         <motion.div
+            {...(id ? { id } : {})}
             ref={ref}
             style={{
                 width: '100%',

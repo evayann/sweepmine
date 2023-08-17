@@ -1,13 +1,13 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, Ref, forwardRef } from 'react';
 
 import './hud-root.css';
 
 export interface HudRootProps extends HTMLAttributes<HTMLDivElement> {}
 
-export function HudRoot({ children, style }: HudRootProps) {
+export const HudRoot = forwardRef(function ({ children, style }: HudRootProps, ref: Ref<HTMLDivElement>) {
     return (
-        <div id="hud" style={style}>
+        <div id="hud" ref={ref} style={style}>
             {children}
         </div>
     );
-}
+});

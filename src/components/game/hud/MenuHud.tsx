@@ -9,6 +9,7 @@ import { MotionButton } from '../../dumb/Button';
 import { MotionTitle } from '../../dumb/Title';
 import { Bomb } from '../../dumb/bomb/Bomb';
 import { Hud } from '../../dumb/hud/Hud';
+import { HudRoot } from '../../dumb/hud/HudRoot';
 
 export function MenuHud() {
     const { gameStateService } = useGameState();
@@ -23,100 +24,108 @@ export function MenuHud() {
     };
 
     return (
-        <Hud center>
-            <MotionConfig
-                transition={{
-                    type: 'spring',
-                    duration: 0.7,
-                    bounce: 0.2,
-                }}
-            >
-                <MotionTitle
-                    style={{ rotate: '-5deg', scale: 0.9 }}
-                    animate={{ rotate: '5deg', scale: 1.3 }}
+        <HudRoot>
+            <Hud center>
+                <MotionConfig
                     transition={{
-                        repeat: Infinity,
-                        duration: 2,
-                        repeatType: 'mirror',
-                        scale: { repeat: Infinity, delay: 0.1, repeatType: 'mirror', ease: 'backInOut', duration: 3 },
+                        type: 'spring',
+                        duration: 0.7,
+                        bounce: 0.2,
                     }}
                 >
-                    MineSweeper
-                </MotionTitle>
-                <MotionButton
-                    ref={buttonRef}
-                    style={{
-                        position: 'relative',
-                        letterSpacing: '-1px',
-                        fontSize: '2rem',
-                        width: '10rem',
-                        height: '5rem',
-                        margin: '2rem',
-                    }}
-                    animate={isHover ? 'hover' : 'rest'}
-                    whileTap="press"
-                    variants={{
-                        rest: { scale: 1 },
-                        hover: { scale: 1.5 },
-                        press: { scale: 1.4 },
-                    }}
-                    onHoverStart={() => {
-                        resetMousePosition();
-                        setIsHover(true);
-                    }}
-                    onHoverEnd={() => {
-                        resetMousePosition();
-                        setIsHover(false);
-                    }}
-                    onPointerMove={(e) => {
-                        const button = buttonRef.current;
-                        if (!button) return;
-                        const bbox = button.getBoundingClientRect();
-                        const x = map(e.clientX - bbox.x, 0, bbox.width, -1, 1);
-                        const y = map(e.clientY - bbox.y, 0, bbox.height, -1, 1);
-                        mouseX.set(x);
-                        mouseY.set(y);
-                    }}
-                    onClick={() => {
-                        gameStateService.toGame();
-                    }}
-                >
-                    <Canvas
-                        shadows
-                        resize={{ scroll: false, offsetSize: true }}
-                        style={{
-                            position: 'absolute',
-                            top: '-100px',
-                            left: '-100px',
-                            right: '-100px',
-                            bottom: '-100px',
-                            width: 'auto',
-                            height: 'auto',
-                            pointerEvents: 'none',
+                    <MotionTitle
+                        style={{ rotate: '-5deg', scale: 0.9 }}
+                        animate={{ rotate: '5deg', scale: 1.3 }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 2,
+                            repeatType: 'mirror',
+                            scale: {
+                                repeat: Infinity,
+                                delay: 0.1,
+                                repeatType: 'mirror',
+                                ease: 'backInOut',
+                                duration: 3,
+                            },
                         }}
                     >
-                        <Camera mouseX={mouseX} mouseY={mouseY} />
+                        MineSweeper
+                    </MotionTitle>
+                    <MotionButton
+                        ref={buttonRef}
+                        style={{
+                            position: 'relative',
+                            letterSpacing: '-1px',
+                            fontSize: '2rem',
+                            width: '10rem',
+                            height: '5rem',
+                            margin: '2rem',
+                        }}
+                        animate={isHover ? 'hover' : 'rest'}
+                        whileTap="press"
+                        variants={{
+                            rest: { scale: 1 },
+                            hover: { scale: 1.5 },
+                            press: { scale: 1.4 },
+                        }}
+                        onHoverStart={() => {
+                            resetMousePosition();
+                            setIsHover(true);
+                        }}
+                        onHoverEnd={() => {
+                            resetMousePosition();
+                            setIsHover(false);
+                        }}
+                        onPointerMove={(e) => {
+                            const button = buttonRef.current;
+                            if (!button) return;
+                            const bbox = button.getBoundingClientRect();
+                            const x = map(e.clientX - bbox.x, 0, bbox.width, -1, 1);
+                            const y = map(e.clientY - bbox.y, 0, bbox.height, -1, 1);
+                            mouseX.set(x);
+                            mouseY.set(y);
+                        }}
+                        onClick={() => {
+                            gameStateService.toGame();
+                        }}
+                    >
+                        <Canvas
+                            shadows
+                            resize={{ scroll: false, offsetSize: true }}
+                            style={{
+                                position: 'absolute',
+                                top: '-100px',
+                                left: '-100px',
+                                right: '-100px',
+                                bottom: '-100px',
+                                width: 'auto',
+                                height: 'auto',
+                                pointerEvents: 'none',
+                            }}
+                        >
+                            <Camera mouseX={mouseX} mouseY={mouseY} />
 
-                        <spotLight color="white" position={[-4, 0, 3]} intensity={1.1} />
-                        <ambientLight />
+                            <spotLight color="white" position={[-4, 0, 3]} intensity={1.1} />
+                            <ambientLight />
 
-                        <Float floatIntensity={5} rotationIntensity={2} speed={3}>
-                            <Bomb position={[-1.75, 0.35, 0]} rotation={[0, 0, Math.PI / 6]} />
-                        </Float>
-                        <Float rotationIntensity={0.4}>
-                            <Bomb position={[-2, -2, -5]} rotation={[0, 2, 0.4]} />
-                        </Float>
-                        <Float speed={5}>
-                            <Bomb position={[1.75, -2, -1]} rotation={[0, 2, 0.4]} />
-                        </Float>
-                        <Float>
-                            <Bomb position={[2.3, 0.7, 0]} rotation={[0, 2, 0.4]} scale={1.3} />
-                        </Float>
-                    </Canvas>
-                    <div style={{ position: 'relative', zIndex: 10 }}>Play</div>
-                </MotionButton>
-            </MotionConfig>
-        </Hud>
+                            <Float floatIntensity={5} rotationIntensity={2} speed={3}>
+                                <Bomb position={[-1.75, 0.35, 0]} rotation={[0, 0, Math.PI / 6]} />
+                            </Float>
+                            <Float rotationIntensity={0.4}>
+                                <Bomb position={[-2, -2, -5]} rotation={[0, 2, 0.4]} />
+                            </Float>
+                            <Float speed={5}>
+                                <Bomb position={[1.75, -2, -1]} rotation={[0, 2, 0.4]} />
+                            </Float>
+                            <Float>
+                                <Bomb position={[2.3, 0.7, 0]} rotation={[0, 2, 0.4]} scale={1.3} />
+                            </Float>
+                        </Canvas>
+                        <div style={{ position: 'relative', zIndex: 10 }}>Play</div>
+                    </MotionButton>
+                </MotionConfig>
+            </Hud>
+        </HudRoot>
     );
 }
 
