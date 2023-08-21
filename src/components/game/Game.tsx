@@ -1,11 +1,11 @@
 import { Canvas, ThreeEvent } from '@react-three/fiber';
-import { Case } from './Case';
-import { Camera } from './Camera';
-import { useMinesweeper } from '../../hooks/useMinesweeper';
-import { useGameState } from '../../hooks/useGameState';
 import { useEffect, useMemo, useState } from 'react';
+import { useGameState } from '../../hooks/useGameState';
+import { useMinesweeper } from '../../hooks/useMinesweeper';
 import { DisplayCase } from '../../interfaces/case.interface';
 import { modelToDisplayCase } from '../../mappers/modelToMinesweeper';
+import { Camera } from './Camera';
+import { Case } from './Case';
 
 export interface GameProps {
     dimension: { x: number; y: number };
@@ -39,9 +39,13 @@ export function Game({ dimension, numberOfBombs }: GameProps) {
         setDisplayCaseList(caseList.map((_case) => modelToDisplayCase(_case, dimension, board, scaleFactor)));
     }, [caseList, dimension, board]);
 
+    // useEffect(() => {
+    //     gameTimeService.startTimer();
+    // }, [gameStateService.isInGame]);
+
     useEffect(() => {
-        gameTimeService.startTimer();
-    }, [gameStateService.isInGame]);
+        gameTimeService.resetTimer();
+    }, []);
 
     useEffect(() => {
         gameTimeService.stopTimer();

@@ -1,9 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { useGameState } from '../../hooks/useGameState';
-import { HudRoot } from '../dumb/hud/HudRoot';
-import { EndGameHud } from './hud/EndGame';
-import { GameHud } from './hud/GameHud';
-import { MenuHud } from './hud/MenuHud';
+import { EndGameHud, GameHud, MenuHud } from './hud';
 
 export function GlobalHud() {
     const {

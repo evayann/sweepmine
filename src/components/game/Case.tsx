@@ -3,7 +3,7 @@ import { GroupProps, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import { useEffect, useState } from 'react';
 import { useGameState } from '../../hooks/useGameState';
-import { ExplodableBomb } from '../dumb/bomb/ExplodableBomb';
+import { ExplodableBomb } from '../dumb';
 
 export interface CaseProps extends GroupProps {
     isReveal: boolean;
@@ -18,6 +18,7 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
 
     const cursorType = 'pointer';
     useEffect(() => {
+        console.log(cursorService);
         if (caseModel.isHover) cursorService.askRender(cursorType);
         else cursorService.askUnrender(cursorType);
     }, [caseModel.isHover]);

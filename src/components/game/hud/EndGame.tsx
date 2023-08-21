@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import { useGameState } from '../../../hooks/useGameState';
-import { Button } from '../../dumb/Button';
-import { Hud } from '../../dumb/hud/Hud';
-import { HudRoot } from '../../dumb/hud/HudRoot';
+import { HudRoot, Hud, Button } from '../../dumb';
 
 export function EndGameHud() {
     const {
@@ -14,7 +12,7 @@ export function EndGameHud() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 20 }}
+                    transition={{ duration: 2 }}
                     style={{
                         display: 'flex',
                         flexDirection: 'column',

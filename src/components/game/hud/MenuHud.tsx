@@ -5,11 +5,7 @@ import { motion as motion3d } from 'framer-motion-3d';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { useGameState } from '../../../hooks/useGameState';
 import { map } from '../../../utils/calculations';
-import { MotionButton } from '../../dumb/Button';
-import { MotionTitle } from '../../dumb/Title';
-import { Bomb } from '../../dumb/bomb/Bomb';
-import { Hud } from '../../dumb/hud/Hud';
-import { HudRoot } from '../../dumb/hud/HudRoot';
+import { HudRoot, Hud, MotionTitle, MotionButton, Bomb } from '../../dumb';
 
 export function MenuHud() {
     const { gameStateService } = useGameState();

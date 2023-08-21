@@ -1,5 +1,3 @@
-/** @jsxImportSource react */
-
 import { useCallback, useMemo, useState } from "react";
 
 export type GameState = { state: 'menu' } | { state: 'in-game', isPaused: boolean } | { state: 'finish', isWin: boolean };
@@ -18,7 +16,7 @@ export interface GameStateService {
     toGameOver: (isWin: boolean) => void;
 }
 
-export function useGameStateService(): GameStateService {
+export function useGameState(): GameStateService {
     const [gameState, setGameState] = useState<GameState>(() => ({ state: 'menu' }));
 
     const toMenu = useCallback(() => setGameState({ state: 'menu' }), []);

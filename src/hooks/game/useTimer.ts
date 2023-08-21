@@ -5,7 +5,7 @@ export interface Timer {
     incrementInSecond: number;
 }
 
-export interface GameTimeService {
+export interface TimeService {
     time: number;
     isRunning: boolean;
     startTimer: (timer?: Timer) => void;
@@ -13,7 +13,7 @@ export interface GameTimeService {
     resetTimer: () => void;
 }
 
-export function useGameTimeService(): GameTimeService {
+export function useTimer(): TimeService {
     const [timer, setTimer] = useState<Timer>(() => ({ initialTimeInSecond: 0, incrementInSecond: 0.1 }));
     const [time, setTime] = useState<number>(() => timer.initialTimeInSecond);
     const [isRunning, setIsRunning] = useState(false);
@@ -39,5 +39,6 @@ export function useGameTimeService(): GameTimeService {
         setIsRunning(true);
     }, [stopTimer]);
 
-    return useMemo(() => ({ time, isRunning, startTimer, stopTimer, resetTimer }), [time, isRunning, startTimer, stopTimer, resetTimer]);
+    const memoizedFunctions = useMemo(() => ({ startTimer, stopTimer, resetTimer }), [startTimer, stopTimer, resetTimer]);
+    return { time, isRunning, ...memoizedFunctions };
 };

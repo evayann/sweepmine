@@ -8,7 +8,7 @@ export interface CursorService {
 }
 
 const DEFAULT_CURSOR = 'inherit';
-export function useCursorService(): CursorService {
+export function useCursor(): CursorService {
     const [cursorState, setCursorState] = useState<Record<Cursor, number>>(() => ({ pointer: 0 }));
 
     useEffect(() => {
@@ -22,10 +22,12 @@ export function useCursorService(): CursorService {
     return {
         askRender(cursor: Cursor) {
             setCursorState({ ...cursorState, [cursor]: cursorState[cursor] + 1 });
+            console.log('render', cursorState)
         },
         askUnrender(cursor: Cursor) {
             const newValue = Math.max(0, cursorState[cursor] - 1);
             setCursorState({ ...cursorState, [cursor]: newValue });
-        }
+            console.log('unrender', cursorState)
+        },
     }
 }
