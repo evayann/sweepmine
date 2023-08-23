@@ -1,14 +1,14 @@
 import { useAnimate, useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { useGameState } from '../../../hooks/useGameState';
+import { useGame } from '../../../hooks/useGame';
 import { range } from '../../../utils/iteration';
 import { HudRoot, Hud, RadioButton, Button } from '../../dumb';
 
 export function GameHud() {
     const {
         gameTimeService: { time, stopTimer, startTimer, isRunning },
-        gameStateService: { play, pause },
-    } = useGameState();
+        gameStateService: { play, pause, clickAction },
+    } = useGame();
 
     const counterTagName = 'ready-text';
     const counterTag = `#${counterTagName}`;
@@ -63,7 +63,12 @@ export function GameHud() {
                     flexDirection: 'column',
                 }}
             >
-                <RadioButton id="left-click" defaultSelected="bomb" list={['bomb', 'flag']}></RadioButton>
+                <RadioButton
+                    id="click-state"
+                    defaultSelected="bomb"
+                    list={['bomb', 'flag']}
+                    onChange={(itemSelected: string) => clickAction(itemSelected === 'flag' ? 'flag' : 'reveal')}
+                ></RadioButton>
                 <p> Time : {time.toFixed(1)} seconds</p>
             </Hud>
             {gameStart.get() && (

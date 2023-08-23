@@ -3,12 +3,12 @@ import { Canvas, PerspectiveCameraProps, useThree } from '@react-three/fiber';
 import { MotionConfig, MotionValue, SpringOptions, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { motion as motion3d } from 'framer-motion-3d';
 import { useLayoutEffect, useRef, useState } from 'react';
-import { useGameState } from '../../../hooks/useGameState';
+import { useGame } from '../../../hooks/useGame';
 import { map } from '../../../utils/calculations';
 import { HudRoot, Hud, MotionTitle, MotionButton, Bomb } from '../../dumb';
 
 export function MenuHud() {
-    const { gameStateService } = useGameState();
+    const { gameStateService } = useGame();
     const buttonRef = useRef<HTMLButtonElement>(null);
     const [isHover, setIsHover] = useState(() => false);
     const mouseX = useMotionValue(0);

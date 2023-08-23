@@ -1,9 +1,8 @@
-import { Billboard, Text } from '@react-three/drei';
+import { Billboard, Text, useCursor } from '@react-three/drei';
 import { GroupProps, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import { useEffect, useState } from 'react';
-import { useGameState } from '../../hooks/useGameState';
-import { ExplodableBomb } from '../dumb';
+import { ExplodableBomb } from '../../dumb';
 
 export interface CaseProps extends GroupProps {
     isReveal: boolean;
@@ -13,14 +12,13 @@ export interface CaseProps extends GroupProps {
 
 export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps }: CaseProps) {
     const [revealAnimationEnd, setReavealAnimationEnd] = useState(false);
-    const { cursorService } = useGameState();
     const [explosionPercent, setExplosionPercent] = useState(0);
 
-    const cursorType = 'pointer';
+    const [hovered, setHover] = useState(() => false);
+    useCursor(hovered);
+
     useEffect(() => {
-        console.log(cursorService);
-        if (caseModel.isHover) cursorService.askRender(cursorType);
-        else cursorService.askUnrender(cursorType);
+        setHover(caseModel.isHover);
     }, [caseModel.isHover]);
 
     useFrame(({ clock }) => {
@@ -79,6 +77,20 @@ export function Case({ isReveal, caseModel, explosionTimeInSecond, ...otherProps
                 >
                     <ExplodableBomb position={[0, 0.6, 0]} scale={0.3} explosionPercent={explosionPercent} />
                 </motion.group>
+            )}
+            {caseModel.hasFlag && (
+                <Billboard position={[0, 0.8, 0]}>
+                    <Text
+                        outlineColor="white"
+                        outlineWidth={0.01}
+                        fontSize={0.5}
+                        color="black"
+                        anchorX="center"
+                        anchorY="middle"
+                    >
+                        Flag
+                    </Text>
+                </Billboard>
             )}
         </group>
     );

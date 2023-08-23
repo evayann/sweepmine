@@ -22,6 +22,7 @@ export function modelToDisplayCase(caseModel: CaseModel, dimension: any, board: 
         displayPosition: [x, 0, z],
         bombExplosionInSecond: caseModel.isBomb ? 20 + Math.random() * 2 : undefined,
         scale,
+        hasFlag: false,
         isHover: false,
     };
 }

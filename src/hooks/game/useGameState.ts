@@ -1,15 +1,21 @@
 import { useCallback, useMemo, useState } from "react";
 
-export type GameState = { state: 'menu' } | { state: 'in-game', isPaused: boolean } | { state: 'finish', isWin: boolean };
+type MenuState = { state: 'menu' };
+type InGameState = { state: 'in-game', isPaused: boolean, clickAction: 'reveal' | 'flag' };
+type EndGameState = { state: 'finish', isWin: boolean };
+
+export type GameState = MenuState | InGameState | EndGameState;
 export interface GameStateService {
     isInMenu: boolean;
     isInGame: boolean;
     isGameOver: boolean;
     isWin: boolean;
     isPaused: boolean;
+    isFlagOnClick: boolean;
 
     pause: () => void;
     play: () => void;
+    clickAction: (clickAction: 'reveal' | 'flag') => void;
 
     toMenu: () => void;
     toGame: () => void;
@@ -20,15 +26,17 @@ export function useGameState(): GameStateService {
     const [gameState, setGameState] = useState<GameState>(() => ({ state: 'menu' }));
 
     const toMenu = useCallback(() => setGameState({ state: 'menu' }), []);
-    const toGame = useCallback(() => setGameState({ state: 'in-game', isPaused: true }), []);
+    const toGame = useCallback(() => setGameState({ state: 'in-game', isPaused: false, clickAction: 'reveal' }), []);
     const toGameOver = useCallback((isWin: boolean) => setGameState({ state: 'finish', isWin }), []);
 
-    const toggleInGamePausedState = (type: 'pause' | 'play') => {
-        if (gameState.state !== 'in-game') throw new Error(`Can't ${type} if isn't in-game !`);
-        setGameState({ ...gameState, isPaused: type === 'pause' });
+    const editInGameProps = (props: Partial<InGameState>) => {
+        if (gameState.state !== 'in-game') throw new Error(`Can't assign new props ${props} if isn't in-game !`);
+        setGameState({ ...gameState, ...props });
     }
-    const pause = useCallback(() => toggleInGamePausedState('pause'), [gameState]);
-    const play = useCallback(() => toggleInGamePausedState('play'), [gameState]);
+
+    const pause = useCallback(() => editInGameProps({ isPaused: true }), [gameState]);
+    const play = useCallback(() => editInGameProps({ isPaused: false }), [gameState]);
+    const clickAction = useCallback((clickAction: 'reveal' | 'flag') => editInGameProps({ clickAction }), [gameState]);
 
     return useMemo(() => ({
         get isInMenu() {
@@ -46,9 +54,13 @@ export function useGameState(): GameStateService {
         get isPaused() {
             return gameState.state === 'in-game' && gameState.isPaused;
         },
+        get isFlagOnClick() {
+            return gameState.state === 'in-game' && gameState.clickAction === 'flag';
+        },
 
         pause,
         play,
+        clickAction,
 
         toMenu,
         toGame,

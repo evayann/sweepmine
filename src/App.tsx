@@ -1,10 +1,10 @@
 import './App.css';
-import { Minesweeper } from './components/MineSweeper';
+import { GamePage } from './pages/GamePage';
 
 function App() {
     return (
         <div className="App">
-            <Minesweeper dimension={{ x: 5, y: 5 }} numberOfBombs={15} />
+            <GamePage></GamePage>
         </div>
     );
 }

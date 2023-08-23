@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { useGameState } from '../../../hooks/useGameState';
+import { useGame } from '../../../hooks/useGame';
 import { HudRoot, Hud, Button } from '../../dumb';
 
 export function EndGameHud() {
     const {
         gameStateService: { toMenu, isWin },
-    } = useGameState();
+        gameTimeService: { time },
+    } = useGame();
     return (
         <HudRoot>
             <Hud center bottom>
@@ -24,7 +25,9 @@ export function EndGameHud() {
                         padding: '1rem',
                     }}
                 >
-                    <p style={{ textAlign: 'center' }}>You {isWin ? 'win' : 'loose'} in XXX secondes !</p>
+                    <p style={{ textAlign: 'center' }}>
+                        You {isWin ? 'win' : 'loose'} in {time.toFixed(1)} secondes !
+                    </p>
                     <Button
                         onClick={(mouseEvent: React.MouseEvent) => {
                             mouseEvent.stopPropagation();

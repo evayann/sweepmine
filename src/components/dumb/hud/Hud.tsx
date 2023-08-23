@@ -1,5 +1,5 @@
 import { MotionProps, motion } from 'framer-motion';
-import { HTMLAttributes, LegacyRef, Ref, forwardRef } from 'react';
+import { Ref, forwardRef } from 'react';
 
 export interface HudProps extends MotionProps {
     id?: string;
@@ -23,6 +23,7 @@ export const Hud = forwardRef(function (
             ref={ref}
             style={{
                 display: 'flex',
+                overflow: 'hidden',
                 ...(doubleMargin
                     ? { margin, width: `calc(100% - ${doubleMargin})`, height: `calc(100% - ${doubleMargin})` }
                     : {}),

@@ -1,11 +1,13 @@
 import { AnimatePresence } from 'framer-motion';
-import { useGameState } from '../../hooks/useGameState';
-import { EndGameHud, GameHud, MenuHud } from './hud';
+import { useGame } from '../../../hooks/useGame';
+import { EndGameHud } from './EndGameHud';
+import { GameHud } from './GameHud';
+import { MenuHud } from './MenuHud';
 
 export function GlobalHud() {
     const {
         gameStateService: { isInMenu, isInGame, isGameOver },
-    } = useGameState();
+    } = useGame();
 
     return (
         <AnimatePresence>

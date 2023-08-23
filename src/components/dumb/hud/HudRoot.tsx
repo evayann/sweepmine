@@ -1,6 +1,6 @@
 import { HTMLAttributes, Ref, forwardRef } from 'react';
 
-import './hud-root.css';
+import './HudRoot.css';
 
 export interface HudRootProps extends HTMLAttributes<HTMLDivElement> {}
 

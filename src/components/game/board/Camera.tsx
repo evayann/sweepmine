@@ -1,4 +1,5 @@
-import { CameraShake, OrbitControls, OrthographicCamera } from '@react-three/drei';
+import { CameraShake, OrbitControls, OrthographicCamera, ShakeController } from '@react-three/drei';
+import { useEffect, useRef } from 'react';
 
 export interface CameraProps {
     isPaused: boolean;
@@ -6,6 +7,12 @@ export interface CameraProps {
 }
 
 export function Camera({ isPaused, isInGame }: CameraProps) {
+    const shakeController = useRef<ShakeController | undefined>();
+
+    useEffect(() => {
+        shakeController.current?.setIntensity(!isPaused ? 10 : 0);
+    }, [isPaused]);
+
     return (
         <>
             <OrbitControls
@@ -16,7 +23,7 @@ export function Camera({ isPaused, isInGame }: CameraProps) {
                 enabled={!isPaused && isInGame}
             />
             <CameraShake
-                intensity={isPaused ? 0.1 : undefined}
+                ref={shakeController}
                 maxPitch={0.05}
                 maxRoll={0.05}
                 maxYaw={0.05}
