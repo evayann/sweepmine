@@ -1,0 +1,29 @@
+ul {
+    display: flex;
+
+    list-style-type: none;
+
+    padding: 0;
+}
+
+ul > li {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 1em;
+}
+
+ul > li > a {
+    text-decoration: none;
+}
+
+#logo-container {
+    margin-right: auto;
+}
+
+#logo {
+    width: 56px;
+    aspect-ratio: 1;
+}

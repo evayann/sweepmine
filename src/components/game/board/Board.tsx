@@ -57,7 +57,7 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
 
     useEffect(() => {
         setGameBlur(gameStateService.isPaused);
-    }, [gameStateService.isPaused, gameStateService.isInGame, gameStateService.isGameOver]);
+    }, [gameStateService.isPaused]);
 
     return (
         <Canvas style={{ gridRow: 1, gridColumn: 1, filter: `${gameBlur ? 'blur(16px)' : ''}` }}>
@@ -88,7 +88,7 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
                     }}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                         pointerEvent.stopPropagation();
-                        if (gameStateService.isPaused || _case.hasFlag || gameFinish) return;
+                        if (gameStateService.isPaused || _case.isReveal || _case.hasFlag || gameFinish) return;
 
                         if (!gameStateService.isFlagOnClick) return revealCase(_case.position.x, _case.position.y);
 

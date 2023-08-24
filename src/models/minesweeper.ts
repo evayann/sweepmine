@@ -1,6 +1,7 @@
 import { range2D, range } from "../utils/iteration";
 import { randomInList } from "../utils/random";
-import { GameState } from "./gameState";
+
+export type GameState = { state: 'in-progress' } | { state: 'finish', isWin: boolean };
 
 export interface Case {
     position: { x: number, y: number };

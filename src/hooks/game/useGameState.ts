@@ -26,7 +26,7 @@ export function useGameState(): GameStateService {
     const [gameState, setGameState] = useState<GameState>(() => ({ state: 'menu' }));
 
     const toMenu = useCallback(() => setGameState({ state: 'menu' }), []);
-    const toGame = useCallback(() => setGameState({ state: 'in-game', isPaused: false, clickAction: 'reveal' }), []);
+    const toGame = useCallback(() => setGameState({ state: 'in-game', isPaused: true, clickAction: 'reveal' }), []);
     const toGameOver = useCallback((isWin: boolean) => setGameState({ state: 'finish', isWin }), []);
 
     const editInGameProps = (props: Partial<InGameState>) => {
