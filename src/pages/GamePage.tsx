@@ -7,7 +7,7 @@ export function GamePage() {
     return (
         <div id="game-page">
             <Header />
-            <Game id="game" dimension={{ x: 5, y: 10 }} numberOfBombs={30} />
+            <Game id="game" dimension={{ x: 16, y: 16 }} numberOfBombs={40} />
         </div>
     );
 }

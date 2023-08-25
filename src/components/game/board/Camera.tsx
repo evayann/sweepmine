@@ -22,7 +22,7 @@ export function Camera({ isPaused, isInGame }: CameraProps) {
                 maxZoom={75}
                 enabled={!isPaused && isInGame}
             />
-            <CameraShake
+            {/* <CameraShake
                 ref={shakeController}
                 maxPitch={0.05}
                 maxRoll={0.05}
@@ -30,7 +30,7 @@ export function Camera({ isPaused, isInGame }: CameraProps) {
                 pitchFrequency={0.3}
                 rollFrequency={0.3}
                 yawFrequency={0.3}
-            />
+            /> */}
             <OrthographicCamera makeDefault position={[10, 5, 10]} zoom={40} />
         </>
     );

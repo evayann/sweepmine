@@ -1,5 +1,6 @@
+
 import { useFrame } from "@react-three/fiber";
-import { MutableRefObject, useEffect } from "react";
+import { MutableRefObject, useCallback, useEffect } from "react";
 
 import { Vector3, Euler, MathUtils, Group, Object3D } from "three";
 
@@ -56,12 +57,14 @@ export const useExplode = ({ group, percent, distance = 3, enableRotation = true
         });
     }, [distance]);
 
-    const dimensionKey: ['x', 'y', 'z'] = ['x', 'y', 'z'];
-    const lerpAllDimension = (mesh: ExtendedObject3DEvent, property: 'Position' | 'Rotation') => dimensionKey.map(key => MathUtils.lerp(
-        mesh[`original${property}`][key],
-        mesh[`target${property}`][key],
-        percent
-    ));
+    const lerpAllDimension = useCallback((mesh: ExtendedObject3DEvent, property: 'Position' | 'Rotation') => {
+        const dimensionKey: ['x', 'y', 'z'] = ['x', 'y', 'z'];
+        return dimensionKey.map(key => MathUtils.lerp(
+            mesh[`original${property}`][key],
+            mesh[`target${property}`][key],
+            percent
+        ));
+    }, []);
 
     useFrame(() => {
         const explosionStart = percent < 0.00001;
@@ -70,11 +73,14 @@ export const useExplode = ({ group, percent, distance = 3, enableRotation = true
             const isOriginalGroup = mesh.name === "original-group";
 
             mesh.visible = explosionStart ? isOriginalGroup : !isOriginalGroup;
+
+            if (!mesh.originalPosition) return;
             const [x, y, z] = lerpAllDimension(mesh, 'Position');
             mesh.position.set(x, y, z);
 
 
             if (enableRotation) {
+                if (!mesh.originalRotation) return;
                 const [x, y, z] = lerpAllDimension(mesh, 'Rotation');
                 mesh.rotation.set(x, y, z);
             }

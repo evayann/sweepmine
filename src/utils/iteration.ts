@@ -21,3 +21,20 @@ export type Range2D = {
 export function range2D({ width, height }: Range2D): [number, number][] {
     return range(width).flatMap((x: number) => range(height).map((y: number): [number, number] => [x, y]));
 }
+
+
+export function zip<T extends unknown[][]>(
+    ...listOfList: T
+): { [K in keyof T]: T[K] extends (infer V)[] ? V : never }[] {
+    const shortestListLength = Math.min(...listOfList.map(list => list.length));
+    // @ts-expect-error
+    return range(shortestListLength).map((i: number) => listOfList.map(list => list[i]));
+}
+
+export function zipLongest<T extends unknown[][]>(
+    ...listOfList: T
+): { [K in keyof T]: T[K] extends (infer V)[] ? V : never }[] {
+    const longestListLength = Math.max(...listOfList.map(list => list.length));
+    // @ts-expect-error
+    return range(longestListLength).map((i: number) => listOfList.map(list => list[i]));
+}

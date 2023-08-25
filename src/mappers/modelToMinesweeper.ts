@@ -17,6 +17,7 @@ export function modelToDisplayCase(caseModel: CaseModel, dimension: any, board: 
         -board.halfHeight + scale.y / 2,
         board.halfHeight - scale.y / 2
     );
+
     return {
         ...caseModel,
         displayPosition: [x, 0, z],
@@ -24,5 +25,6 @@ export function modelToDisplayCase(caseModel: CaseModel, dimension: any, board: 
         scale,
         hasFlag: false,
         isHover: false,
+        isExplosive: false
     };
 }

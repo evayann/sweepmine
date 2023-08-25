@@ -11,7 +11,7 @@ export interface GameStateService {
     isGameOver: boolean;
     isWin: boolean;
     isPaused: boolean;
-    isFlagOnClick: boolean;
+    clickActionIsFlag: boolean;
 
     pause: () => void;
     play: () => void;
@@ -54,7 +54,7 @@ export function useGameState(): GameStateService {
         get isPaused() {
             return gameState.state === 'in-game' && gameState.isPaused;
         },
-        get isFlagOnClick() {
+        get clickActionIsFlag() {
             return gameState.state === 'in-game' && gameState.clickAction === 'flag';
         },
 

@@ -6,6 +6,8 @@ import { DisplayCase } from '../../../interfaces/case.interface';
 import { modelToDisplayCase } from '../../../mappers/modelToMinesweeper';
 import { Camera } from './Camera';
 import { Case } from './Case';
+import { Case as CaseModel } from '../../../models/minesweeper';
+import { zipLongest, zip } from '../../../utils/iteration';
 
 export interface BoardProps {
     dimension: { x: number; y: number };
@@ -35,7 +37,17 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
 
     useEffect(() => {
         const scaleFactor = { x: board.width / dimension.x, y: board.height / dimension.y };
-        setDisplayCaseList(caseList.map((_case) => modelToDisplayCase(_case, dimension, board, scaleFactor)));
+        const newDisplayCaseList = zipLongest(caseList, displayCaseList).map(
+            ([caseModel, displayCase]: [CaseModel, DisplayCase | undefined]) => {
+                const _case = modelToDisplayCase(caseModel, dimension, board, scaleFactor);
+
+                if (!displayCase) return _case;
+
+                _case.hasFlag = displayCase.hasFlag;
+                return _case;
+            }
+        );
+        setDisplayCaseList(newDisplayCaseList);
     }, [caseList, dimension, board]);
 
     useEffect(() => {
@@ -53,6 +65,13 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
     useEffect(() => {
         if (!gameFinish) return;
         gameStateService.toGameOver(gameState.isWin);
+
+        const newDisplayCaseList = displayCaseList.map(({ isBomb, isReveal, ...otherProps }) => ({
+            ...otherProps,
+            isBomb,
+            isReveal: isBomb ? true : isReveal,
+        }));
+        setDisplayCaseList(newDisplayCaseList);
     }, [gameFinish]);
 
     useEffect(() => {
@@ -68,8 +87,7 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
                 <Case
                     position={_case.displayPosition}
                     scale={[_case.scale.x, 1, _case.scale.y]}
-                    isReveal={_case.isReveal}
-                    caseModel={_case}
+                    displayCase={_case}
                     explosionTimeInSecond={_case.bombExplosionInSecond ?? 0}
                     key={`Grid-${gameId}-Case-${_case.position.x}-${_case.position.y}:${index + 1}}`}
                     onPointerEnter={(pointerEvent: ThreeEvent<MouseEvent>) => {
@@ -88,11 +106,17 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
                     }}
                     onClick={(pointerEvent: ThreeEvent<MouseEvent>) => {
                         pointerEvent.stopPropagation();
-                        if (gameStateService.isPaused || _case.isReveal || _case.hasFlag || gameFinish) return;
+                        if (gameStateService.isPaused || _case.isReveal || gameFinish) return;
 
-                        if (!gameStateService.isFlagOnClick) return revealCase(_case.position.x, _case.position.y);
+                        if (gameStateService.clickActionIsFlag) {
+                            _case.hasFlag = !_case.hasFlag;
+                            return;
+                        }
 
-                        _case.hasFlag = !_case.hasFlag;
+                        if (_case.hasFlag) return;
+
+                        revealCase(_case.position.x, _case.position.y);
+                        _case.isExplosive = _case.isBomb;
                     }}
                 />
             ))}

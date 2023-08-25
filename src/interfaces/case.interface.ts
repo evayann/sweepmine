@@ -6,4 +6,5 @@ export interface DisplayCase extends CaseModel {
     hasFlag: boolean;
     scale: { x: number, y: number }
     isHover: boolean;
+    isExplosive: boolean;
 }

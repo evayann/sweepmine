@@ -95,6 +95,8 @@ export class MineSweeper {
     }
 
     private revealNeighbours(x: number, y: number): void {
+        if (this.hasBombAsNeighbour(x, y)) return;
+
         const neigbourList = this.getNeighbourListOf(x, y);
         neigbourList.forEach(neigbourCase => {
             if (neigbourCase.isBomb || neigbourCase.isReveal) return;
@@ -112,6 +114,10 @@ export class MineSweeper {
     private getNeighbourListOf(x: number, y: number): Case[] {
         const neigbourOffsetList = range2D({ width: { min: -1, max: 2 }, height: { min: -1, max: 2 } });
         return neigbourOffsetList.map(([xOffset, yOffset]) => this.getCase(x + xOffset, y + yOffset)).filter(_case => _case) as Case[];
+    }
+
+    private hasBombAsNeighbour(x: number, y: number): boolean {
+        return this.getNeighbourListOf(x, y).some(_case => _case.isBomb);
     }
 
     private generateBombInField(firstX: number, firstY: number): void {
