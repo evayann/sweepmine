@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useGame } from '../../../hooks/useGame';
 import { range } from '../../../utils/iteration';
 import { HudRoot, Hud, RadioButton, Button } from '../../dumb';
+import { BoardDimension } from './in-game/board-dimension/BoardDimension';
+import { CameraPosition } from './in-game/camera-position/CameraPosition';
 
 export function GameHud() {
     const {
@@ -83,12 +85,16 @@ export function GameHud() {
                     }}
                 >
                     <Button onClick={togglePause}> {isRunning ? 'Pause' : 'Play'} </Button>
+                    <CameraPosition />
+                    <BoardDimension />
                 </Hud>
             )}
             {!gameStart.get() && (
-                <Hud id={counterTagName} center>
-                    <p> {counterText} </p>
-                </Hud>
+                <>
+                    <Hud id={counterTagName} center>
+                        <p> {counterText} </p>
+                    </Hud>
+                </>
             )}
         </HudRoot>
     );

@@ -4,10 +4,11 @@ import { useGame } from '../../../hooks/useGame';
 import { useMinesweeper } from '../../../hooks/useMinesweeper';
 import { DisplayCase } from '../../../interfaces/case.interface';
 import { modelToDisplayCase } from '../../../mappers/modelToMinesweeper';
+import { Case as CaseModel } from '../../../models/minesweeper';
+import { zipLongest } from '../../../utils/iteration';
 import { Camera } from './Camera';
 import { Case } from './Case';
-import { Case as CaseModel } from '../../../models/minesweeper';
-import { zipLongest, zip } from '../../../utils/iteration';
+import { CamPosition } from '../hud/in-game/camera-position/camPosition';
 
 export interface BoardProps {
     dimension: { x: number; y: number };
@@ -15,7 +16,7 @@ export interface BoardProps {
 }
 
 export function Board({ dimension, numberOfBombs }: BoardProps) {
-    const { gameStateService, gameTimeService } = useGame();
+    const { gameStateService, gameTimeService, cameraService } = useGame();
     const [displayCaseList, setDisplayCaseList] = useState<DisplayCase[]>(() => []);
     const [gameBlur, setGameBlur] = useState(() => false);
     const { resetGame, revealCase, caseList, gameState, id: gameId } = useMinesweeper(dimension, numberOfBombs);
@@ -52,6 +53,7 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
 
     useEffect(() => {
         gameTimeService.resetTimer();
+        cameraService.setPosition(CamPosition.Corner);
     }, []);
 
     useEffect(() => {

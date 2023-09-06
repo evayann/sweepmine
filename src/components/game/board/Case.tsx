@@ -1,4 +1,4 @@
-import { Billboard, Text, useCursor } from '@react-three/drei';
+import { Billboard, Outlines, Text, useCursor } from '@react-three/drei';
 import { GroupProps, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import { useEffect, useState } from 'react';

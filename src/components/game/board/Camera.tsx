@@ -1,5 +1,7 @@
-import { CameraShake, OrbitControls, OrthographicCamera, ShakeController } from '@react-three/drei';
+import { GizmoHelper, OrbitControls, OrthographicCamera, ShakeController, useGizmoContext } from '@react-three/drei';
 import { useEffect, useRef } from 'react';
+import { MOUSE, TOUCH } from 'three';
+import { useGame } from '../../../hooks/useGame';
 
 export interface CameraProps {
     isPaused: boolean;
@@ -21,7 +23,21 @@ export function Camera({ isPaused, isInGame }: CameraProps) {
                 minZoom={30}
                 maxZoom={75}
                 enabled={!isPaused && isInGame}
+                mouseButtons={{
+                    LEFT: MOUSE.ROTATE,
+                    MIDDLE: undefined,
+                    RIGHT: undefined,
+                }}
+                touches={{
+                    ONE: TOUCH.ROTATE,
+                    TWO: TOUCH.DOLLY_PAN,
+                }}
             />
+
+            <GizmoHelper>
+                <CameraUpdate />
+            </GizmoHelper>
+
             {/* <CameraShake
                 ref={shakeController}
                 maxPitch={0.05}
@@ -34,4 +50,16 @@ export function Camera({ isPaused, isInGame }: CameraProps) {
             <OrthographicCamera makeDefault position={[10, 5, 10]} zoom={40} />
         </>
     );
+}
+
+function CameraUpdate() {
+    const {
+        cameraService: { position: cameraPosition },
+    } = useGame();
+    const { tweenCamera } = useGizmoContext();
+
+    useEffect(() => {
+        tweenCamera(cameraPosition);
+    }, [cameraPosition, tweenCamera]);
+    return <></>;
 }

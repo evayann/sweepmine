@@ -1,0 +1,29 @@
+.camera-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 4px;
+
+    padding: 4px;
+    width: 64px;
+}
+
+.camera-container > .camera-logo {
+    align-self: center;
+    transition: scale 0.1s;
+}
+
+.camera-container:hover > .camera-logo {
+    scale: 1.3;
+}
+
+.camera-container:hover *:first-child ~ * {
+    display: block;
+}
+
+.camera-container > *:not(:first-child) {
+    display: none;
+}

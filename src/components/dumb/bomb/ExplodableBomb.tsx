@@ -16,7 +16,7 @@ export function ExplodableBomb({
     ...otherProps
 }: BombProps) {
     const bombModel = useRef<ExtendedGroup>() as MutableRefObject<ExtendedGroup>;
-    useExplode({ group: bombModel, distance: 25, enableRotation: false, percent: explosionPercent });
+    useExplode({ group: bombModel, distance: 25, enableRotation: false, percent: isExplosive ? 0 : explosionPercent });
 
     return <BombModel ref={bombModel} {...otherProps} />;
 }
