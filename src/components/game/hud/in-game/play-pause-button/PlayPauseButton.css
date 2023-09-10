@@ -1,0 +1,16 @@
+button.play-pause > * {
+    transition: var(--hover-scale-transition);
+    scale: 1;
+}
+
+button.play-pause > *:hover {
+    scale: var(--hover-scale);
+}
+
+button.play-pause path.pause-right {
+    transition: translate 1s linear;
+}
+
+button.play-pause path.pause-right-outside {
+    translate: 100%;
+}

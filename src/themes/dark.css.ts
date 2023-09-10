@@ -1,10 +1,16 @@
 import { Theme } from "./theme.interface";
 
-export const theme: Theme = {
+export const darkTheme: Theme = {
     main: {
         color: 'red',
         accent: 'pink'
     },
     secondary: 'green',
-    background: 'purple'
+    background: 'purple',
+    game: {
+        ui: {
+            primary: '#1C274C',
+            secondary: '#b5bfe3'
+        }
+    }
 }

@@ -5,4 +5,11 @@ export interface Theme {
     };
     secondary: string;
     background: string;
+
+    game: {
+        ui: {
+            primary: string;
+            secondary: string;
+        }
+    }
 }

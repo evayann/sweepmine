@@ -1,4 +1,5 @@
 import './App.css';
+import './themes/main.css';
 import { GamePage } from './pages/GamePage';
 
 function App() {

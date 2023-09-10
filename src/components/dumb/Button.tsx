@@ -1,7 +1,19 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 
-export const Button = styled.button`
+const typedButtonStyle = {
+    invisible: {
+        padding: 0,
+        border: 0,
+        background: 'unset',
+
+        '&:hover': {
+            backgroundColor: 'unset',
+        },
+    },
+};
+
+export const Button = styled.button<{ invisible?: boolean }>`
     cursor: pointer;
     border: none;
     border-radius: 4rem;
@@ -17,6 +29,10 @@ export const Button = styled.button`
         color: lightgray;
         background-color: gray;
     }
+
+    ${(props) => {
+        if (props.invisible) return typedButtonStyle.invisible;
+    }}
 `;
 
 export const MotionButton = motion(Button);

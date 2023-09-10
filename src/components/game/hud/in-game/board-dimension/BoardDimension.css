@@ -1,0 +1,11 @@
+.board-dimension {
+    max-width: 128px;
+}
+
+.board-dimension-inputs {
+    display: flex;
+}
+
+.board-dimension-inputs > input {
+    width: 100%;
+}

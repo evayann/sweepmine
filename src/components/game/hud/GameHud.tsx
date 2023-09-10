@@ -5,10 +5,12 @@ import { range } from '../../../utils/iteration';
 import { HudRoot, Hud, RadioButton, Button } from '../../dumb';
 import { BoardDimension } from './in-game/board-dimension/BoardDimension';
 import { CameraPosition } from './in-game/camera-position/CameraPosition';
+import { PlayPauseButton } from './in-game/play-pause-button/PlayPauseButton';
 
 export function GameHud() {
     const {
         gameTimeService: { time, stopTimer, startTimer, isRunning },
+        gameInformationService: { dimension, editGameInformation },
         gameStateService: { play, pause, clickAction },
     } = useGame();
 
@@ -84,9 +86,16 @@ export function GameHud() {
                         alignItems: 'start',
                     }}
                 >
-                    <Button onClick={togglePause}> {isRunning ? 'Pause' : 'Play'} </Button>
+                    <PlayPauseButton onClick={togglePause} isPaused={!isRunning} />
+                    {/* <Button onClick={togglePause}> {isRunning ? 'Pause' : 'Play'} </Button> */}
                     <CameraPosition />
-                    <BoardDimension />
+                    <BoardDimension
+                        width={dimension.x}
+                        height={dimension.y}
+                        updateDimension={(newDimension) => {
+                            editGameInformation({ dimension: newDimension });
+                        }}
+                    />
                 </Hud>
             )}
             {!gameStart.get() && (
