@@ -8,7 +8,7 @@ button.play-pause > *:hover {
 }
 
 button.play-pause path.pause-right {
-    transition: translate 1s linear;
+    transition: translate 0.25s ease-in;
 }
 
 button.play-pause path.pause-right-outside {

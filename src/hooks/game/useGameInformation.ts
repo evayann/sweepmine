@@ -19,7 +19,7 @@ export function useGameInformation(gameStateService: GameStateService): GameInfo
     const [gameInformation, setGameInformation] = useState<GameInformation>(() => ({ clickAction: 'reveal', dimension: { x: 16, y: 16 }, numberOfBombs: 40 }));
 
     const editGameInformation = (props: Partial<GameInformation>) => {
-        if (gameStateService.isInGame) throw new Error(`Can't assign new props ${props} if isn't in-game !`);
+        if (!gameStateService.isInGame) throw new Error(`Can't assign new props ${JSON.stringify(props)} if isn't in-game !`);
         setGameInformation({ ...gameInformation, ...props });
     }
 
