@@ -6,6 +6,7 @@ import { HudRoot, Hud, RadioButton, Button } from '../../dumb';
 import { BoardDimension } from './in-game/board-dimension/BoardDimension';
 import { CameraPosition } from './in-game/camera-position/CameraPosition';
 import { PlayPauseButton } from './in-game/play-pause-button/PlayPauseButton';
+import { ClickActionRadioButton } from './in-game/ClickActionRadioButton';
 
 export function GameHud() {
     const {
@@ -67,12 +68,7 @@ export function GameHud() {
                     flexDirection: 'column',
                 }}
             >
-                <RadioButton
-                    id="click-state"
-                    defaultSelected="bomb"
-                    list={['bomb', 'flag']}
-                    onChange={(itemSelected: string) => clickAction(itemSelected === 'flag' ? 'flag' : 'reveal')}
-                ></RadioButton>
+                <ClickActionRadioButton />
                 <p> Time : {time.toFixed(1)} seconds</p>
             </Hud>
             {gameStart.get() && (
@@ -87,7 +83,6 @@ export function GameHud() {
                     }}
                 >
                     <PlayPauseButton onClick={togglePause} isPaused={!isRunning} />
-                    {/* <Button onClick={togglePause}> {isRunning ? 'Pause' : 'Play'} </Button> */}
                     <CameraPosition />
                     <BoardDimension
                         width={dimension.x}

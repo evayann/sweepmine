@@ -1,8 +1,9 @@
 import { useCallback, useMemo, useState } from "react";
 
 type MenuState = { state: 'menu' };
-type InGameState = { state: 'in-game', isPaused: boolean, clickAction: 'reveal' | 'flag' };
+type InGameState = { state: 'in-game', isPaused: boolean, clickAction: ClickAction };
 type EndGameState = { state: 'finish', isWin: boolean };
+export type ClickAction = 'reveal' | 'flag' | 'camera';
 
 export type GameState = MenuState | InGameState | EndGameState;
 export interface GameStateService {
@@ -15,7 +16,7 @@ export interface GameStateService {
 
     pause: () => void;
     play: () => void;
-    clickAction: (clickAction: 'reveal' | 'flag') => void;
+    clickAction: (clickAction: ClickAction) => void;
 
     toMenu: () => void;
     toGame: () => void;
@@ -36,7 +37,7 @@ export function useGameState(): GameStateService {
 
     const pause = useCallback(() => editInGameProps({ isPaused: true }), [gameState]);
     const play = useCallback(() => editInGameProps({ isPaused: false }), [gameState]);
-    const clickAction = useCallback((clickAction: 'reveal' | 'flag') => editInGameProps({ clickAction }), [gameState]);
+    const clickAction = useCallback((clickAction: ClickAction) => editInGameProps({ clickAction }), [gameState]);
 
     return useMemo(() => ({
         get isInMenu() {
