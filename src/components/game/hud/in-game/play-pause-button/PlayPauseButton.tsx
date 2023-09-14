@@ -44,7 +44,7 @@ export function PlayPauseButton({ onClick, isPaused }: PlayPauseButtonProps) {
                 <motion.path d={path} stroke={theme.game.ui.primary} strokeWidth="1.5" strokeLinecap="round" />
                 <path
                     className={`pause-right ${isPaused ? 'pause-right-outside' : ''}`}
-                    style={{ transitionDelay: isPaused ? undefined : '0.4s' }}
+                    style={{ transitionDelay: isPaused ? undefined : '0.2s' }}
                     d={pausePathRight}
                     stroke={theme.game.ui.primary}
                     strokeWidth="1.5"

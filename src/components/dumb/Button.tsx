@@ -10,6 +10,13 @@ const typedButtonStyle = {
         '&:hover': {
             backgroundColor: 'unset',
         },
+
+        '& > svg': {
+            transition: 'var(--hover-scale-transition)',
+        },
+        '&:hover > svg': {
+            scale: 'var(--hover-scale)',
+        },
     },
 };
 

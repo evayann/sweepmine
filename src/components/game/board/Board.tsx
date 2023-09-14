@@ -16,7 +16,7 @@ export interface BoardProps {
 }
 
 export function Board({ dimension, numberOfBombs }: BoardProps) {
-    const { gameStateService, gameTimeService, cameraService } = useGame();
+    const { gameStateService, gameInformationService, gameTimeService, cameraService } = useGame();
     const [displayCaseList, setDisplayCaseList] = useState<DisplayCase[]>(() => []);
     const [gameBlur, setGameBlur] = useState(() => false);
     const { resetGame, revealCase, caseList, gameState, id: gameId } = useMinesweeper(dimension, numberOfBombs);
@@ -38,16 +38,19 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
 
     useEffect(() => {
         const scaleFactor = { x: board.width / dimension.x, y: board.height / dimension.y };
-        const newDisplayCaseList = zipLongest(caseList, displayCaseList).map(
-            ([caseModel, displayCase]: [CaseModel, DisplayCase | undefined]) => {
+        const newDisplayCaseList: DisplayCase[] = zipLongest(caseList, displayCaseList)
+            .map(([caseModel, displayCase]: [CaseModel, DisplayCase | undefined]) => {
+                if (!caseModel) return;
+
                 const _case = modelToDisplayCase(caseModel, dimension, board, scaleFactor);
 
                 if (!displayCase) return _case;
 
                 _case.hasFlag = displayCase.hasFlag;
                 return _case;
-            }
-        );
+            })
+            .filter((caseModel) => caseModel) as DisplayCase[];
+
         setDisplayCaseList(newDisplayCaseList);
     }, [caseList, dimension, board]);
 
@@ -82,7 +85,11 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
 
     return (
         <Canvas style={{ gridRow: 1, gridColumn: 1, filter: `${gameBlur ? 'blur(16px)' : ''}` }}>
-            <Camera isInGame={gameStateService.isInGame} isPaused={gameStateService.isPaused} />
+            <Camera
+                isInGame={gameStateService.isInGame}
+                isPaused={gameStateService.isPaused}
+                canMove={gameInformationService.clickActionIsCameraMove}
+            />
             <ambientLight />
 
             {displayCaseList.map((_case, index) => (
@@ -110,7 +117,7 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
                         pointerEvent.stopPropagation();
                         if (gameStateService.isPaused || _case.isReveal || gameFinish) return;
 
-                        if (gameStateService.clickActionIsFlag) {
+                        if (gameInformationService.clickActionIsFlag) {
                             _case.hasFlag = !_case.hasFlag;
                             return;
                         }

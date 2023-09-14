@@ -2,17 +2,17 @@ import { useAnimate, useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useGame } from '../../../hooks/useGame';
 import { range } from '../../../utils/iteration';
-import { HudRoot, Hud, RadioButton, Button } from '../../dumb';
+import { Hud, HudRoot } from '../../dumb';
+import { ClickActionRadioButton } from './in-game/ClickActionRadioButton';
 import { BoardDimension } from './in-game/board-dimension/BoardDimension';
 import { CameraPosition } from './in-game/camera-position/CameraPosition';
 import { PlayPauseButton } from './in-game/play-pause-button/PlayPauseButton';
-import { ClickActionRadioButton } from './in-game/ClickActionRadioButton';
 
 export function GameHud() {
     const {
         gameTimeService: { time, stopTimer, startTimer, isRunning },
         gameInformationService: { dimension, editGameInformation },
-        gameStateService: { play, pause, clickAction },
+        gameStateService,
     } = useGame();
 
     const counterTagName = 'ready-text';
@@ -23,12 +23,12 @@ export function GameHud() {
     const togglePause = () => {
         if (isRunning) {
             stopTimer();
-            pause();
+            gameStateService.pause();
             return;
         }
 
         startTimer();
-        play();
+        gameStateService.play();
     };
 
     const [scope, animate] = useAnimate();
@@ -51,7 +51,7 @@ export function GameHud() {
             await animate(gameStart, true);
 
             startTimer();
-            play();
+            gameStateService.play();
         };
         animationSequence();
     }, [animate, counterTag]);
@@ -80,6 +80,7 @@ export function GameHud() {
                         display: 'flex',
                         justifyContent: 'flex-start',
                         alignItems: 'start',
+                        gap: '5px',
                     }}
                 >
                     <PlayPauseButton onClick={togglePause} isPaused={!isRunning} />

@@ -4,7 +4,7 @@ import { HudRoot, Hud, Button } from '../../dumb';
 
 export function EndGameHud() {
     const {
-        gameStateService: { toMenu, isWin },
+        gameStateService,
         gameTimeService: { time },
     } = useGame();
     return (
@@ -26,12 +26,12 @@ export function EndGameHud() {
                     }}
                 >
                     <p style={{ textAlign: 'center' }}>
-                        You {isWin ? 'win' : 'loose'} in {time.toFixed(1)} secondes !
+                        You {gameStateService.isWin ? 'win' : 'loose'} in {time.toFixed(1)} secondes !
                     </p>
                     <Button
                         onClick={(mouseEvent: React.MouseEvent) => {
                             mouseEvent.stopPropagation();
-                            toMenu();
+                            gameStateService.toMenu();
                         }}
                     >
                         Restart

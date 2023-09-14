@@ -1,10 +1,10 @@
-import { ClickAction } from '../../../../hooks/game/useGameState';
+import { ClickAction } from '../../../../hooks/game/useGameInformation';
 import { useGame } from '../../../../hooks/useGame';
 import { RadioButton } from '../../../dumb';
 
 export function ClickActionRadioButton() {
     const {
-        gameStateService: { clickAction },
+        gameInformationService: { clickAction },
     } = useGame();
 
     const actionBydisplayName: Record<string, ClickAction> = {

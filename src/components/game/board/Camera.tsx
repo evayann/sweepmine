@@ -6,9 +6,10 @@ import { useGame } from '../../../hooks/useGame';
 export interface CameraProps {
     isPaused: boolean;
     isInGame: boolean;
+    canMove: boolean;
 }
 
-export function Camera({ isPaused, isInGame }: CameraProps) {
+export function Camera({ isPaused, isInGame, canMove }: CameraProps) {
     const shakeController = useRef<ShakeController | undefined>();
 
     useEffect(() => {
@@ -22,7 +23,7 @@ export function Camera({ isPaused, isInGame }: CameraProps) {
                 maxPolarAngle={Math.PI / 2}
                 minZoom={30}
                 maxZoom={75}
-                enabled={!isPaused && isInGame}
+                enabled={!isPaused && isInGame && canMove}
                 mouseButtons={{
                     LEFT: MOUSE.ROTATE,
                     MIDDLE: undefined,

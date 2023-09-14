@@ -1,18 +1,22 @@
 import { useCallback, useMemo, useState } from "react";
 import { GameStateService } from "./useGameState";
 
+export type ClickAction = 'reveal' | 'flag' | 'camera';
+
 export interface GameInformation {
-    clickAction: 'reveal' | 'flag';
+    clickAction: ClickAction;
     dimension: { x: number, y: number };
     numberOfBombs: number;
 }
 
 export interface GameInformationService {
     clickActionIsFlag: boolean;
+    clickActionIsReveal: boolean;
+    clickActionIsCameraMove: boolean;
     dimension: { x: number, y: number };
 
     editGameInformation: (props: Partial<GameInformation>) => void;
-    clickAction: (clickAction: 'reveal' | 'flag') => void;
+    clickAction: (clickAction: ClickAction) => void;
 }
 
 export function useGameInformation(gameStateService: GameStateService): GameInformationService {
@@ -23,11 +27,17 @@ export function useGameInformation(gameStateService: GameStateService): GameInfo
         setGameInformation({ ...gameInformation, ...props });
     }
 
-    const clickAction = useCallback((clickAction: 'reveal' | 'flag') => editGameInformation({ clickAction }), []);
+    const clickAction = useCallback((clickAction: ClickAction) => editGameInformation({ clickAction }), []);
 
     return useMemo(() => ({
         get clickActionIsFlag() {
-            return gameStateService.isInGame && gameInformation.clickAction === 'flag';
+            return gameInformation.clickAction === 'flag';
+        },
+        get clickActionIsReveal() {
+            return gameInformation.clickAction === 'reveal';
+        },
+        get clickActionIsCameraMove() {
+            return gameInformation.clickAction === 'camera';
         },
         dimension: gameInformation.dimension,
 

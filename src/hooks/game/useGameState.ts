@@ -1,70 +1,65 @@
-import { useCallback, useMemo, useState } from "react";
+import { useRef, useState } from "react";
 
 type MenuState = { state: 'menu' };
-type InGameState = { state: 'in-game', isPaused: boolean, clickAction: ClickAction };
+type InGameState = { state: 'in-game', isPaused: boolean };
 type EndGameState = { state: 'finish', isWin: boolean };
-export type ClickAction = 'reveal' | 'flag' | 'camera';
-
 export type GameState = MenuState | InGameState | EndGameState;
-export interface GameStateService {
-    isInMenu: boolean;
-    isInGame: boolean;
-    isGameOver: boolean;
-    isWin: boolean;
-    isPaused: boolean;
-    clickActionIsFlag: boolean;
 
-    pause: () => void;
-    play: () => void;
-    clickAction: (clickAction: ClickAction) => void;
-
-    toMenu: () => void;
-    toGame: () => void;
-    toGameOver: (isWin: boolean) => void;
+export function useGameState() {
+    const gameStateRef = useRef(new GameStateService());
+    return gameStateRef.current;
 }
 
-export function useGameState(): GameStateService {
-    const [gameState, setGameState] = useState<GameState>(() => ({ state: 'menu' }));
+export class GameStateService {
+    private gameState: GameState = { state: 'menu' };
+    private rerender = useState({})[1];
 
-    const toMenu = useCallback(() => setGameState({ state: 'menu' }), []);
-    const toGame = useCallback(() => setGameState({ state: 'in-game', isPaused: true, clickAction: 'reveal' }), []);
-    const toGameOver = useCallback((isWin: boolean) => setGameState({ state: 'finish', isWin }), []);
-
-    const editInGameProps = (props: Partial<InGameState>) => {
-        if (gameState.state !== 'in-game') throw new Error(`Can't assign new props ${props} if isn't in-game !`);
-        setGameState({ ...gameState, ...props });
+    get isInMenu(): boolean {
+        return this.gameState.state === 'menu';
     }
 
-    const pause = useCallback(() => editInGameProps({ isPaused: true }), [gameState]);
-    const play = useCallback(() => editInGameProps({ isPaused: false }), [gameState]);
-    const clickAction = useCallback((clickAction: ClickAction) => editInGameProps({ clickAction }), [gameState]);
+    get isInGame(): boolean {
+        return this.gameState.state === 'in-game';
+    }
 
-    return useMemo(() => ({
-        get isInMenu() {
-            return gameState.state === 'menu';
-        },
-        get isInGame() {
-            return gameState.state === 'in-game';
-        },
-        get isGameOver() {
-            return gameState.state === 'finish';
-        },
-        get isWin() {
-            return gameState.state === 'finish' && gameState.isWin;
-        },
-        get isPaused() {
-            return gameState.state === 'in-game' && gameState.isPaused;
-        },
-        get clickActionIsFlag() {
-            return gameState.state === 'in-game' && gameState.clickAction === 'flag';
-        },
+    get isGameOver(): boolean {
+        return this.gameState.state === 'finish';
+    }
 
-        pause,
-        play,
-        clickAction,
+    get isWin() {
+        return this.isGameOver && (this.gameState as EndGameState).isWin;
+    }
 
-        toMenu,
-        toGame,
-        toGameOver,
-    }), [gameState]);
+    get isPaused() {
+        return this.isInGame && (this.gameState as InGameState).isPaused;
+    }
+
+    pause(): void {
+        this.updateInGameState({ isPaused: true });
+    }
+
+    play(): void {
+        this.updateInGameState({ isPaused: false });
+    }
+
+    toMenu(): void {
+        this.gameState = { state: 'menu' };
+        this.rerender({});
+    }
+
+    toGame(): void {
+        this.gameState = { state: 'in-game', isPaused: true };
+        this.rerender({});
+    }
+
+    toGameOver(isWin: boolean): void {
+        this.gameState = { state: 'finish', isWin };
+        this.rerender({});
+    }
+
+    private updateInGameState(props: Partial<InGameState>): void {
+        if (!this.isInGame) throw new Error(`Can't assign new props ${props} if isn't in-game !`);
+        const newInGameState: InGameState = { ...this.gameState as InGameState, ...props };
+        this.gameState = newInGameState;
+    }
 }

@@ -82,6 +82,7 @@ export class MineSweeper {
         const numberOfCase = this.dimension.x * this.dimension.y;
         if (numberOfCase < this.numberOfBombInField) throw new Error(`Cannot have ${this.numberOfBombInField} bombs in a field of ${numberOfCase} cases.`);
 
+        console.log(this)
         const caseList = range2D({ width: { min: 0, max: this.dimension.x }, height: { min: 0, max: this.dimension.y } });
         this.cases = caseList.reduce((acc, [x, y]) => ({ ...acc, [id(x, y)]: generateCase(x, y) }), {});
         this.gameState = { state: 'in-progress' };

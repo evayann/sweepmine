@@ -5,7 +5,8 @@ import { motion as motion3d } from 'framer-motion-3d';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { useGame } from '../../../hooks/useGame';
 import { map } from '../../../utils/calculations';
-import { HudRoot, Hud, MotionTitle, MotionButton, Bomb } from '../../dumb';
+import { HudRoot, Hud, MotionTitle, MotionButton, Bomb, Title } from '../../dumb';
+import { MotionText } from '../../dumb/Text';
 
 export function MenuHud() {
     const { gameStateService } = useGame();
@@ -29,24 +30,27 @@ export function MenuHud() {
                         bounce: 0.2,
                     }}
                 >
-                    <MotionTitle
-                        style={{ rotate: '-5deg', scale: 0.9 }}
-                        animate={{ rotate: '5deg', scale: 1.3 }}
-                        transition={{
-                            repeat: Infinity,
-                            duration: 2,
-                            repeatType: 'mirror',
-                            scale: {
-                                repeat: Infinity,
-                                delay: 0.1,
-                                repeatType: 'mirror',
-                                ease: 'backInOut',
-                                duration: 3,
-                            },
-                        }}
-                    >
+                    <Title style={{ position: 'relative' }}>
                         MineSweeper
-                    </MotionTitle>
+                        <MotionText
+                            style={{ position: 'absolute', right: '-10%', top: '-25%', rotate: '-5deg', scale: 0.9 }}
+                            animate={{ rotate: '5deg', scale: 1.3 }}
+                            transition={{
+                                repeat: Infinity,
+                                duration: 2,
+                                repeatType: 'mirror',
+                                scale: {
+                                    repeat: Infinity,
+                                    delay: 0.1,
+                                    repeatType: 'mirror',
+                                    ease: 'backInOut',
+                                    duration: 3,
+                                },
+                            }}
+                        >
+                            By Evayann
+                        </MotionText>
+                    </Title>
                     <MotionButton
                         ref={buttonRef}
                         style={{

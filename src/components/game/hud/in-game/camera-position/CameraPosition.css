@@ -1,4 +1,8 @@
 .camera-container {
+    position: absolute;
+    top: 100%;
+    left: -50%;
+
     display: flex;
     flex-direction: column;
 
@@ -8,22 +12,4 @@
     gap: 4px;
 
     width: 64px;
-}
-
-.camera-container > .camera-logo {
-    align-self: center;
-    transition: scale 0.1s;
-    scale: 1.2;
-}
-
-.camera-container:hover > .camera-logo {
-    scale: 1.3;
-}
-
-.camera-container:hover *:first-child ~ * {
-    display: block;
-}
-
-.camera-container > *:not(:first-child) {
-    display: none;
 }

@@ -1,14 +1,5 @@
-button.play-pause > * {
-    transition: var(--hover-scale-transition);
-    scale: 1;
-}
-
-button.play-pause > *:hover {
-    scale: var(--hover-scale);
-}
-
 button.play-pause path.pause-right {
-    transition: translate 0.25s ease-in;
+    transition: translate 0.3s ease-in;
 }
 
 button.play-pause path.pause-right-outside {
