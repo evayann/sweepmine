@@ -1,7 +1,9 @@
+import { ReactComponent as BombLogo } from '../../../../../assets/bomb.svg';
 import { ReactComponent as SettingsLogo } from '../../../../../assets/settings.svg';
+import { useCloseOutsideRef } from '../../../../../hooks/game/useFocus';
 
-import { ChangeEvent, useRef, useState } from 'react';
-import { Button } from '../../../../dumb';
+import { ChangeEvent, useRef } from 'react';
+import { Button, Input } from '../../../../dumb';
 
 import './BoardDimension.css';
 
@@ -12,17 +14,19 @@ export interface BoardDimensionProps {
 }
 
 export function BoardDimension({ width, height, updateDimension }: BoardDimensionProps) {
-    const [toggleSettings, setToggleSettings] = useState(false);
     const xInput = useRef<HTMLInputElement>(null);
     const yInput = useRef<HTMLInputElement>(null);
 
+    const settingsMenuRef = useRef(null);
+    const [isSettingsMenuOpen, open] = useCloseOutsideRef(settingsMenuRef);
+
     return (
         <>
-            <Button invisible className="settings" onClick={() => setToggleSettings(!toggleSettings)}>
+            <Button invisible className="settings" onClick={open}>
                 <SettingsLogo width="32px" height="32px" />
             </Button>
-            {toggleSettings && (
-                <div className="board-dimension">
+            {isSettingsMenuOpen && (
+                <div ref={settingsMenuRef} className="board-dimension">
                     <div className="board-dimension-inputs">
                         <input
                             ref={xInput}
@@ -41,6 +45,11 @@ export function BoardDimension({ width, height, updateDimension }: BoardDimensio
                             }
                         />
                     </div>
+                    <div className="board-bomb">
+                        <BombLogo className="logo" />
+                        <input type="number" value={10} />
+                    </div>
+                    <Input type="number" />
                     <Button> Update </Button>
                 </div>
             )}

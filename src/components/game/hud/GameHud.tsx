@@ -58,19 +58,21 @@ export function GameHud() {
 
     return (
         <HudRoot ref={scope}>
-            <Hud
-                id="game-information"
-                key={'Information'}
-                style={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                }}
-            >
-                <ClickActionRadioButton />
-                <p> Time : {time.toFixed(1)} seconds</p>
-            </Hud>
+            {gameStart.get() && !gameStateService.isPaused && (
+                <Hud
+                    id="game-information"
+                    key={'Information'}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                    }}
+                >
+                    <ClickActionRadioButton />
+                    <p> Time : {time.toFixed(1)} seconds</p>
+                </Hud>
+            )}
             {gameStart.get() && (
                 <Hud
                     id="pause-button"

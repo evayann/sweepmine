@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useRerender } from "../useRerender";
 
 type MenuState = { state: 'menu' };
 type InGameState = { state: 'in-game', isPaused: boolean };
@@ -12,7 +13,7 @@ export function useGameState() {
 
 export class GameStateService {
     private gameState: GameState = { state: 'menu' };
-    private rerender = useState({})[1];
+    private rerender = useRerender();
 
     get isInMenu(): boolean {
         return this.gameState.state === 'menu';
@@ -27,11 +28,19 @@ export class GameStateService {
     }
 
     get isWin() {
-        return this.isGameOver && (this.gameState as EndGameState).isWin;
+        return this.isGameOver && this.endGameState.isWin;
     }
 
     get isPaused() {
-        return this.isInGame && (this.gameState as InGameState).isPaused;
+        return this.isInGame && this.inGameState.isPaused;
+    }
+
+    private get inGameState(): InGameState {
+        return this.gameState as InGameState;
+    }
+
+    private get endGameState(): EndGameState {
+        return this.gameState as EndGameState;
     }
 
     pause(): void {
@@ -44,17 +53,17 @@ export class GameStateService {
 
     toMenu(): void {
         this.gameState = { state: 'menu' };
-        this.rerender({});
+        this.rerender();
     }
 
     toGame(): void {
         this.gameState = { state: 'in-game', isPaused: true };
-        this.rerender({});
+        this.rerender();
     }
 
     toGameOver(isWin: boolean): void {
         this.gameState = { state: 'finish', isWin };
-        this.rerender({});
+        this.rerender();
     }
 
     private updateInGameState(props: Partial<InGameState>): void {

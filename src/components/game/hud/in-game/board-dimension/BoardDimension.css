@@ -9,3 +9,11 @@
 .board-dimension-inputs > input {
     width: 100%;
 }
+
+.board-bomb {
+    display: flex;
+}
+
+.board-bomb > * {
+    width: 100%;
+}
