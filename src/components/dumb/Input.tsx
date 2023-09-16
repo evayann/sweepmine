@@ -1,61 +1,63 @@
+import { ReactComponent as MinusLogo } from '../../assets/minus.svg';
+import { ReactComponent as AddLogo } from '../../assets/add.svg';
+
 import styled from '@emotion/styled';
+import { InputHTMLAttributes, useState } from 'react';
+import { Button } from './Button';
 
-const typedInputStyle = {
-    text: {
-        padding: 0,
-        border: 0,
-        background: 'unset',
-
-        '&:hover': {
-            backgroundColor: 'unset',
-        },
-
-        '& > svg': {
-            transition: 'var(--hover-scale-transition)',
-        },
-        '&:hover > svg': {
-            scale: 'var(--hover-scale)',
-        },
-    },
-    number: {
-        '&:before': {
-            content: '-',
-        },
-        '&:after': {
-            content: '+',
-        },
-    },
-};
-
-export const Input = styled.input<{ text?: boolean; number?: boolean }>`
+const StyledInput = styled.input`
     font-size: 1rem;
-    width: 50%;
 
-    &[type="number"] {
-        position: relative;
+    &[type='number'] {
+        border: none;
 
-        &::after,
-        &::before {
-            position: absolute;
-            font-size: 32px;
-            color: white;
-            top: 0;
-            z-index: 1000;
+        /* Remove default spinner */
+        -moz-appearance: textfield;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
-        &::before {
-            content: '-';
-
-            left: 0;
+        &:focus {
         }
-
-        &::after {
-            content: '+';
-
-            right: 0;
-        },
     }
-    ${(props) => {
-        if (props.text) return typedInputStyle.text;
-    }}
 `;
+
+export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
+    const [value, setValue] = useState(+(props.value ?? 0));
+
+    if (props.type !== 'number') return <StyledInput {...props} />;
+
+    return (
+        <span
+            style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                border: '1px solid black',
+                borderRadius: '10rem',
+                padding: '6px',
+            }}
+        >
+            <Button
+                invisible
+                type="button"
+                style={{ width: '20%' }}
+                onClick={() => setValue(Math.max(value - 1, +(props.min ?? -Infinity)))}
+            >
+                <MinusLogo style={{ aspectRatio: 1 }} />
+            </Button>
+
+            <StyledInput {...props} value={value} style={{ width: '50%' }} />
+
+            <Button
+                invisible
+                type="button"
+                style={{ width: '20%' }}
+                onClick={() => setValue(Math.min(value + 1, +(props.max ?? Infinity)))}
+            >
+                <AddLogo style={{ aspectRatio: 1 }} />
+            </Button>
+        </span>
+    );
+}

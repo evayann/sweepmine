@@ -4,6 +4,7 @@
 
 .board-dimension-inputs {
     display: flex;
+    flex-direction: column;
 }
 
 .board-dimension-inputs > input {

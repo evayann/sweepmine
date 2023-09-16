@@ -14,9 +14,6 @@ export interface BoardDimensionProps {
 }
 
 export function BoardDimension({ width, height, updateDimension }: BoardDimensionProps) {
-    const xInput = useRef<HTMLInputElement>(null);
-    const yInput = useRef<HTMLInputElement>(null);
-
     const settingsMenuRef = useRef(null);
     const [isSettingsMenuOpen, open] = useCloseOutsideRef(settingsMenuRef);
 
@@ -25,33 +22,37 @@ export function BoardDimension({ width, height, updateDimension }: BoardDimensio
             <Button invisible className="settings" onClick={open}>
                 <SettingsLogo width="32px" height="32px" />
             </Button>
+
             {isSettingsMenuOpen && (
-                <div ref={settingsMenuRef} className="board-dimension">
+                <form
+                    ref={settingsMenuRef}
+                    className="board-dimension"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        console.log(e.target);
+                        const getValue = (name: string): any => e.currentTarget[name]?.value;
+
+                        const dimension = {
+                            x: getValue('dimension-x'),
+                            y: getValue('dimension-y'),
+                        };
+
+                        updateDimension(dimension);
+                    }}
+                >
                     <div className="board-dimension-inputs">
-                        <input
-                            ref={xInput}
-                            type="number"
-                            value={width}
-                            onChange={(newX: ChangeEvent<HTMLInputElement>) =>
-                                updateDimension({ x: +newX.target.value, y: +(yInput.current?.value ?? height) })
-                            }
-                        />
-                        <input
-                            ref={yInput}
-                            type="number"
-                            value={height}
-                            onChange={(newY: ChangeEvent<HTMLInputElement>) =>
-                                updateDimension({ x: +(xInput.current?.value ?? width), y: +newY.target.value })
-                            }
-                        />
+                        <p> Dimension </p>
+                        <Input type="number" name="dimension-x" defaultValue={width} />
+                        <Input type="number" name="dimension-y " defaultValue={height} />
                     </div>
+
                     <div className="board-bomb">
                         <BombLogo className="logo" />
-                        <input type="number" value={10} />
+                        <Input type="number" name="nb-bomb" />
                     </div>
-                    <Input type="number" />
-                    <Button> Update </Button>
-                </div>
+
+                    <Button type="submit"> Update </Button>
+                </form>
             )}
         </>
     );
