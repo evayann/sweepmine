@@ -7,4 +7,5 @@ export interface DisplayCase extends CaseModel {
     scale: { x: number, y: number }
     isHover: boolean;
     isExplosive: boolean;
+    distanceToCenter: number;
 }

@@ -4,7 +4,7 @@ import { useGame } from '../../../hooks/useGame';
 import { range } from '../../../utils/iteration';
 import { Hud, HudRoot } from '../../dumb';
 import { ClickActionRadioButton } from './in-game/ClickActionRadioButton';
-import { BoardDimension } from './in-game/board-dimension/BoardDimension';
+import { BoardSettings } from './in-game/board-settings/BoardSettings';
 import { CameraPosition } from './in-game/camera-position/CameraPosition';
 import { PlayPauseButton } from './in-game/play-pause-button/PlayPauseButton';
 
@@ -87,7 +87,7 @@ export function GameHud() {
                 >
                     <PlayPauseButton onClick={togglePause} isPaused={!isRunning} />
                     <CameraPosition />
-                    <BoardDimension
+                    <BoardSettings
                         width={dimension.x}
                         height={dimension.y}
                         updateDimension={(newDimension) => {

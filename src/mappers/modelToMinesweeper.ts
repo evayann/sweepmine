@@ -1,3 +1,4 @@
+import { Vector2 } from 'three';
 import { DisplayCase } from '../interfaces/case.interface';
 import { Case as CaseModel } from "../models/minesweeper";
 import { map } from "../utils/calculations";
@@ -25,6 +26,7 @@ export function modelToDisplayCase(caseModel: CaseModel, dimension: any, board: 
         scale,
         hasFlag: false,
         isHover: false,
-        isExplosive: false
+        isExplosive: false,
+        distanceToCenter: caseModel.position.distanceTo(new Vector2(board.halfWidth, board.halfHeight))
     };
 }

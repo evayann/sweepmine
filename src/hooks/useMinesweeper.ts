@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MineSweeper } from "../models/minesweeper";
+import { Vec2, Vector2 } from "three";
 
 export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBombInField: number) => {
     let minesweeperRef = useRef(new MineSweeper());
@@ -19,8 +20,8 @@ export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBomb
         update();
     }, [dimension, numberOfBombInField]);
 
-    const revealCase = (x: number, y: number): void => {
-        ms.revealCase(x, y);
+    const revealCase = (x: number, y: number, exceptCaseList: Vec2[]): void => {
+        ms.revealCase(x, y, exceptCaseList);
         update();
     };
 

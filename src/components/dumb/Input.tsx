@@ -48,7 +48,7 @@ export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
                 <MinusLogo style={{ aspectRatio: 1 }} />
             </Button>
 
-            <StyledInput {...props} value={value} style={{ width: '50%' }} />
+            <StyledInput readOnly {...props} value={value} style={{ width: '50%' }} />
 
             <Button
                 invisible

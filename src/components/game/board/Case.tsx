@@ -1,9 +1,10 @@
-import { Billboard, Outlines, Text, useCursor } from '@react-three/drei';
+import { Billboard, Text } from '@react-three/drei';
 import { GroupProps, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
-import { useEffect, useState } from 'react';
-import { ExplodableBomb } from '../../dumb';
+import { useMemo, useState } from 'react';
 import { DisplayCase } from '../../../interfaces/case.interface';
+import { ExplodableBomb } from '../../dumb';
+import { Flag } from './Flag';
 
 export interface CaseProps extends GroupProps {
     displayCase: DisplayCase;
@@ -13,13 +14,6 @@ export interface CaseProps extends GroupProps {
 export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: CaseProps) {
     const [revealAnimationEnd, setReavealAnimationEnd] = useState(false);
     const [explosionPercent, setExplosionPercent] = useState(0);
-
-    const [hovered, setHover] = useState(() => false);
-    useCursor(hovered);
-
-    useEffect(() => {
-        setHover(displayCase.isHover);
-    }, [displayCase.isHover]);
 
     useFrame(({ clock }) => {
         if (!displayCase.isReveal || !displayCase.isBomb) return;
@@ -33,7 +27,7 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
 
     const CaseNumber: JSX.Element = (
         <Billboard position={[0, 0.8, 0]}>
-            <Text outlineColor="white" outlineWidth={0.01} color="black" anchorX="center" anchorY="middle">
+            <Text outlineColor="white" outlineWidth={0.03} color="black" anchorX="center" anchorY="middle">
                 {displayCase.numberOfBombsArround}
             </Text>
         </Billboard>
@@ -52,6 +46,12 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
         },
     };
 
+    const topCaseColor = useMemo(() => {
+        if (displayCase.isHover) return 'red';
+        if (displayCase.hasFlag) return 'darkgreen';
+        return 'green';
+    }, [displayCase.isHover, displayCase.hasFlag, displayCase.isReveal]);
+
     return (
         <group {...otherProps}>
             <mesh>
@@ -66,7 +66,7 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
                     position={[0, 0.5, 0]}
                 >
                     <boxGeometry args={[1, 0.2, 1]} />
-                    <meshBasicMaterial color={displayCase.isHover && !displayCase.isReveal ? 'red' : 'green'} />
+                    <meshBasicMaterial color={topCaseColor} />
                 </motion.mesh>
             )}
             {show.caseNumber && CaseNumber}
@@ -85,16 +85,8 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
             )}
             {displayCase.hasFlag && (
                 <Billboard position={[0, 0.8, 0]}>
-                    <Text
-                        outlineColor="white"
-                        outlineWidth={0.01}
-                        fontSize={0.5}
-                        color="black"
-                        anchorX="center"
-                        anchorY="middle"
-                    >
-                        Flag
-                    </Text>
+                    {/* <Svg src={FlagSvg} position={[-0.5, 0.5, 0]} scale={[0.04, 0.04, 0.04]} skipFill={true}></Svg> */}
+                    <Flag position={[-0.5, 0.5, 0]} scale={[0.04, 0.04, 0.04]} />
                 </Billboard>
             )}
         </group>

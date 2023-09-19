@@ -1,15 +1,12 @@
 :root {
-    /* Global site */
-    --primary: 'red';
-    --secondary: 'blue';
+    --primary: #1c274c;
+    --secondary: #b5bfe3;
+
+    --text-primary: white;
+    --text-secondaty: black;
 
     --duration-1: 0.15s;
 
     --hover-scale-transition: scale var(--duration-1) ease-in-out;
     --hover-scale: 1.1;
-
-    /* Game */
-
-    --ui-primary: #1c274c;
-    --ui-secondary: #b5bfe3;
 }

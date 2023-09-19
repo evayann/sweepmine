@@ -28,8 +28,8 @@ export const Button = styled.button<{ invisible?: boolean }>`
     border: none;
     border-radius: 4rem;
 
-    color: white;
-    background-color: var(--qwik-dark-blue, red);
+    color: var(--text-primary);
+    background-color: var(--primary);
 
     font-weight: 700;
 
