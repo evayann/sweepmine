@@ -1,4 +1,11 @@
-svg.logo {
+div.app {
+    color: var(--text-primary);
+    background-color: var(--background);
+}
+
+svg {
     width: 32px;
     height: 32px;
+
+    stroke: var(--primary);
 }

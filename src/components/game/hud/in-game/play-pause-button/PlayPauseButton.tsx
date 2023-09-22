@@ -1,6 +1,5 @@
 import { separate, combine } from 'flubber';
 import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
-import { theme } from '../../../../../themes/theme';
 import { Button } from '../../../../dumb';
 
 import './PlayPauseButton.css';
@@ -38,15 +37,13 @@ export function PlayPauseButton({ onClick, isPaused }: PlayPauseButtonProps) {
                     delay: 0.2,
                 });
             }}
-            style={{ width: '32px', height: '32px' }}
         >
-            <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <motion.path d={path} stroke={theme.game.ui.primary} strokeWidth="1.5" strokeLinecap="round" />
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <motion.path d={path} strokeWidth="1.5" strokeLinecap="round" />
                 <path
                     className={`pause-right ${isPaused ? 'pause-right-outside' : ''}`}
                     style={{ transitionDelay: isPaused ? undefined : '0.2s' }}
                     d={pausePathRight}
-                    stroke={theme.game.ui.primary}
                     strokeWidth="1.5"
                     strokeLinecap="round"
                 />

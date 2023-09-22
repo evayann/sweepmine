@@ -1,3 +1,1 @@
-import { darkTheme } from "./dark.css";
-
-export const theme = darkTheme;
+export const themeVariableList = ['background', 'primary', 'secondary', 'textPrimary', 'textSecondary']

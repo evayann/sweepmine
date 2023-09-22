@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react';
 import { DisplayCase } from '../../../interfaces/case.interface';
 import { ExplodableBomb } from '../../dumb';
 import { Flag } from './Flag';
+import { useThemeColor } from '../../../hooks/useThemeColor';
 
 export interface CaseProps extends GroupProps {
     displayCase: DisplayCase;
@@ -15,6 +16,7 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
     const [revealAnimationEnd, setReavealAnimationEnd] = useState(false);
     const [explosionPercent, setExplosionPercent] = useState(0);
 
+    const theme = useThemeColor();
     useFrame(({ clock }) => {
         if (!displayCase.isReveal || !displayCase.isBomb) return;
         setExplosionPercent(Math.min(explosionPercent + clock.getElapsedTime() / (1000 * explosionTimeInSecond), 1));
@@ -49,14 +51,14 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
     const topCaseColor = useMemo(() => {
         if (displayCase.isHover) return 'red';
         if (displayCase.hasFlag) return 'darkgreen';
-        return 'green';
+        return theme.primary;
     }, [displayCase.isHover, displayCase.hasFlag, displayCase.isReveal]);
 
     return (
         <group {...otherProps}>
             <mesh>
                 <boxGeometry args={[1, 0.8, 1]} />
-                <meshBasicMaterial color={displayCase.isHover && !displayCase.isReveal ? 'hotpink' : 'orange'} />
+                <meshBasicMaterial color={displayCase.isHover && !displayCase.isReveal ? 'hotpink' : theme.secondary} />
             </mesh>
             {!revealAnimationEnd && (
                 <motion.mesh

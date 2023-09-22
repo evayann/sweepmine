@@ -20,7 +20,7 @@ export function BoardSettings({ width, height, updateDimension }: BoardSettingsP
     return (
         <>
             <Button invisible className="settings" onClick={open}>
-                <SettingsLogo width="32px" height="32px" />
+                <SettingsLogo />
             </Button>
 
             {isSettingsMenuOpen && (

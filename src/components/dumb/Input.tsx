@@ -10,6 +10,7 @@ const StyledInput = styled.input`
 
     &[type='number'] {
         border: none;
+        background-color: transparent;
 
         /* Remove default spinner */
         -moz-appearance: textfield;
@@ -34,7 +35,7 @@ export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
             style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                border: '1px solid black',
+                border: '1px solid var(--primary)',
                 borderRadius: '10rem',
                 padding: '6px',
             }}

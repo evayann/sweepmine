@@ -1,9 +1,9 @@
-import { Vector2 } from 'three';
+import { Vec2, Vector2 } from 'three';
 import { DisplayCase } from '../interfaces/case.interface';
 import { Case as CaseModel } from "../models/minesweeper";
 import { map } from "../utils/calculations";
 
-export function modelToDisplayCase(caseModel: CaseModel, dimension: any, board: any, scale: { x: number, y: number }): DisplayCase {
+export function modelToDisplayCase(caseModel: CaseModel, dimension: Vec2, board: any, scale: Vec2): DisplayCase {
     const x = map(
         caseModel.position.x,
         0,
@@ -27,6 +27,6 @@ export function modelToDisplayCase(caseModel: CaseModel, dimension: any, board: 
         hasFlag: false,
         isHover: false,
         isExplosive: false,
-        distanceToCenter: caseModel.position.distanceTo(new Vector2(board.halfWidth, board.halfHeight))
+        distanceToCenter: caseModel.position.distanceTo(new Vector2(dimension.x / 2, dimension.y / 2))
     };
 }

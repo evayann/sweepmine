@@ -105,7 +105,9 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
             const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
             for await (const distance of range(nbDistance)) {
                 setDisplayCaseList(
-                    displayCaseList.filter((_case) => Math.floor(_case.distanceToCenter) === nbDistance - distance)
+                    displayCaseList.filter(
+                        (_case) => Math.floor(_case.distanceToCenter) === nbDistance - (distance + 1)
+                    )
                 );
                 await sleep(200);
             }
