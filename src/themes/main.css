@@ -1,4 +1,4 @@
-:root {
+.app.dark-theme {
     --background: #1c274c;
 
     --primary: #aa6c3c;
@@ -6,6 +6,21 @@
 
     --text-primary: white;
     --text-secondary: black;
+
+    --duration-1: 0.15s;
+
+    --hover-scale-transition: scale var(--duration-1) ease-in-out;
+    --hover-scale: 1.1;
+}
+
+.app.light-theme {
+    --background: #8ea1df;
+
+    --primary: #432b18;
+    --secondary: #77862d;
+
+    --text-primary: #2c2727;
+    --text-secondary: rgb(185, 168, 168);
 
     --duration-1: 0.15s;
 

@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import { DisplayCase } from '../../../interfaces/case.interface';
 import { ExplodableBomb } from '../../dumb';
 import { Flag } from './Flag';
-import { useThemeColor } from '../../../hooks/useThemeColor';
+import { useTheme } from '../../../hooks/useTheme';
 
 export interface CaseProps extends GroupProps {
     displayCase: DisplayCase;
@@ -16,7 +16,7 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
     const [revealAnimationEnd, setReavealAnimationEnd] = useState(false);
     const [explosionPercent, setExplosionPercent] = useState(0);
 
-    const theme = useThemeColor();
+    const { theme } = useTheme();
     useFrame(({ clock }) => {
         if (!displayCase.isReveal || !displayCase.isBomb) return;
         setExplosionPercent(Math.min(explosionPercent + clock.getElapsedTime() / (1000 * explosionTimeInSecond), 1));

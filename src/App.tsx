@@ -1,10 +1,12 @@
 import './App.css';
-import './themes/main.css';
+import { useTheme } from './hooks/useTheme';
 import { GamePage } from './pages/GamePage';
+import './themes/main.css';
 
 function App() {
+    const { themeName } = useTheme();
     return (
-        <div className="app">
+        <div className={`app ${themeName}`}>
             <GamePage></GamePage>
         </div>
     );

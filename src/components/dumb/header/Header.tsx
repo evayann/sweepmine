@@ -1,8 +1,11 @@
 import { ReactComponent as Logo } from '../../../assets/logo.svg';
+import { useTheme } from '../../../hooks/useTheme';
+import { Button } from '../Button';
 
 import './Header.css';
 
 export function Header() {
+    const { switchTheme } = useTheme();
     return (
         <nav>
             <ul>
@@ -12,6 +15,9 @@ export function Header() {
                     </a>
                 </li>
 
+                <li>
+                    <Button onClick={switchTheme}> Switch Theme </Button>
+                </li>
                 <li>
                     <a href="/Game"> Game </a>
                 </li>
