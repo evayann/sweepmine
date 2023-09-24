@@ -92,7 +92,14 @@ export function Flag({
                                         depthWrite={false}
                                         {...strokeMaterial}
                                     />
-                                    <Outlines outlineColor="white" outlineWidth={3} />
+                                    <Outlines
+                                        color="white"
+                                        thickness={3}
+                                        screenspace={false}
+                                        opacity={1}
+                                        angle={5}
+                                        transparent={false}
+                                    />
                                 </mesh>
                             ))}
                     </Fragment>

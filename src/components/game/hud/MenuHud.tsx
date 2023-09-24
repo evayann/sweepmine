@@ -5,7 +5,7 @@ import { motion as motion3d } from 'framer-motion-3d';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { useGame } from '../../../hooks/useGame';
 import { map } from '../../../utils/calculations';
-import { HudRoot, Hud, MotionTitle, MotionButton, Bomb, Title } from '../../dumb';
+import { Bomb, Hud, HudRoot, MotionButton, Title } from '../../dumb';
 import { MotionText } from '../../dumb/Text';
 
 export function MenuHud() {

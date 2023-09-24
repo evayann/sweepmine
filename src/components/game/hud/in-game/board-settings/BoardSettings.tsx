@@ -18,7 +18,7 @@ export function BoardSettings({ width, height, updateDimension }: BoardSettingsP
     const [isSettingsMenuOpen, open] = useCloseOutsideRef(settingsMenuRef);
 
     return (
-        <>
+        <div style={{ position: 'relative' }}>
             <Button invisible className="settings" onClick={open}>
                 <SettingsLogo />
             </Button>
@@ -53,6 +53,6 @@ export function BoardSettings({ width, height, updateDimension }: BoardSettingsP
                     <Button type="submit"> Update </Button>
                 </form>
             )}
-        </>
+        </div>
     );
 }

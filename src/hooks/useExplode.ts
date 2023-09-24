@@ -8,7 +8,7 @@ export interface ExtendedGroup extends Group {
     children: ExtendedObject3DEvent[];
 }
 
-export interface ExtendedObject3DEvent extends Object3D<Event> {
+export interface ExtendedObject3DEvent extends Object3D<any> {
     originalPosition: Vector3;
     originalRotation: Euler;
 

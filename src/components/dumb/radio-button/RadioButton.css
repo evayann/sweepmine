@@ -1,7 +1,4 @@
 div#radio-button {
-    --checked: #a5dc86;
-    --background: #e4e4e4;
-
     display: flex;
 }
 
@@ -28,7 +25,8 @@ div#radio-button label:hover {
 }
 
 div#radio-button input:checked + label {
-    background-color: var(--checked);
+    background-color: var(--secondary);
+    color: var(--text-secondary);
     box-shadow: none;
 }
 

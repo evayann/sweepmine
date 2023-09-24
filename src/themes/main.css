@@ -2,9 +2,9 @@
     --background: #1c274c;
 
     --primary: #aa6c3c;
-    --secondary: #dde9a1;
-
     --text-primary: white;
+
+    --secondary: #dde9a1;
     --text-secondary: black;
 
     --duration-1: 0.15s;
@@ -16,11 +16,11 @@
 .app.light-theme {
     --background: #8ea1df;
 
-    --primary: #432b18;
-    --secondary: #77862d;
-
+    --primary: #d4b69e;
     --text-primary: #2c2727;
-    --text-secondary: rgb(185, 168, 168);
+
+    --secondary: #77862d;
+    --text-secondary: #b9a8a8;
 
     --duration-1: 0.15s;
 

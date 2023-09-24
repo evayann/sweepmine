@@ -1,4 +1,9 @@
 .board-dimension {
+    position: absolute;
+    top: 100%;
+    left: -50%;
+
+    background-color: var(--secondary);
     max-width: 128px;
 }
 

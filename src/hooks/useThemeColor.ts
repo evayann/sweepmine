@@ -43,7 +43,6 @@ export function useThemeColor(): ThemeColor {
 function extractTheme(app: HTMLElement): Record<string, string> {
     const computedDocumentStyle = getComputedStyle(app);
     const getVariable = (variableName: string): string => computedDocumentStyle.getPropertyValue(`--${variableName}`);
-    console.log(themeVariableList.reduce((acc, key) => ({ ...acc, [key]: getVariable(key) }), {}));
     return themeVariableList.reduce((acc, key) => ({ ...acc, [key]: getVariable(key) }), {});
 }
 

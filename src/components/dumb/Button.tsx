@@ -6,7 +6,6 @@ const typedButtonStyle = {
         padding: 0,
         border: 0,
         background: 'unset',
-        color: 'black',
         display: 'flex',
         justifyContent: 'center',
 
