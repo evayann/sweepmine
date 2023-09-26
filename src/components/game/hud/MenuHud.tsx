@@ -52,6 +52,7 @@ export function MenuHud() {
                         </MotionText>
                     </Title>
                     <MotionButton
+                        callToAction
                         ref={buttonRef}
                         style={{
                             position: 'relative',

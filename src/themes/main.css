@@ -1,6 +1,8 @@
 .app.dark-theme {
     --background: #1c274c;
 
+    --call-to-action: #d2e734;
+
     --primary: #aa6c3c;
     --text-primary: white;
 
@@ -15,6 +17,8 @@
 
 .app.light-theme {
     --background: #8ea1df;
+
+    --call-to-action: #e7ae34;
 
     --primary: #d4b69e;
     --text-primary: #2c2727;

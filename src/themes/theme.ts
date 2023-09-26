@@ -1,1 +1,1 @@
-export const themeVariableList = ['background', 'primary', 'secondary', 'textPrimary', 'textSecondary']
+export const themeVariableList = ['background', 'callToAction', 'primary', 'secondary', 'textPrimary', 'textSecondary']

@@ -87,7 +87,6 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
             )}
             {displayCase.hasFlag && (
                 <Billboard position={[0, 0.8, 0]}>
-                    {/* <Svg src={FlagSvg} position={[-0.5, 0.5, 0]} scale={[0.04, 0.04, 0.04]} skipFill={true}></Svg> */}
                     <Flag position={[-0.5, 0.5, 0]} scale={[0.04, 0.04, 0.04]} />
                 </Billboard>
             )}

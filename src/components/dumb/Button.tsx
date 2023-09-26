@@ -20,27 +20,43 @@ const typedButtonStyle = {
             scale: 'var(--hover-scale)',
         },
     },
+    callToAction: {
+        color: 'var(--text-primary)',
+        backgroundColor: 'var(--call-to-action)',
+    },
+    primary: {
+        color: 'var(--text-primary)',
+        backgroundColor: 'var(--primary)',
+    },
+    secondary: {
+        color: 'var(--text-secondary)',
+        backgroundColor: 'var(--secondary)',
+    },
 };
 
-export const Button = styled.button<{ invisible?: boolean }>`
+export const Button = styled.button<{
+    invisible?: boolean;
+    callToAction?: boolean;
+    primary?: boolean;
+    secondary?: boolean;
+}>`
     cursor: pointer;
     border: none;
     border-radius: 4rem;
-
-    color: var(--text-primary);
-    background-color: var(--primary);
 
     font-weight: 700;
 
     transition: background-color 0.3s ease-in-out;
 
     &:hover {
-        color: lightgray;
-        background-color: gray;
+        filter: brightness(120%);
     }
 
     ${(props) => {
         if (props.invisible) return typedButtonStyle.invisible;
+        if (props.secondary) return typedButtonStyle.secondary;
+        if (props.callToAction) return typedButtonStyle.callToAction;
+        return typedButtonStyle.primary;
     }}
 `;
 
