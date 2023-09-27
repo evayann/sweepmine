@@ -21,6 +21,7 @@ export function modelToDisplayCase(caseModel: CaseModel, dimension: Vec2, board:
 
     return {
         ...caseModel,
+        appear: true,
         displayPosition: [x, 0, z],
         bombExplosionInSecond: caseModel.isBomb ? 20 + Math.random() * 2 : undefined,
         scale,

@@ -10,7 +10,8 @@ import { Camera } from './Camera';
 import { Case } from './Case';
 import { CamPosition } from '../hud/in-game/camera-position/camPosition';
 import { useCursor } from '@react-three/drei';
-import { Vec2, Vector2 } from 'three';
+import { Vec2 } from 'three';
+import { sleep } from '../../../utils/misc';
 
 export interface BoardProps {
     dimension: { x: number; y: number };
@@ -18,7 +19,7 @@ export interface BoardProps {
 }
 
 export function Board({ dimension, numberOfBombs }: BoardProps) {
-    const { gameStateService, gameInformationService, gameTimeService, cameraService } = useGame();
+    const { gameStateService, gameInformationService, gameTimeService, boardService, cameraService } = useGame();
     const [displayCaseList, setDisplayCaseList] = useState<DisplayCase[]>(() => []);
     const [gameBlur, setGameBlur] = useState(() => false);
     const { resetGame, revealCase, caseList, gameState, id: gameId } = useMinesweeper(dimension, numberOfBombs);
@@ -79,6 +80,10 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
     }, [caseList, dimension, board]);
 
     useEffect(() => {
+        setDisplayCaseList(displayCaseList.map((displayCase) => ({ ...displayCase, appear: false })));
+    }, [gameStateService.isGameOver]);
+
+    useEffect(() => {
         setCursor({ hover: gameInformationService.clickActionIsCameraMove, type: 'grab' });
     }, [gameInformationService.clickActionIsCameraMove]);
 
@@ -102,7 +107,6 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
                 new Set<number>()
             ).size;
 
-            const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
             for await (const distance of range(nbDistance)) {
                 setDisplayCaseList(
                     displayCaseList.filter(
@@ -145,13 +149,14 @@ export function Board({ dimension, numberOfBombs }: BoardProps) {
 
             {sortedCaseByDistanceOfCenter.map((_case, index) => (
                 <Case
-                    position={_case.displayPosition}
+                    // position={_case.displayPosition}
                     scale={[_case.scale.x, 1, _case.scale.y]}
                     displayCase={_case}
                     explosionTimeInSecond={_case.bombExplosionInSecond ?? 0}
                     key={`Grid-${gameId}-Case-${_case.position.x}-${_case.position.y}:${index + 1}}`}
                     onPointerEnter={(pointerEvent: ThreeEvent<MouseEvent>) => {
                         pointerEvent.stopPropagation();
+                        console.log('test');
 
                         if (!canInteractWithCase(_case)) return;
                         setCursor({

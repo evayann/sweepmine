@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useRerender } from "../useRerender";
 
 type MenuState = { state: 'menu' };
@@ -7,8 +7,8 @@ type EndGameState = { state: 'finish', isWin: boolean };
 export type GameState = MenuState | InGameState | EndGameState;
 
 export function useGameState() {
-    const gameStateRef = useRef(new GameStateService());
-    return gameStateRef.current;
+    const gameStateReference = useRef(new GameStateService());
+    return gameStateReference.current;
 }
 
 export class GameStateService {

@@ -8,11 +8,11 @@ export const useMinesweeper = (dimension: { x: number, y: number }, numberOfBomb
 
     const [id, setId] = useState(() => 0);
     const [caseList, setCaseList] = useState(() => ms.caseList);
-    const [gameState, setGameState] = useState(() => ms.gameState);
+    const [gameState, setGameState] = useState(() => ms.state);
 
     const update = (): void => {
         setCaseList(ms.caseList);
-        setGameState(ms.gameState);
+        setGameState(ms.state);
     };
 
     useEffect(() => {

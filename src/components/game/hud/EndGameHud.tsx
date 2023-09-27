@@ -5,6 +5,7 @@ import { HudRoot, Hud, Button } from '../../dumb';
 export function EndGameHud() {
     const {
         gameStateService,
+        boardService,
         gameTimeService: { time },
     } = useGame();
     return (
@@ -31,7 +32,10 @@ export function EndGameHud() {
                     <Button
                         onClick={(mouseEvent: React.MouseEvent) => {
                             mouseEvent.stopPropagation();
-                            gameStateService.toMenu();
+
+                            boardService.destroyBoard().then(() => {
+                                gameStateService.toMenu();
+                            });
                         }}
                     >
                         Restart

@@ -7,3 +7,5 @@ export function isObject(o: unknown): o is object {
 export function camelCaseToKebabCase(camelCase: string): string {
     return camelCase.replace(/([a-z0–9])([A-Z])/g, "$1-$2").toLowerCase();
 }
+
+export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));

@@ -2,7 +2,7 @@ import { Vec2, Vector2 } from "three";
 import { range2D, range } from "../utils/iteration";
 import { randomInList } from "../utils/random";
 
-export type GameState = { state: 'in-progress' } | { state: 'finish', isWin: boolean };
+type State = { state: 'in-progress' } | { state: 'finish', isWin: boolean };
 
 export interface Case {
     position: Vector2;
@@ -35,7 +35,7 @@ export class MineSweeper {
         return this.notRevealCase.every(_case => _case.isBomb);
     }
 
-    gameState!: GameState;
+    state!: State;
 
     private cases!: Record<string, Case>;
     private dimension: { x: number, y: number };
@@ -85,13 +85,13 @@ export class MineSweeper {
 
         const caseList = range2D({ width: { min: 0, max: this.dimension.x }, height: { min: 0, max: this.dimension.y } });
         this.cases = caseList.reduce((acc, [x, y]) => ({ ...acc, [id(x, y)]: generateCase(x, y) }), {});
-        this.gameState = { state: 'in-progress' };
+        this.state = { state: 'in-progress' };
 
         return this;
     }
 
     private finishGame(isWin: boolean): MineSweeper {
-        this.gameState = { state: 'finish', isWin };
+        this.state = { state: 'finish', isWin };
         return this;
     }
 

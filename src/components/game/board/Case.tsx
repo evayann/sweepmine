@@ -1,6 +1,6 @@
 import { Billboard, Text } from '@react-three/drei';
 import { GroupProps, useFrame } from '@react-three/fiber';
-import { motion } from 'framer-motion-3d';
+import { motion as motion3d } from 'framer-motion-3d';
 import { useMemo, useState } from 'react';
 import { DisplayCase } from '../../../interfaces/case.interface';
 import { ExplodableBomb } from '../../dumb';
@@ -36,6 +36,20 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
     );
 
     const variants = {
+        case: {
+            appear: {
+                y: 1,
+                transition: {
+                    y: 0,
+                },
+            },
+            disapear: {
+                y: 0,
+                transition: {
+                    y: -1,
+                },
+            },
+        },
         caseTop: {
             disapear: {
                 scaleX: [1, 0.5, 0.45, 1, 0],
@@ -55,13 +69,18 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
     }, [displayCase.isHover, displayCase.hasFlag, displayCase.isReveal]);
 
     return (
-        <group {...otherProps}>
+        <motion3d.group
+            /*{...otherProps}*/ variants={variants.case}
+            // animate={'appear'}
+            onAnimationComplete={() => console.log('toto')}
+            position={[displayCase.displayPosition[0], 10, displayCase.displayPosition[2]]}
+        >
             <mesh>
                 <boxGeometry args={[1, 0.8, 1]} />
                 <meshBasicMaterial color={displayCase.isHover && !displayCase.isReveal ? 'hotpink' : theme.secondary} />
             </mesh>
             {!revealAnimationEnd && (
-                <motion.mesh
+                <motion3d.mesh
                     variants={variants.caseTop}
                     animate={!displayCase.isReveal ? '' : 'disapear'}
                     onAnimationComplete={() => setReavealAnimationEnd(true)}
@@ -69,11 +88,11 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
                 >
                     <boxGeometry args={[1, 0.2, 1]} />
                     <meshBasicMaterial color={topCaseColor} />
-                </motion.mesh>
+                </motion3d.mesh>
             )}
             {show.caseNumber && CaseNumber}
             {show.bomb && (
-                <motion.group
+                <motion3d.group
                     animate={{ opacity: [0, 1, 0.5, 0.9, 0.7, 1], scale: [0, 1] }}
                     transition={{ type: 'spring', stiffness: 100, scale: { duration: 1 }, opacity: { duration: 1.5 } }}
                 >
@@ -83,13 +102,13 @@ export function Case({ displayCase, explosionTimeInSecond, ...otherProps }: Case
                         isExplosive={false}
                         explosionPercent={explosionPercent}
                     />
-                </motion.group>
+                </motion3d.group>
             )}
             {displayCase.hasFlag && (
                 <Billboard position={[0, 0.8, 0]}>
                     <Flag position={[-0.5, 0.5, 0]} scale={[0.04, 0.04, 0.04]} />
                 </Billboard>
             )}
-        </group>
+        </motion3d.group>
     );
 }
